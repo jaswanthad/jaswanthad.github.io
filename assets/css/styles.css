@@ -776,3 +776,84 @@ mark {
 .fx-empty { display: grid; justify-items: center; gap: 8px; padding: 12px 8px 4px; text-align: center; }
 .fx-empty b { font-size: 15px; font-weight: 600; }
 .fx-empty span:not(.fx-btn) { max-width: 34ch; color: var(--fx-muted); font-size: 13px; }
+
+
+/* =============================================================================
+   SIMPLIFIED LAYOUT
+   One clear path: intro, four projects, about, contact. Case studies keep their
+   content but read as a single column, with the section's role shown above
+   each heading instead of a sidebar.
+   ============================================================================= */
+
+/* Home: intro */
+.hero { padding-block: clamp(48px, 9vw, 128px) clamp(16px, 3vw, 40px); }
+@media (min-width: 1040px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } }
+.hero__title { max-width: 19ch; }
+.hero__sum { max-width: 58ch; }
+
+/* Home: selected work */
+.sel { padding-top: clamp(48px, 7vw, 104px); scroll-margin-top: var(--header-h); }
+.sel__title { margin-bottom: clamp(28px, 4vw, 44px); }
+.sel__grid { gap: clamp(20px, 2.6vw, 32px); }
+.feat__co { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; color: var(--slate); font-size: var(--fs-small); font-weight: 600; }
+.feat__lock { display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px 2px 6px; border-radius: 999px; background: var(--wash); color: var(--ink); font-weight: 600; }
+.feat__lock svg { width: 14px; height: 14px; }
+.sel__more { margin-top: clamp(28px, 4vw, 44px); }
+
+/* Home: about */
+.about { border-top: 1px solid var(--rule); scroll-margin-top: var(--header-h); }
+.about__in { display: grid; gap: 28px 56px; }
+@media (min-width: 880px) { .about__in { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+.about__body { max-width: 64ch; }
+.about__p { font-size: var(--fs-lead); line-height: 1.55; }
+.about__p + .about__p { margin-top: 18px; }
+.about__h { margin: 48px 0 16px; font-size: 1.125rem; font-weight: 700; line-height: 1.35; }
+.about__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.about__list li { display: grid; gap: 2px 28px; }
+@media (min-width: 600px) { .about__list li { grid-template-columns: 11.5rem minmax(0, 1fr); } .about__list--edu li { grid-template-columns: minmax(0, 1fr); } }
+.about__when { color: var(--slate); font-variant-numeric: tabular-nums; }
+.about__what strong { display: block; font-weight: 700; }
+.about__what span { display: block; color: var(--slate); }
+
+/* All work and the protected hub */
+.wl { padding-block: clamp(20px, 3vw, 40px) clamp(72px, 9vw, 136px); }
+.wl__title { margin-top: clamp(28px, 4vw, 52px); }
+.wl__group { display: grid; gap: 14px 56px; margin-top: clamp(48px, 6vw, 80px); padding-top: 28px; border-top: 1px solid var(--rule); }
+@media (min-width: 880px) { .wl__group { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+.wl__co { font-size: var(--fs-h3); line-height: 1.25; font-weight: 700; letter-spacing: -.012em; }
+.wl__role { margin-top: 6px; color: var(--slate); }
+.wl__list { list-style: none; margin: 0; padding: 0; }
+.wl__row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 14px; padding: 18px 0; border-bottom: 1px solid var(--rule); color: inherit; text-decoration: none; }
+.wl__list li:first-child .wl__row { padding-top: 4px; }
+.wl__row:has(.wl__icon) { grid-template-columns: 24px minmax(0, 1fr); }
+.wl__icon { padding-top: 2px; color: var(--slate); }
+.wl__icon svg { width: 20px; height: 20px; }
+.wl__text { display: grid; gap: 4px; }
+.wl__t { font-size: 1.125rem; font-weight: 700; line-height: 1.35; }
+a.wl__row:hover .wl__t { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .16em; }
+.wl__row.is-locked .wl__t { color: var(--slate); }
+.wl__d { color: var(--slate); }
+.hub__body { padding-bottom: clamp(72px, 9vw, 136px); }
+.hub .gate { margin-bottom: clamp(48px, 6vw, 72px); }
+.hub__h { margin-bottom: 18px; }
+
+/* Case studies: one column, calmer blocks */
+@media (min-width: 1120px) { .cs__body { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+.toc { display: none; }
+@media (min-width: 1120px) { .toc { display: none; } }
+.cs__content { max-width: 1040px; }
+.cs__sec + .cs__sec { margin-top: clamp(56px, 7vw, 96px); padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--rule); }
+.cs__label { color: var(--slate); font-weight: 600; }
+.cs__sec > .cs__label + .cs__h2 { margin-top: 6px; }
+.cs__h2 { max-width: 26ch; font-size: clamp(1.6rem, 1.25rem + 1.3vw, 2.25rem); }
+.b-text, .b-callout, .b-steps, .dec, .b-prin, .cs__sec > .b-h3 { max-width: 70ch; }
+.b-prin > li { border-top: 1px solid var(--rule); }
+.b-table thead th { background: transparent; }
+.dec { border-top: 0; }
+.dec__item { gap: 6px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.dec__item:first-child { padding-top: 0; }
+@media (min-width: 900px) { .dec__item { grid-template-columns: minmax(0, 1fr); } }
+.dec__c:not(.dec__c--to) .dec__k { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.dec__c--to .dec__k, .dec__c--to .dec__k + p { display: inline; }
+.dec__c--to .dec__k { margin: 0; font-size: inherit; font-weight: 600; }
+.dec__c--to .dec__k::after { content: ": "; }
