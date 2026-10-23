@@ -3,7 +3,9 @@
    Renders every page from content.js. To change what the site says, edit
    content.js; you shouldn't need to touch this file.
    Routes:  #/                 home
-            #/work, #/approach, #/experience, #/contact   home sections
+            #/selected, #/about, #/contact   home sections
+            #/work             all work
+            #/work/uhg         the protected UnitedHealth Group case studies
             #/work/<slug>      a case study
             #/work/<slug>/<section-id>   a section inside a case study
    ============================================================================= */
@@ -14,7 +16,7 @@
   var V = window.Visuals;
   var LOCKED = window.PORTFOLIO_LOCKED || null;
   var SESSION_KEY = "portfolio-access";
-  var HOME_SECTIONS = ["work", "projects", "approach", "experience", "contact"];
+  var HOME_SECTIONS = ["selected", "about", "contact"];
   var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   var state = { unlocked: null, route: null, observers: [], tableN: 0 };
@@ -84,7 +86,7 @@
   /* -------------------------------------------------------- header/footer */
   function renderHeader() {
     var m = C.meta || {};
-    var links = [["work", "Work"], ["approach", "How I work"], ["experience", "Experience"], ["contact", "Contact"]];
+    var links = [["work", "Work"], ["about", "About"]];
     byId("site-header").innerHTML =
       '<div class="wrap hdr__in">' +
       '<a class="brand" href="#/">' + ICON.brand + "<span>" + esc(m.name) + "</span></a>" +
@@ -106,7 +108,7 @@
 
   /* ----------------------------------------------------------------- home */
   function viewHome() {
-    return heroView() + workView() + projectsView() + approachView() + experienceView() + contactView();
+    return heroView() + selectedView() + aboutView() + contactView();
   }
 
   function heroView() {
@@ -116,9 +118,104 @@
       '<p class="hero__who"><span class="hero__name">' + esc(m.name) + '</span><span class="hero__role">' + fmt(h.intro) + "</span></p>" +
       '<h1 class="hero__title" id="hero-title">' + fmt(h.headline) + "</h1>" +
       '<p class="hero__sum">' + fmt(h.summary) + "</p>" +
-      '<p class="hero__cta"><a class="btn btn--primary" href="#/work">See selected work</a><a class="btn btn--ghost" href="mailto:' + esc(m.email) + '">Email me</a></p>' +
+      '<p class="hero__cta"><a class="btn btn--primary" href="#/selected">See my work</a><a class="btn btn--ghost" href="mailto:' + esc(m.email) + '">Email me</a></p>' +
       (m.availability ? '<p class="hero__avail">' + fmt(m.availability) + "</p>" : "") +
-      "</div>" + evidenceView(h) + "</div></section>";
+      "</div></div></section>";
+  }
+
+  function groupById(id) { return groups().filter(function (g) { return g.id === id; })[0]; }
+
+  function featured() {
+    return ((C.work && C.work.featured) || []).map(function (id) {
+      var g = groupById(id);
+      if (g && g.protected) return { group: g };
+      var cs = findCase(id);
+      return cs ? { cs: cs } : null;
+    }).filter(Boolean);
+  }
+
+  function selectedView() {
+    var w = C.work || {};
+    return '<section class="sec sel" id="selected" aria-labelledby="sel-title"><div class="wrap">' +
+      '<h2 class="sec__title sel__title" id="sel-title">' + esc(w.title) + "</h2>" +
+      '<div class="feats sel__grid">' + featured().map(function (f) { return f.group ? groupCard(f.group) : caseCard(f.cs); }).join("") + "</div>" +
+      '<p class="sel__more"><a class="btn btn--ghost" href="#/work">See all ' + cases().length + " case studies</a></p>" +
+      "</div></section>";
+  }
+
+  function cardCover(cs) {
+    return '<span class="feat__cover">' + (cs.coverImage ? '<img src="' + esc(safeUrl(cs.coverImage)) + '" alt="" loading="lazy" decoding="async">' : V.cover(cs.cover)) + "</span>";
+  }
+
+  function caseCard(cs) {
+    var g = groupOf(cs);
+    return '<a class="feat" href="#/work/' + esc(cs.slug) + '">' + cardCover(cs) +
+      '<span class="feat__body"><span class="feat__co">' + esc(g.company || "") + "</span>" +
+      '<span class="feat__title">' + esc(cs.title) + '</span><span class="feat__teaser">' + fmt(cs.teaser) + "</span></span></a>";
+  }
+
+  function groupCard(g) {
+    var open = !!state.unlocked;
+    return '<a class="feat" href="#/work/' + esc(g.id) + '">' + cardCover({ cover: g.cover || "chat" }) +
+      '<span class="feat__body"><span class="feat__co">' + esc(g.company) +
+      '<span class="feat__lock">' + (open ? ICON.unlock : ICON.lock) + (open ? "Unlocked" : "Password protected") + "</span></span>" +
+      '<span class="feat__title">' + esc(g.title || g.company) + '</span><span class="feat__teaser">' + fmt(g.teaser || g.description || "") + "</span></span></a>";
+  }
+
+  function aboutView() {
+    var ab = C.about || {}, x = C.experience || {};
+    return '<section class="sec about" id="about" aria-labelledby="about-title"><div class="wrap about__in">' +
+      '<h2 class="sec__title" id="about-title">' + esc(ab.title || "About") + "</h2>" +
+      '<div class="about__body">' + (ab.paragraphs || []).map(function (p) { return '<p class="about__p">' + fmt(p) + "</p>"; }).join("") +
+      '<h3 class="about__h">Experience</h3><ol class="about__list">' + (x.roles || []).map(function (r) {
+        return '<li><span class="about__when">' + esc(r.period) + '</span><span class="about__what"><strong>' + esc(r.role) + "</strong><span>" + esc(r.company) + "</span></span></li>";
+      }).join("") + "</ol>" +
+      '<h3 class="about__h">Education</h3><ul class="about__list about__list--edu">' + (x.education || []).map(function (e) {
+        return '<li><span class="about__what"><strong>' + esc(e.degree) + "</strong><span>" + esc(e.school) + ", " + esc(e.place) + "</span></span></li>";
+      }).join("") + "</ul></div></div></section>";
+  }
+
+  /* ------------------------------------------------------------- all work */
+  function workRow(cs, g, onHub) {
+    var locked = cs.protected && !isOpen(cs);
+    var inner = (cs.protected ? '<span class="wl__icon">' + (locked ? ICON.lock : ICON.unlock) + '<span class="sr-only">' + (locked ? "Protected: " : "Unlocked: ") + "</span></span>" : "") +
+      '<span class="wl__text"><span class="wl__t">' + esc(cs.title) + '</span><span class="wl__d">' + fmt(cs.teaser) + "</span></span>";
+    if (locked && onHub) return '<li><div class="wl__row is-locked">' + inner + "</div></li>";
+    return '<li><a class="wl__row" href="#/work/' + esc(locked ? g.id : cs.slug) + '">' + inner + "</a></li>";
+  }
+
+  function viewWork() {
+    var w = C.work || {};
+    var intro = (w.intro || "").replace("{count}", String(cases().length));
+    return '<section class="wl"><div class="wrap">' +
+      '<a class="back" href="#/">' + ICON.back + "<span>Home</span></a>" +
+      '<h1 class="cs__title wl__title" tabindex="-1">' + esc(w.allTitle || "All work") + "</h1>" +
+      (intro ? '<p class="cs__sum">' + fmt(intro) + "</p>" : "") +
+      groups().map(function (g) {
+        var list = cases().filter(function (c) { return c.group === g.id; });
+        if (!list.length) return "";
+        return '<section class="wl__group" aria-labelledby="wl-' + esc(g.id) + '"><div class="wl__head">' +
+          '<h2 class="wl__co" id="wl-' + esc(g.id) + '">' + esc(g.company) + "</h2>" +
+          '<p class="wl__role">' + esc(g.role) + (g.period ? ", " + esc(g.period) : "") + "</p></div>" +
+          '<ul class="wl__list">' + list.map(function (cs) { return workRow(cs, g, false); }).join("") + "</ul></section>";
+      }).join("") + "</div></section>";
+  }
+
+  function viewGroup(g) {
+    if (!g) return viewNotFound();
+    var list = cases().filter(function (c) { return c.group === g.id; }), open = !!state.unlocked;
+    return '<article class="cs hub"><header class="cs__head wrap">' +
+      '<a class="back" href="#/work">' + ICON.back + "<span>All work</span></a>" +
+      '<p class="cs__co"><span>' + esc(g.company) + '</span><span class="cs__lock">' + (open ? ICON.unlock : ICON.lock) + (open ? "Unlocked" : "Protected") + "</span></p>" +
+      '<h1 class="cs__title" tabindex="-1">' + esc(g.title || g.company) + "</h1>" +
+      '<p class="cs__sum">' + fmt(g.description || "") + "</p></header>" +
+      '<div class="wrap hub__body">' +
+      (open ? "" : '<div class="gate"><span class="gate__icon">' + ICON.lock + "</span>" +
+        '<h2 class="gate__t">Shared privately</h2>' +
+        '<p class="gate__b">These case studies cover current work at ' + esc(g.company) + ". Enter the password you received to open all " + list.length + " of them for this visit.</p>" +
+        unlockForm("hub") + "</div>") +
+      '<h2 class="wl__co hub__h">' + list.length + " case studies</h2>" +
+      '<ul class="wl__list">' + list.map(function (cs) { return workRow(cs, g, true); }).join("") + "</ul></div></article>";
   }
 
   function evidenceView(h) {
@@ -293,6 +390,7 @@
     var secs = cs.sections || [], fig = 0;
     var body = secs.map(function (s) {
       return '<section class="cs__sec" id="sec-' + esc(s.id) + '" aria-labelledby="h-' + esc(s.id) + '">' +
+        (s.label && s.label !== s.title ? '<p class="cs__label">' + esc(s.label) + "</p>" : "") +
         '<h2 class="cs__h2" id="h-' + esc(s.id) + '" tabindex="-1">' + esc(s.title) + "</h2>" +
         (s.blocks || []).map(function (b) { return block(b, function () { return ++fig; }); }).join("") +
         "</section>";
@@ -301,7 +399,7 @@
       secs.map(function (s) { return '<li><a class="toc__a" href="#/work/' + esc(cs.slug) + "/" + esc(s.id) + '" data-sec="' + esc(s.id) + '">' + esc(s.label || s.title) + "</a></li>"; }).join("") +
       "</ol></nav>" : "";
     return '<article class="cs">' + caseHead(cs, g, false) +
-      '<div class="wrap cs__body">' + toc + '<div class="cs__content">' + body + "</div></div>" +
+      '<div class="wrap cs__body"><div class="cs__content">' + body + "</div></div>" +
       nextView(cs) + "</article>";
   }
 
@@ -385,8 +483,8 @@
   function viewNotFound() {
     return '<section class="sec nf"><div class="wrap">' +
       '<h1 class="cs__title" tabindex="-1">This page doesn’t exist</h1>' +
-      '<p class="cs__sum">The link may be out of date. Every case study is listed under Selected work.</p>' +
-      '<p class="nf__cta"><a class="btn btn--primary" href="#/work">See selected work</a></p></div></section>';
+      '<p class="cs__sum">The link may be out of date. Every case study is listed under All work.</p>' +
+      '<p class="nf__cta"><a class="btn btn--primary" href="#/work">See all work</a></p></div></section>';
   }
 
   /* ---------------------------------------------------------------- unlock */
@@ -462,7 +560,7 @@
       var onCase = state.route && state.route.name === "case";
       render({ force: true, restoreY: onCase ? 0 : window.scrollY });
       announce("Unlocked. The protected case studies are open for this visit.");
-      var target = onCase ? document.querySelector(".cs__title") : document.querySelector(".vault__row");
+      var target = onCase ? document.querySelector(".cs__title") : document.querySelector(".wl__row");
       if (target) target.focus({ preventScroll: !onCase });
     }).catch(function (err) {
       btn.disabled = false;
@@ -480,13 +578,17 @@
     if (hash && hash.indexOf("#/") !== 0) return state.route || { name: "home" };
     var parts = decodeURIComponent(hash.replace(/^#\/?/, "")).split("/").filter(Boolean);
     if (!parts.length) return { name: "home" };
-    if (parts[0] === "work" && parts[1]) return { name: "case", slug: parts[1], section: parts[2] || null };
+    if (parts[0] === "work") {
+      if (!parts[1]) return { name: "work" };
+      if (!findCase(parts[1]) && groupById(parts[1])) return { name: "group", id: parts[1] };
+      return { name: "case", slug: parts[1], section: parts[2] || null };
+    }
     if (HOME_SECTIONS.indexOf(parts[0]) > -1) return { name: "home", section: parts[0] };
     return { name: "notfound" };
   }
   function samePage(a, b) {
     if (!a || !b || a.name !== b.name) return false;
-    return a.name === "home" || (a.name === "case" && a.slug === b.slug);
+    return a.name === "home" || a.name === "work" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
   }
 
   function render(opts) {
@@ -497,12 +599,12 @@
     if (!keep) {
       cleanup();
       state.tableN = 0;
-      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "case" ? viewCase(r.slug) : viewNotFound();
+      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : viewNotFound();
       mount(r);
     }
     state.route = r;
     setTitle(r);
-    setNav(r.name === "case" ? "work" : r.section);
+    setNav(r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
     toggleMenu(false);
 
     if (opts.restoreY != null) { window.scrollTo(0, opts.restoreY); return; }
@@ -525,8 +627,12 @@
 
   function setTitle(r) {
     var m = C.meta || {}, cs = r.name === "case" ? findCase(r.slug) : null;
-    document.title = cs ? cs.title + " | " + m.name : r.name === "notfound" ? "Page not found | " + m.name : m.name + ", " + m.role;
+    var g = r.name === "group" ? groupById(r.id) : null;
+    document.title = cs ? cs.title + " | " + m.name : g ? g.company + " | " + m.name : r.name === "work" ? ((C.work && C.work.allTitle) || "All work") + " | " + m.name : r.name === "notfound" ? "Page not found | " + m.name : m.name + ", " + m.role;
   }
+
+  // The home page's selected-work section belongs to the Work link.
+  function navFor(id) { return id === "selected" ? "work" : id; }
 
   function setNav(id) {
     var links = document.querySelectorAll("[data-nav]");
@@ -563,7 +669,7 @@
       // One orchestrated moment: the first claim's evidence is highlighted in.
       var region = document.querySelector(".ev__region.is-entering");
       if (region) window.setTimeout(function () { region.classList.remove("is-entering"); }, reduceMotion ? 0 : 450);
-      observe(HOME_SECTIONS.map(byId).filter(Boolean), function (id) { setNav(id); });
+      observe(HOME_SECTIONS.map(byId).filter(Boolean), function (id) { setNav(navFor(id)); });
       progress.show(false);
     } else if (r.name === "case") {
       observe([].slice.call(document.querySelectorAll(".cs__sec")), function (id) { setToc(id.replace(/^sec-/, "")); });
