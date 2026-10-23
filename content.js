@@ -457,7 +457,7 @@ window.PORTFOLIO = {
       ],
       "cover": "flow",
       "coverImage": "assets/work/covers/advisor-ai.webp",
-      "summary": "Graduate students, most of them international, were spreading their job search across four to six tools, and couldn’t tell which jobs would sponsor a visa or whether an AI suggestion was any good. In 12 weeks I researched, designed and tested Advisor.AI, which brings resume building, job search, interview prep, skill development and application tracking into one place, with visa sponsorship up front and AI suggestions that explain themselves. In moderated testing, five students completed all 25 tasks and rated it 87 on the System Usability Scale.",
+      "summary": "Graduate students juggled four to six tools and couldn’t tell which jobs sponsor visas or whether AI advice was any good. In 12 weeks I researched, designed and tested Advisor.AI, which brings five job-search tasks together with visa sponsorship up front and AI that explains itself.",
       "meta": [
         {
           "label": "Role",
@@ -502,11 +502,11 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Graduate students in Information Systems programs prepare for the U.S. job market on top of a full course load. The students I interviewed described a resume tool, LinkedIn, an interview-practice site and a spreadsheet, each holding part of the picture. For the four in five who needed visa sponsorship, the most important fact about a job was the hardest one to find."
+              "body": "Information Systems grad students prepare for the U.S. job market on top of coursework, using a resume tool, LinkedIn, an interview-practice site and a spreadsheet. For the four in five who needed sponsorship, the most important fact about a job was the hardest to find."
             },
             {
               "type": "text",
-              "body": "This was a solo 12-week project at Northeastern University. I ran the research, designed the product, and evaluated it with students before and after iterating."
+              "body": "**My role.** A solo 12-week project at Northeastern University: research, design, and evaluation before and after iterating."
             }
           ]
         },
@@ -522,7 +522,7 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "Two problems sat under the fragmentation. Students lost hours on roles that would never sponsor them, because sponsorship was buried or missing. And they didn’t act on AI suggestions they couldn’t evaluate: they had no way to tell a good suggestion from a generic one."
+              "body": "Students lost hours on roles that would never sponsor them, and ignored AI suggestions they couldn’t tell apart from generic ones."
             }
           ]
         },
@@ -536,19 +536,19 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Interviews",
-                  "body": "Five semi-structured interviews, 45 to 60 minutes each, on how students prepare, where they get stuck, and how they use AI today."
+                  "body": "Five semi-structured sessions, 45–60 minutes each: how students prepare, where they get stuck, how they use AI."
                 },
                 {
                   "title": "Affinity mapping",
-                  "body": "Tagged and clustered the interview highlights in Dovetail to find patterns across sessions."
+                  "body": "Tagged and clustered interview highlights in Dovetail."
                 },
                 {
                   "title": "Competitive analysis",
-                  "body": "Compared LinkedIn, VMock, TealHQ, Kickresume and Rezi on what they do well and where they fall short."
+                  "body": "LinkedIn, VMock, TealHQ, Kickresume and Rezi: strengths and gaps."
                 },
                 {
                   "title": "Task analysis and journey mapping",
-                  "body": "Broke the job search into five core activities and mapped where students lost time, confidence and context."
+                  "body": "Five core activities, mapped where students lost time, confidence and context."
                 }
               ]
             },
@@ -657,7 +657,7 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "No single tool covered all five tasks, and none explained why its AI suggested what it did. That gap became the product: integration, transparent reasoning, and context that carries from one task to the next."
+              "body": "No tool covered all five tasks or explained its AI. That gap became the product: integration, transparent reasoning and context that carries across tasks."
             }
           ]
         },
@@ -671,17 +671,18 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Leo, the efficiency seeker",
-                  "body": "An international data science student balancing thesis research with applications. Comfortable with AI, short on time, and unsure his communication style lands in U.S. interviews."
+                  "body": "International data science student balancing thesis research and applications. Comfortable with AI, short on time, unsure his style lands in U.S. interviews."
                 },
                 {
                   "title": "Riya, the career switcher",
-                  "body": "An international student moving into business analytics from a non-technical background. Curious about AI but cautious, and wants to know *why* a change makes her resume stronger."
+                  "body": "International student moving into business analytics from a non-technical background. Cautious about AI; wants to know *why* a change helps."
                 }
-              ]
+              ],
+              "style": "personas"
             },
             {
               "type": "text",
-              "body": "Both need visa sponsorship and organized tracking. Where they differ, in confidence and in comfort with AI, decided how much the product explains and how much control it hands back."
+              "body": "Both need sponsorship and organized tracking. Their difference in confidence and AI comfort set how much the product explains and how much control it hands back."
             }
           ]
         },
@@ -695,23 +696,23 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "One connected experience",
-                  "body": "Link all five career tasks so students stop paying the cost of switching between tools."
+                  "body": "All five tasks linked, so there’s no cost to switching."
                 },
                 {
                   "title": "Transparent AI",
-                  "body": "Show the reasoning behind every recommendation, so students can judge it."
+                  "body": "Every recommendation shows its reasoning."
                 },
                 {
                   "title": "Visa sponsorship first",
-                  "body": "Make sponsorship a primary filter, never an afterthought."
+                  "body": "A primary filter, never an afterthought."
                 },
                 {
                   "title": "Context that carries",
-                  "body": "What students enter once informs the rest: resume data shapes job matching and interview prep."
+                  "body": "Resume data shapes job matching and interview prep."
                 },
                 {
                   "title": "Accessible and inclusive",
-                  "body": "Design for a range of technical skill and international backgrounds, to WCAG AA."
+                  "body": "For every skill level and background, to WCAG AA."
                 }
               ]
             }
@@ -724,7 +725,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "I organized the platform around tasks rather than a fixed sequence, because the journey maps showed students moving back and forth between them. A dashboard links to the five core tasks, and contextual shortcuts carry work across, like saving a job straight to the tracker or tailoring a resume for a specific posting."
+              "body": "Students moved back and forth between tasks, so the platform is organized by task, not sequence: a dashboard hub, plus shortcuts like saving a job to the tracker or tailoring a resume to a posting."
             },
             {
               "type": "table",
@@ -812,21 +813,21 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Cognitive walkthroughs",
-                  "body": "Two students, one domestic and one international, worked through five tasks on the wireframe prototype in 40 to 50 minute think-aloud sessions, and an AI-assisted walkthrough ran the same tasks systematically. Together they surfaced ==16 actionable issues==, 7 of them high priority."
+                  "body": "2 students, domestic and international, did 5 tasks in 40–50 minute think-alouds, plus an AI-assisted pass: ==16 issues==, 7 high priority."
                 },
                 {
                   "title": "Heuristic evaluation",
-                  "body": "I reviewed every screen against Nielsen’s 10 heuristics, with an AI-assisted review alongside. They found different things: I caught gaps between features, and the AI pass caught inconsistencies across screens. ==20 issues== in total, 3 of them critical."
+                  "body": "I applied Nielsen’s 10 heuristics alongside an AI-assisted review. I caught gaps between features; the AI caught inconsistencies. ==20 issues==, 3 critical."
                 },
                 {
                   "title": "Moderated usability testing",
-                  "body": "Five graduate students, three international and two domestic, completed five tasks over Zoom in 25 to 30 minute sessions, thinking aloud. I measured task completion, time on task, errors, usefulness ratings and SUS."
+                  "body": "5 grad students, 3 international and 2 domestic, did 5 tasks over Zoom in 25–30 minutes. I measured completion, time, errors, usefulness and SUS."
                 }
               ]
             },
             {
               "type": "text",
-              "body": "The heuristics broken most often were visibility of system status, help and documentation, and aesthetic and minimalist design."
+              "body": "Most-broken heuristics: visibility of system status, help and documentation, and aesthetic and minimalist design."
             }
           ]
         },
@@ -837,13 +838,13 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "I prioritized fixes by severity, by how often an issue came up, and by its effect on the task, and tied every change to a finding."
+              "body": "Fixes were prioritized by severity, frequency and task impact, each tied to a finding."
             },
             {
               "type": "visual",
               "kind": "gallery",
               "illustrative": false,
-              "caption": "Sponsorship was a toggle in the sidebar and a line of description text. It became a highlighted filter above the results and a status on every job. Sponsorship status is now visible at a glance.",
+              "caption": "Sponsorship moved from a sidebar toggle and description text to a highlighted filter and a status on every job, visible at a glance.",
               "data": {
                 "columns": 2,
                 "columnsSmall": 1,
@@ -895,7 +896,7 @@ window.PORTFOLIO = {
               "type": "visual",
               "kind": "gallery",
               "illustrative": false,
-              "caption": "Students couldn’t tell what the keyword colors meant, and the AI suggestions went unnoticed. A legend, tooltips showing how often each keyword appears, and a clearer suggestions panel made the priorities readable.",
+              "caption": "Keyword colors were unclear and AI suggestions went unnoticed. A legend, frequency tooltips and a clearer suggestions panel fixed both.",
               "data": {
                 "columns": 2,
                 "columnsSmall": 1,
@@ -921,7 +922,7 @@ window.PORTFOLIO = {
               "type": "visual",
               "kind": "gallery",
               "illustrative": false,
-              "caption": "Both walkthrough participants struggled with the skills radar: ten skills and no legend. It now shows the top five with a persistent legend that marks the biggest gap, and expands on request.",
+              "caption": "Both walkthrough participants struggled with a ten-skill radar and no legend. It now shows the top five, with a persistent legend marking the biggest gap, and expands on request.",
               "data": {
                 "columns": 2,
                 "columnsSmall": 1,
@@ -945,7 +946,7 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "I also replaced an open text field for behavioral answers with a guided Situation, Task, Action, Result template, and made it clear that the AI detects each part as students write."
+              "body": "Behavioral answers moved from an open text field to a guided Situation, Task, Action, Result template, with the AI visibly detecting each part."
             }
           ]
         },
@@ -987,7 +988,11 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "Five participants is a small sample, so I read these numbers as a strong signal rather than proof. **What still needed work:** participants wanted to edit several applications at once, a clearer sign of which resume version is active, and interview feedback beyond the STAR format."
+              "body": "Five participants is a small sample: a strong signal, not proof."
+            },
+            {
+              "type": "text",
+              "body": "**What still needed work.** Editing several applications at once, a clearer active resume version, and interview feedback beyond STAR."
             }
           ]
         },
@@ -998,21 +1003,32 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "**Next.** Test with 10 to 15 students, build a working MVP, and pilot it with Northeastern’s career services."
+              "body": "**Next.** Test with 10–15 students, build an MVP, and pilot it with Northeastern’s career services."
             },
             {
               "type": "text",
-              "body": "**AI-assisted evaluation complements judgment; it doesn’t replace it.** The AI pass was systematic about consistency. People showed me where the workflow broke between tasks."
+              "body": "**AI-assisted evaluation complements judgment.** The AI pass caught inconsistencies; people showed where the workflow broke."
             },
             {
               "type": "text",
-              "body": "**International students’ needs aren’t an edge case.** I first treated visa sponsorship as an advanced filter. Research showed it was the first thing most users needed."
+              "body": "**International students’ needs aren’t an edge case.** I first treated sponsorship as an advanced filter. Research showed it came first."
             },
             {
               "type": "text",
               "body": "[Open the Figma prototype](https://www.figma.com/proto/Hs268H4pvbqCgwYktyLFfc/UX-Project-Advisor.Ai?node-id=240-3644&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=240%3A3644)"
             }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "Job search spread across 4–6 tools, with visa sponsorship hard to find and AI advice hard to trust."
+        },
+        {
+          "body": "Research, a five-task platform with visa-first search and explained AI, and three evaluation rounds."
+        },
+        {
+          "body": "SUS 87 and 25 of 25 tasks completed in moderated testing."
         }
       ]
     },
@@ -1028,7 +1044,7 @@ window.PORTFOLIO = {
       ],
       "cover": "flow",
       "coverImage": "assets/work/covers/nike-nft.webp",
-      "summary": "Five of us imagined NFTs inside the Nike app: exclusive digital sneakers, proof that a limited pair is yours, and one place for physical and digital collections, in more languages. My part was the competitive analysis and market research. I studied how Adidas and Gucci handled NFTs, and the gaps I found set two of the team’s priorities: explain NFTs to people who have never bought one, and keep everyday shopping familiar.",
+      "summary": "Five of us imagined NFTs in the Nike app: exclusive digital sneakers, proof of ownership, and physical and digital collections together, in more languages. I led competitive analysis and market research, and the gaps I found set two priorities: explain NFTs to first-time buyers, and keep shopping familiar.",
       "meta": [
         {
           "label": "Role",
@@ -1060,11 +1076,34 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "In a seven-week academic project, our team redesigned the Nike mobile app around NFTs. We designed for tech-savvy shoppers aged 18 to 40, collectors who follow Nike for its product designs, and a global audience the app served poorly in languages other than English."
+              "body": "A seven-week academic concept redesigning the Nike app around NFTs, for tech-savvy shoppers aged 18–40, collectors who follow Nike’s designs, and a global audience poorly served outside English."
             },
             {
-              "type": "text",
-              "body": "**My role.** I owned the competitive analysis and market research. Santosh Krishnan led wireframing and prioritization, Dipti Shevalekar the information architecture and layout, Ajay Devmane the style guide and visual design, and Rethu Fernando the SWOT analysis and personas."
+              "type": "principles",
+              "title": "Team",
+              "style": "personas",
+              "items": [
+                {
+                  "title": "Jaswanth Adusumilli (me)",
+                  "body": "Competitive analysis and market research"
+                },
+                {
+                  "title": "Santosh Krishnan",
+                  "body": "Wireframing and prioritization"
+                },
+                {
+                  "title": "Dipti Shevalekar",
+                  "body": "Information architecture and layout"
+                },
+                {
+                  "title": "Ajay Devmane",
+                  "body": "Style guide and visual design"
+                },
+                {
+                  "title": "Rethu Fernando",
+                  "body": "SWOT analysis and personas"
+                }
+              ]
             }
           ]
         },
@@ -1075,7 +1114,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "The app offered little beyond shopping, did nothing with digital collectibles, and left out people who don’t read English well. NFTs added a harder problem: the people we designed for were curious, but unfamiliar with how NFTs work and wary of security and ownership."
+              "body": "The app offered shopping and little else: nothing for digital collectibles, and little for people who don’t read English well. Our audience was curious about NFTs but unfamiliar with them, and wary of security and ownership."
             },
             {
               "type": "callout",
@@ -1091,7 +1130,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "I compared Nike’s app with Adidas and Gucci, two brands already selling NFTs, on features, visual design, engagement and how each introduced NFTs to its customers."
+              "body": "I compared Nike’s app with Adidas and Gucci, both already selling NFTs, on features, visual design, engagement and how they introduced NFTs."
             },
             {
               "type": "table",
@@ -1125,7 +1164,7 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "**How it shaped the design.** Both competitors assumed their customers already understood NFTs. That pointed the team at the riskiest moment, someone’s first NFT purchase, and at a rule for the whole app: NFTs one tap away, never in the way of buying shoes."
+              "body": "**How it shaped the design.** Both competitors assumed customers understood NFTs. So the team focused on the riskiest moment, a first NFT purchase, and one rule: NFTs one tap away, never in the way of buying shoes."
             },
             {
               "type": "principles",
@@ -1133,13 +1172,14 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Nick, the reseller",
-                  "body": "A digital marketing specialist building a side business selling digital sneakers. Wants a marketplace with clear ownership verification and tools to track an asset’s value and history."
+                  "body": "Digital marketing specialist reselling digital sneakers on the side. Wants verified ownership plus value and history tracking."
                 },
                 {
                   "title": "Andrew, the collector",
-                  "body": "A UI/UX designer who wants to own and show off rare designs, digital and physical. Frustrated by glitches during exclusive drops, and wants fast checkout when they happen."
+                  "body": "UI/UX designer collecting rare digital and physical designs. Frustrated by glitchy drops; wants fast checkout."
                 }
-              ]
+              ],
+              "style": "personas"
             }
           ]
         },
@@ -1150,7 +1190,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "The team kept shopping in the bottom navigation, with an NFT toggle in Shop and a QR scanner for checking a pair’s authenticity, and moved store location, notifications and the cart to the top bar. Separating everyday shopping from discovery kept the familiar paths familiar."
+              "body": "Shopping stays in the bottom navigation, with an NFT toggle in Shop and a QR scanner to check authenticity. Store location, notifications and the cart move to the top bar, so everyday paths stay familiar."
             },
             {
               "type": "visual",
@@ -1313,17 +1353,28 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "**Research earns its place when it changes the plan.** The competitive analysis mattered because it pointed the team at its biggest risk: people who had never bought an NFT."
+              "body": "**Research earns its place when it changes the plan.** The analysis pointed the team at its biggest risk: first-time NFT buyers."
             },
             {
               "type": "text",
-              "body": "**Check contrast against the real background.** On the black background, the blue used for links and the red used for errors both reach only about 3.1:1, below the 4.5:1 that text needs. I’d lighten both before anything else."
+              "body": "**Check contrast against the real background.** On black, the link blue and error red reach only about 3.1:1, below the 4.5:1 text needs. I’d lighten both first."
             },
             {
               "type": "text",
-              "body": "**Be honest about what a concept can show.** This stayed a concept, so there are no launch numbers to report. What carries over is how to introduce an unfamiliar technology without getting in the way of what people came to do."
+              "body": "**Be honest about what a concept can show.** It stayed a concept, so there are no launch numbers. What carries over: introducing new technology without getting in people’s way."
             }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "The app was only a store, with nothing for digital collectibles and little for non-English readers."
+        },
+        {
+          "body": "Competitive analysis of Adidas and Gucci, plus market research, in a team of five."
+        },
+        {
+          "body": "Two team priorities: explain NFTs to first-time buyers, keep shopping familiar."
         }
       ]
     },
@@ -1339,7 +1390,7 @@ window.PORTFOLIO = {
       ],
       "cover": "journey",
       "coverImage": "assets/work/covers/finlatics-learner-journey.webp",
-      "summary": "Finlatics gives finance learners a simulated portfolio to practice with, but too many left during account setup, before they ever reached it. I treated onboarding as the start of the learning journey rather than a registration form, redesigned it with usability testing in Maze, ran a research program that changed the product’s direction, and led a mobile-first redesign of program content.",
+      "summary": "Too many Finlatics learners left during account setup, before reaching the portfolio simulator. I redesigned onboarding with usability testing in Maze, ran research that changed the product’s direction, and led a mobile-first redesign of program content.",
       "meta": [
         {
           "label": "Role",
@@ -1388,11 +1439,11 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Finlatics supports learners in equity research, investment banking and financial markets programs. They build and manage a simulated portfolio, follow live market movement and apply what their program teaches. Many arrive through college partners, so a learner’s first hour shapes both their own progress and the partnership."
+              "body": "Finlatics learners in equity research, investment banking and financial markets programs build a simulated portfolio, follow live markets and apply their coursework. Many arrive through college partners, so the first hour matters to learner and partner alike."
             },
             {
               "type": "text",
-              "body": "I owned product design end to end: research, flows, the component library, dashboards and the review of how each release performed."
+              "body": "**My role.** End-to-end product design: research, flows, the component library, dashboards and post-release reviews."
             }
           ]
         },
@@ -1403,7 +1454,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Learners who abandon during account setup never reach the product, which made onboarding the highest-leverage fix on the platform. Program content pages had a second problem: learners spent most of their time there, often on phones, and the pages weren’t designed for small screens."
+              "body": "Learners who quit during setup never reach the product, which made onboarding the highest-leverage fix. Content pages, where learners spent most of their time, often on phones, weren’t designed for small screens."
             },
             {
               "type": "callout",
@@ -1416,15 +1467,15 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Less friction, same information",
-                  "body": "Account setup had to get easier without losing information the platform needed."
+                  "body": "Easier setup without losing information the platform needs."
                 },
                 {
                   "title": "Partners were watching",
-                  "body": "Many learners arrived through college partners, so a poor first hour affected the partnership as well as the learner."
+                  "body": "Many learners came through college partners, so a poor first hour hurt the partnership too."
                 },
                 {
                   "title": "Most reading happened on phones",
-                  "body": "Learners spent most of their time on program content pages, often on phones, and those pages weren’t designed for small screens."
+                  "body": "Content pages weren’t built for the small screens most learners read on."
                 }
               ]
             }
@@ -1437,7 +1488,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "I ran ==25+ moderated research sessions== with students and college partners and synthesized the findings in Dovetail. The patterns were strong enough to change direction: they became ==three major product pivots== that expanded institutional B2B partnerships."
+              "body": "==25+ moderated sessions== with students and college partners, synthesized in Dovetail, led to ==three major product pivots== that expanded institutional B2B partnerships."
             },
             {
               "type": "visual",
@@ -1481,15 +1532,15 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "decision": "Treat onboarding as the start of learning",
-                  "why": "Setup is a learner’s first experience of the platform, so I designed it to move people toward the simulator, not just to collect their details."
+                  "why": "Setup should move people toward the simulator, not just collect their details."
                 },
                 {
                   "decision": "Let testing decide what changed",
-                  "why": "I tested the flow in Maze to see where people hesitated or failed during account setup, and iterated on that evidence instead of visual judgment."
+                  "why": "Maze showed where people hesitated or failed. Evidence, not visual judgment, drove each iteration."
                 },
                 {
                   "decision": "Design content for phones first",
-                  "why": "Program content was where learners spent their time, so hierarchy and reading flow were designed for small screens first, then scaled up to desktop."
+                  "why": "Hierarchy and reading flow designed for small screens first, then scaled up to desktop."
                 }
               ]
             }
@@ -1502,7 +1553,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "I redesigned the onboarding flow in Figma and tested it in Maze to see where people hesitated or failed during account setup. Each round targeted those steps, and evidence from testing, not opinion, decided what changed."
+              "body": "Redesigned in Figma and tested in Maze. Each round targeted the steps where people hesitated or failed."
             },
             {
               "type": "visual",
@@ -1583,7 +1634,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Program content pages were where learners spent their time, so I led a mobile-first redesign in Adobe XD: hierarchy and reading flow designed for small screens first, then scaled up to desktop."
+              "body": "A mobile-first redesign of program content in Adobe XD: small screens first, then desktop."
             },
             {
               "type": "visual",
@@ -1663,9 +1714,20 @@ window.PORTFOLIO = {
             },
             {
               "type": "text",
-              "body": "**What I took forward.** Research only matters when it changes decisions. I plan every study around the decision it should inform."
+              "body": "**What I took forward.** Research only matters when it changes decisions, so I plan every study around the decision it should inform."
             }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "Learners dropped off in account setup, and content pages weren’t built for the phones they read on."
+        },
+        {
+          "body": "Onboarding redesigned and tested in Maze, 25+ research sessions, mobile-first content."
+        },
+        {
+          "body": "−34% setup drop-off, +28% session duration, −21% bounce."
         }
       ]
     },
@@ -1682,7 +1744,7 @@ window.PORTFOLIO = {
       ],
       "cover": "chart",
       "coverImage": "assets/work/covers/finlatics-dashboards.webp",
-      "summary": "Finlatics learners manage simulated portfolios against live movement in the BSE 500. Real-time data is hard to read unless chart behavior is carefully defined, so I designed the dashboards with engineering, specifying chart interaction patterns and tooltip behaviors and delivering them as Zeplin specs.",
+      "summary": "Finlatics learners manage simulated portfolios against live BSE 500 movement. I designed the dashboards with engineering, specifying chart interactions and tooltip behavior as Zeplin specs so live data stayed readable.",
       "meta": [
         {
           "label": "Role",
@@ -1714,7 +1776,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "The BSE 500 covers a broad slice of the companies listed on India’s Bombay Stock Exchange. On Finlatics, learners build portfolios from that universe and watch them move in real time, which turns coursework into decisions with visible consequences."
+              "body": "The BSE 500 spans a broad slice of the Bombay Stock Exchange. Learners build portfolios from it and watch them move in real time, turning coursework into decisions with visible consequences."
             }
           ]
         },
@@ -1725,7 +1787,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Live data is hard to read unless chart behavior is carefully defined. A tooltip that jumps when a new price arrives, a crosshair that lags behind the pointer, or an axis that rescales mid-glance can break a learner’s read of what just happened. These learners were still building market intuition, so the dashboards had to be calmer than the market."
+              "body": "A tooltip that jumps with a new price, a crosshair that lags or an axis that rescales mid-glance breaks a learner’s read. Learners still building market intuition needed dashboards calmer than the market."
             }
           ]
         },
@@ -1739,11 +1801,11 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Define the questions",
-                  "body": "What a learner needs from each chart: how am I doing, against what, and since when."
+                  "body": "How am I doing, against what, and since when?"
                 },
                 {
                   "title": "Specify the interaction model",
-                  "body": "Hover, focus, touch and keyboard behavior for every chart, before polishing visuals."
+                  "body": "Hover, focus, touch and keyboard behavior for every chart, before visual polish."
                 },
                 {
                   "title": "Design every state",
@@ -1751,11 +1813,11 @@ window.PORTFOLIO = {
                 },
                 {
                   "title": "Work through live updates with engineering",
-                  "body": "How charts and tooltips behave as new data arrives, defined together before build."
+                  "body": "How charts and tooltips behave as data arrives, agreed before build."
                 },
                 {
                   "title": "Hand off as specs",
-                  "body": "Annotated Zeplin specs for chart interaction patterns and tooltip behaviors."
+                  "body": "Annotated Zeplin specs for interaction patterns and tooltips."
                 }
               ]
             }
@@ -1856,7 +1918,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Live data means the dashboard spends real time loading, and every new learner starts with an empty portfolio. I designed both states alongside the default, plus a single-column layout for phones where a holding’s details open full-screen instead of in a side panel."
+              "body": "Live data means real loading time, and every new learner starts with an empty portfolio, so both states were designed alongside the default. On phones, holding details open full-screen instead of in a side panel."
             },
             {
               "type": "visual",
@@ -1907,13 +1969,24 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Engineering built against a shared interaction spec instead of interpreting static mockups, and the dashboards were designed to stay readable while the data moved."
+              "body": "Engineering built against a shared interaction spec instead of interpreting static mockups, and the dashboards stayed readable as data moved."
             },
             {
               "type": "text",
-              "body": "**What I took forward.** For data products, the interaction model is the design. I specify behavior and states before I polish a single chart."
+              "body": "**What I took forward.** For data products, the interaction model is the design. I specify behavior and states before I polish a chart."
             }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "Live charts that jump and rescale are hard to read while you’re learning."
+        },
+        {
+          "body": "Specified interaction, tooltip and state behavior with engineering, before visuals."
+        },
+        {
+          "body": "Engineering built from a shared interaction spec, not static mockups."
         }
       ]
     },
@@ -1929,7 +2002,7 @@ window.PORTFOLIO = {
         "Team enablement"
       ],
       "cover": "system",
-      "summary": "Without shared components, new designers rebuilt patterns from scratch and the product drifted. I built and maintained a Figma component library of 60+ components for web and mobile-responsive views, which cut designer ramp-up time by 40% for new team members.",
+      "summary": "Without shared components, new designers rebuilt patterns and the product drifted. I built and maintained a Figma library of 60+ components for web and mobile-responsive views, cutting designer ramp-up time by 40%.",
       "meta": [
         {
           "label": "Role",
@@ -1966,7 +2039,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Without a shared library, each designer rebuilt buttons, inputs, cards and chart containers in their own way. Small differences piled up into a product that felt inconsistent, and new team members had to learn the product’s patterns by digging through old files."
+              "body": "Each designer rebuilt buttons, inputs, cards and chart containers their own way. Small differences made the product inconsistent, and newcomers learned patterns from old files."
             }
           ]
         },
@@ -1980,7 +2053,7 @@ window.PORTFOLIO = {
               "items": [
                 {
                   "title": "Audit",
-                  "body": "Inventory the patterns already in the product and the variations that had crept in."
+                  "body": "Inventory existing patterns and the variations that had crept in."
                 },
                 {
                   "title": "Foundations",
@@ -1996,7 +2069,7 @@ window.PORTFOLIO = {
                 },
                 {
                   "title": "Document and maintain",
-                  "body": "Usage rules alongside each component, and updates to the library as the product changed."
+                  "body": "Usage rules per component, updated as the product changed."
                 }
               ]
             }
@@ -2009,11 +2082,11 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Color, type, spacing and corner radius live as named tokens. Each color’s contrast is measured before it’s allowed into a component, so accessibility starts at the foundation."
+              "body": "Color, type, spacing and radius are named tokens, and each color’s contrast is measured before it enters a component."
             },
             {
               "type": "text",
-              "body": "The sheets below are a recreation built for this portfolio from the Finlatics screens, not the original library."
+              "body": "The sheets below are a recreation from the Finlatics screens, not the original library."
             },
             {
               "type": "visual",
@@ -2033,7 +2106,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Each component shipped with its states, responsive behavior and the tokens it uses, so a designer could drop it into a file and trust it."
+              "body": "Each component ships with its states, responsive behavior and tokens, so designers can trust it."
             },
             {
               "type": "visual",
@@ -2053,7 +2126,7 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "Larger patterns for the simulator and the courses were assembled from the core components, which kept the dashboard and the learning pages consistent."
+              "body": "Simulator and course patterns are built from the core components, keeping the dashboard and learning pages consistent."
             },
             {
               "type": "visual",
@@ -2073,79 +2146,182 @@ window.PORTFOLIO = {
           "blocks": [
             {
               "type": "text",
-              "body": "New designers ramped up ==40% faster==, working from 60+ maintained components instead of old files. The same library carried the onboarding redesign and the simulation dashboards."
+              "body": "New designers ramped up ==40% faster==, working from 60+ maintained components instead of old files. The same library carried the onboarding redesign and the dashboards."
             },
             {
               "type": "text",
-              "body": "**What I took forward.** A design system is an onboarding tool as much as a consistency tool. The same thinking shapes my work on standards in an enterprise design system today."
+              "body": "**What I took forward.** A design system is an onboarding tool as much as a consistency tool. It shapes my enterprise standards work today."
             }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "Every designer rebuilt patterns their own way, and the product drifted."
+        },
+        {
+          "body": "A 60+ component Figma library: tokens, every state, product patterns."
+        },
+        {
+          "body": "New designers ramped up 40% faster."
         }
       ]
     },
 
     /* ---------- Adons Softech ---------- */
     {
-      slug: "b2b-saas-navigation",
-      group: "adons",
-      title: "Halving navigation depth in a B2B SaaS product",
-      teaser: "Journey maps and a restructured sitemap that brought core workflows from 4 clicks to 2 and lifted task completion by 31%.",
-      tags: ["Information architecture", "Journey mapping", "Usability testing"],
-      cover: "tree",
-      summary: "Core workflows in a B2B SaaS client’s product were buried four levels deep. I created user journey maps and IA sitemaps that restructured the product around its most important tasks, reducing navigation depth from 4 clicks to 2 and improving task completion by 31% in usability testing.",
-      meta: [
-        { label: "Role", value: "UI/UX Designer" },
-        { label: "Period", value: "May 2019 – Aug 2021" },
-        { label: "Client", value: "Early-stage B2B SaaS company" },
-        { label: "Methods", value: "Journey mapping, IA sitemaps, usability testing" },
-        { label: "Tools", value: "Sketch, InVision" }
+      "slug": "b2b-saas-navigation",
+      "group": "adons",
+      "title": "Halving navigation depth in a B2B SaaS product",
+      "teaser": "Journey maps and a restructured sitemap that brought core workflows from 4 clicks to 2 and lifted task completion by 31%.",
+      "tags": [
+        "Information architecture",
+        "Journey mapping",
+        "Usability testing"
       ],
-      outcomes: [
-        { value: "4 → 2", label: "clicks to reach core workflows" },
-        { value: "+31%", label: "task completion in usability testing" }
-      ],
-      sections: [
+      "cover": "tree",
+      "summary": "A B2B SaaS client’s core workflows were buried four levels deep. Journey maps and IA sitemaps restructured the product around its key tasks: 4 clicks down to 2, and task completion up 31% in usability testing.",
+      "meta": [
         {
-          id: "context", label: "Context", title: "Studio work for early-stage startups",
-          blocks: [
-            { type: "text", body: "At Adons Softech I designed responsive web products for six early-stage startups across e-commerce and SaaS, delivering wireframes, high-fidelity prototypes and dev-ready assets. This B2B SaaS client had grown its feature set faster than its navigation." }
-          ]
+          "label": "Role",
+          "value": "UI/UX Designer"
         },
         {
-          id: "problem", label: "Problem", title: "The most important things were the hardest to reach",
-          blocks: [
-            { type: "text", body: "Deep navigation was making core workflows harder to finish. Users had to remember where things lived several levels down, and every extra level was another chance to take a wrong turn." }
-          ]
+          "label": "Period",
+          "value": "May 2019 – Aug 2021"
         },
         {
-          id: "approach", label: "Approach", title: "Map the journeys, then the structure",
-          blocks: [
+          "label": "Client",
+          "value": "Early-stage B2B SaaS company"
+        },
+        {
+          "label": "Methods",
+          "value": "Journey mapping, IA sitemaps, usability testing"
+        },
+        {
+          "label": "Tools",
+          "value": "Sketch, InVision"
+        }
+      ],
+      "outcomes": [
+        {
+          "value": "4 → 2",
+          "label": "clicks to reach core workflows"
+        },
+        {
+          "value": "+31%",
+          "label": "task completion in usability testing"
+        }
+      ],
+      "sections": [
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Studio work for early-stage startups",
+          "blocks": [
             {
-              type: "steps",
-              items: [
-                { title: "Map core journeys", body: "Document how users actually moved through the product to finish their most important tasks." },
-                { title: "Sitemap the current IA", body: "Lay out every level to see where core tasks were buried." },
-                { title: "Restructure around tasks", body: "Bring core workflows to the top two levels and group the rest by what users were trying to do." },
-                { title: "Prototype", body: "Build the new navigation in Sketch and InVision." },
-                { title: "Test", body: "Run usability tests on core tasks with the new structure." }
+              "type": "text",
+              "body": "At Adons Softech I designed responsive products for six early-stage e-commerce and SaaS startups, from wireframes and prototypes to dev-ready assets. This client’s features had outgrown its navigation."
+            }
+          ]
+        },
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "The most important things were the hardest to reach",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Users had to remember where things lived several levels down, and every extra level was another chance to take a wrong turn."
+            }
+          ]
+        },
+        {
+          "id": "approach",
+          "label": "Approach",
+          "title": "Map the journeys, then the structure",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "title": "Map core journeys",
+                  "body": "How users actually moved to finish their key tasks."
+                },
+                {
+                  "title": "Sitemap the current IA",
+                  "body": "Every level laid out, to find where core tasks were buried."
+                },
+                {
+                  "title": "Restructure around tasks",
+                  "body": "Core workflows in the top two levels; the rest grouped by goal."
+                },
+                {
+                  "title": "Prototype",
+                  "body": "The new navigation, built in Sketch and InVision."
+                },
+                {
+                  "title": "Test",
+                  "body": "Usability tests on core tasks with the new structure."
+                }
               ]
             },
             {
-              type: "visual", kind: "tree", caption: "The same core task before and after the restructure. Labels are illustrative.",
-              data: {
-                before: { title: "Before", path: ["Dashboard", "Workspace", "Settings", "Data", "Export report"] },
-                after: { title: "After", path: ["Dashboard", "Reports", "Export report"] }
+              "type": "visual",
+              "kind": "tree",
+              "caption": "The same core task before and after the restructure. Labels are illustrative.",
+              "data": {
+                "before": {
+                  "title": "Before",
+                  "path": [
+                    "Dashboard",
+                    "Workspace",
+                    "Settings",
+                    "Data",
+                    "Export report"
+                  ]
+                },
+                "after": {
+                  "title": "After",
+                  "path": [
+                    "Dashboard",
+                    "Reports",
+                    "Export report"
+                  ]
+                }
               }
             }
           ]
         },
         {
-          id: "impact", label: "Impact", title: "What changed",
-          blocks: [
-            { type: "text", body: "Core workflows went from ==4 clicks to 2==, and task completion improved by ==31%== in usability testing." },
-            { type: "text", body: "**Alongside this work.** I created brand identities and icon sets for three clients, each with a full style guide covering typography, color systems, spacing tokens and component usage rules." },
-            { type: "text", body: "**What I took forward.** The best navigation is the kind users don’t have to think about. I start IA work by mapping journeys, not menus." }
+          "id": "impact",
+          "label": "Impact",
+          "title": "What changed",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Core workflows went from ==4 clicks to 2==, and task completion improved by ==31%== in usability testing."
+            },
+            {
+              "type": "text",
+              "body": "**Alongside this work.** Brand identities and icon sets for three clients, each with a full style guide: typography, color systems, spacing tokens and component rules."
+            },
+            {
+              "type": "text",
+              "body": "**What I took forward.** The best navigation is the kind users don’t have to think about. I start IA work with journeys, not menus."
+            }
           ]
+        }
+      ],
+      "glance": [
+        {
+          "body": "Core workflows were buried four levels deep."
+        },
+        {
+          "body": "Mapped journeys and sitemaps, restructured around tasks, then prototyped and tested."
+        },
+        {
+          "body": "4 clicks to 2, and task completion up 31% in usability testing."
         }
       ]
     }
