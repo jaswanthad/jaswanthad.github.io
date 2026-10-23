@@ -1,0 +1,2136 @@
+/* =============================================================================
+   PORTFOLIO CONTENT
+   Every word, number and case study on the site comes from this file.
+   Edit, save, refresh. No build step.
+
+   Inline formatting you can use inside any text value:
+     **bold**     *italic*     ==highlighted evidence==     [link text](https://example.com)
+
+   Password-protected case studies are NOT in this file. Only their public
+   title, teaser and tags live here. Their full text is in
+   ../private/protected-content.js and ships encrypted in content.locked.js.
+   See README.md, section "Protected case studies".
+   ============================================================================= */
+
+window.PORTFOLIO = {
+
+  /* ------------------------------------------------------------------ Basics */
+  meta: {
+    name: "Jaswanth Adusumilli",
+    firstName: "Jaswanth",
+    role: "AI Product Designer",
+    location: "Boston, MA",
+    email: "jaswanth.a@myworkprofiles.com",
+    linkedin: "https://www.linkedin.com/in/jaswanthad",
+    // Put your résumé PDF in site/assets/ and set the path, e.g. "assets/Jaswanth_Adusumilli_Resume.pdf".
+    // A Résumé link appears in the header and contact section once this is set.
+    resumeUrl: "assets/Jaswanth_Adusumilli_Resume.pdf",
+    // Optional line under the hero, e.g. "Open to senior and lead product design roles."
+    availability: "",
+    lastUpdated: "October 2026"
+  },
+
+  /* -------------------------------------------------------------------- Hero */
+  hero: {
+    intro: "AI Product Designer at UnitedHealth Group, based in Boston",
+    headline: "I design AI products that finish real tasks, show their reasoning, and work for everyone.",
+    summary: "For 5+ years I’ve made complex workflows understandable and actionable across healthcare technology, fintech education and B2B SaaS: conversational AI, data-heavy interfaces, information architecture, research-led product changes and the design systems behind them.",
+    evidenceTitle: "What the work shows",
+    evidenceHint: "Open a claim to see the case studies behind it.",
+    // Each claim lists case studies by slug (see caseStudies below).
+    evidence: [
+      {
+        claim: "AI that finishes real tasks",
+        items: [
+          { slug: "member-assistant", text: "Conversation flows for finding care, booking visits and seeing lab results" },
+          { slug: "prior-authorization", text: "Prior-authorization submissions designed to pass on the first try" }
+        ]
+      },
+      {
+        claim: "Complex data people can read and trust",
+        items: [
+          { slug: "explainable-clinical-ai", text: "Explainable patterns that show clinicians why a disease risk was flagged" },
+          { slug: "portfolio-simulation-dashboards", text: "Interaction specs that keep live market charts readable for learners" }
+        ]
+      },
+      {
+        claim: "Accessibility built into the system",
+        items: [
+          { slug: "ai-ui-standards", text: "WCAG 2.1 AA standards that AI-generated components must meet" },
+          { slug: "finlatics-design-system", text: "A 60+ component library that cut designer ramp-up by ==40%==" }
+        ]
+      },
+      {
+        claim: "Research that changes the roadmap",
+        items: [
+          { slug: "finlatics-learner-journey", text: "==25+ moderated sessions== that led to ==3 major product pivots==" },
+          { slug: "ai-augmented-practice", text: "AI-assisted research synthesis for several product squads" }
+        , { slug: "advisor-ai", text: "==5 interviews and 3 rounds of evaluation== that reshaped an AI career platform" }]
+      },
+      {
+        claim: "Outcomes measured after launch",
+        items: [
+          { slug: "finlatics-learner-journey", text: "==34% less drop-off== at account setup and ==28% longer sessions==" },
+          { slug: "b2b-saas-navigation", text: "Core workflows cut from 4 clicks to 2, with task completion ==up 31%==" }
+        ]
+      }
+    ]
+  },
+
+  /* ---------------------------------------------------------------- Work index
+     Groups appear in this order. Each case study below names its group by id.
+     A group with protected: true is shown as a password-protected list.
+     {count} in the intro is replaced with the number of case studies. */
+  work: {
+    title: "Selected work",
+    intro: "{count} case studies across healthcare, fintech education, career tools and SaaS. My current work at UnitedHealth Group is shared privately to respect confidentiality.",
+    groups: [
+      {
+        id: "uhg",
+        company: "UnitedHealth Group",
+        role: "AI Product Designer",
+        period: "Aug 2025 – present",
+        protected: true,
+        description: "AI-native experiences for members, providers and clinicians, built inside an enterprise design system."
+      },
+      {"id": "independent", "company": "Independent projects", "role": "UX research and design", "description": "Academic projects outside my jobs: one solo, one in a team of five."},
+      {
+        id: "vivma",
+        company: "Vivma Software",
+        role: "Senior Product Designer",
+        period: "Sep 2021 – Aug 2023",
+        description: "End-to-end design for Finlatics, a simulated portfolio management platform for 500+ learners in finance programs."
+      },
+      {
+        id: "adons",
+        company: "Adons Softech",
+        role: "UI/UX Designer",
+        period: "May 2019 – Aug 2021",
+        description: "Product and brand design for six early-stage startups in e-commerce and SaaS."
+      }
+    ]
+  },
+
+  /* ------------------------------------------------------------- How I work */
+  approach: {
+    title: "How I work",
+    intro: "Five habits that show up in every project, whatever the industry.",
+    principles: [
+      {
+        title: "Start from the job, not the model",
+        body: "AI earns its place by finishing real work, like finding a provider, booking a visit or submitting an authorization, not by answering questions well. I map the task first and design the conversation or interface around it."
+      },
+      {
+        title: "Make the reasoning visible",
+        body: "People act on a model’s output when they can see why it said what it said. Explainability is as much an interface problem as a modeling one, so I work it out with data science from the start."
+      },
+      {
+        title: "Put accessibility in the system",
+        body: "Standards belong in tokens, components and review checklists, so every surface meets WCAG 2.1 AA by default, including components generated with AI."
+      },
+      {
+        title: "Use AI for speed, keep people accountable",
+        body: "I use AI tools to explore layouts, generate assets and synthesize research faster. Decisions, standards and the final call stay with the team."
+      },
+      {
+        title: "Judge the design after launch",
+        body: "Drop-off, session time, task completion and first-pass success tell me whether a design worked. I review them after releases and carry what I learn into the next one."
+      }
+    ]
+  },
+
+  /* ------------------------------------------------------------- Experience */
+  experience: {
+    title: "Experience",
+    roles: [
+      {
+        company: "UnitedHealth Group",
+        role: "AI Product Designer",
+        period: "Aug 2025 – present",
+        summary: "Design AI-native interfaces for members, providers and clinicians: a conversational member assistant, AI-powered prior-authorization flows, explainable clinical risk patterns, and accessibility standards for AI-generated UI in the enterprise design system.",
+        points: [
+          "Partner with data science and engineering on how model outputs reach clinicians",
+          "Set interaction and accessibility standards for AI-generated components",
+          "Use Figma AI, Galileo AI, Midjourney, ChatGPT and Claude to speed up prototyping and research synthesis"
+        ]
+      },
+      {
+        company: "Vivma Software, building Finlatics",
+        role: "Senior Product Designer",
+        period: "Sep 2021 – Aug 2023",
+        summary: "Owned end-to-end product design for Finlatics’ simulated portfolio management platform, supporting 500+ active learners across equity research, investment banking and financial markets programs.",
+        points: [
+          "Redesigned onboarding with Maze testing, cutting drop-off at account setup by 34%",
+          "Built a 60+ component Figma library that cut designer ramp-up time by 40%",
+          "Ran 25+ moderated research sessions that led to 3 major product pivots",
+          "Led a mobile-first content redesign: sessions 28% longer, bounce rate 21% lower"
+        ]
+      },
+      {
+        company: "Adons Softech",
+        role: "UI/UX Designer",
+        period: "May 2019 – Aug 2021",
+        summary: "Designed responsive web products for 6 early-stage startups across e-commerce and SaaS, delivering wireframes, high-fidelity prototypes and dev-ready assets in Sketch and InVision.",
+        points: [
+          "Restructured a B2B SaaS product’s information architecture: core workflows from 4 clicks to 2, task completion up 31%",
+          "Created brand identities, icon sets and full style guides for 3 clients"
+        ]
+      }
+    ],
+    education: [
+      { degree: "M.S., Information Systems", school: "Northeastern University", place: "Boston, MA" },
+      { degree: "B.Tech, Computer Science", school: "Jawaharlal Nehru Technological University", place: "Hyderabad, India" }
+    ]
+  },
+
+  capabilities: {
+    title: "Capabilities and tools",
+    groups: [
+      { name: "Product design", items: ["User research", "Information architecture", "Interaction design", "Usability testing", "Wireframing and prototyping", "Design systems", "WCAG 2.1 accessibility"] },
+      { name: "AI and automation", items: ["Prompt engineering with ChatGPT, Claude and Gemini", "Figma AI", "Galileo AI", "Midjourney", "DALL·E", "Uizard", "Zapier AI"] },
+      { name: "Research methods", items: ["Moderated usability testing", "A/B testing", "Heuristic evaluation", "Card sorting", "Jobs-to-be-Done", "Affinity mapping"] },
+      { name: "Design tools", items: ["Figma", "Adobe XD", "Sketch", "InVision", "Zeplin", "Maze", "Dovetail", "Miro", "Principle"] },
+      { name: "Collaboration and handoff", items: ["Jira", "Confluence", "Notion", "GitHub design branches", "Agile and Scrum", "Design sprints"] },
+      { name: "Data and analytics", items: ["Amplitude", "Google Analytics", "Hotjar", "Mixpanel", "AI-assisted insight synthesis"] }
+    ]
+  },
+
+  /* ---------------------------------------------------------------- Contact */
+  contact: {
+    title: "Let’s talk",
+    body: "I’m glad to talk about conversational AI, explainable interfaces, design systems and accessibility at scale. Email is the fastest way to reach me.",
+    accessNote: "Need the password for the UnitedHealth Group case studies?"
+  },
+
+  colophon: "Set in Atkinson Hyperlegible Next, a typeface the Braille Institute designed to stay legible for readers with low vision. Hand-built as a static site, designed to meet WCAG 2.1 AA, with no analytics.",
+
+  /* --------------------------------------------------- Independent projects
+     Shown as an “Independent work” section once this list has entries.
+     Copy this shape for each project:
+     {
+       title: "Project name",
+       year: "2024",
+       description: "One or two sentences: the problem, and what you made.",
+       tags: ["Mobile app", "Concept"],
+       cover: "journey",                       // optional, any cover name listed in README
+       image: "assets/projects/my-shot.png",   // optional screenshot instead of a cover
+       imageAlt: "What the screenshot shows",
+       links: [ { label: "View project", url: "https://…" } ]
+     }
+  */
+  projectsTitle: "Independent work",
+  projectsIntro: "Personal and self-initiated projects.",
+  personalProjects: [],
+
+  /* ------------------------------------------------ Finlatics design system
+     Tokens for the component sheets in the design system case study.
+     Colors were sampled from your Finlatics screens; change them here and the
+     sheets, including their contrast checks, update. */
+  designSystem: {
+    "name": "Finlatics",
+    "font": "Inter",
+    "colors": [
+      {
+        "token": "color.brand.primary",
+        "role": "primary",
+        "hex": "#0F7A52",
+        "use": "Primary actions, selection, progress"
+      },
+      {
+        "token": "color.brand.subtle",
+        "role": "tint",
+        "hex": "#E3F3EA",
+        "use": "Selected backgrounds, success notes"
+      },
+      {
+        "token": "color.text.primary",
+        "role": "text",
+        "hex": "#14181A",
+        "use": "Headings and body text"
+      },
+      {
+        "token": "color.text.secondary",
+        "role": "muted",
+        "hex": "#5B6B63",
+        "use": "Supporting text, labels, metadata"
+      },
+      {
+        "token": "color.surface.default",
+        "role": "surface",
+        "hex": "#FFFFFF",
+        "use": "Cards, inputs, sheets"
+      },
+      {
+        "token": "color.surface.canvas",
+        "role": "canvas",
+        "hex": "#F3F4F3",
+        "use": "Page background"
+      },
+      {
+        "token": "color.border.subtle",
+        "role": "border",
+        "hex": "#E3E6E2",
+        "use": "Card edges and dividers"
+      },
+      {
+        "token": "color.border.strong",
+        "role": "borderStrong",
+        "hex": "#8C8C8C",
+        "use": "Input and control borders"
+      },
+      {
+        "token": "color.neutral.track",
+        "role": "track",
+        "hex": "#E3E6E2",
+        "use": "Progress tracks, skeletons, disabled fills"
+      },
+      {
+        "token": "color.feedback.error",
+        "role": "error",
+        "hex": "#9C2B23",
+        "use": "Errors and destructive actions"
+      },
+      {
+        "token": "color.feedback.positive",
+        "role": "positive",
+        "hex": "#0F7A52",
+        "use": "Gains and positive change"
+      }
+    ],
+    "type": [
+      {
+        "token": "heading.xl",
+        "size": 24,
+        "line": 30,
+        "weight": 600,
+        "weightName": "Semibold",
+        "sample": "Equity Research Fundamentals"
+      },
+      {
+        "token": "metric.lg",
+        "size": 22,
+        "line": 28,
+        "weight": 600,
+        "weightName": "Semibold",
+        "sample": "₹11,23,780"
+      },
+      {
+        "token": "heading.lg",
+        "size": 20,
+        "line": 26,
+        "weight": 600,
+        "weightName": "Semibold",
+        "sample": "Pick a learning track"
+      },
+      {
+        "token": "body.md",
+        "size": 15,
+        "line": 22,
+        "weight": 400,
+        "weightName": "Regular",
+        "sample": "Simulated stock picking and valuation"
+      },
+      {
+        "token": "label.md",
+        "size": 14,
+        "line": 20,
+        "weight": 600,
+        "weightName": "Semibold",
+        "sample": "College email"
+      },
+      {
+        "token": "caption.sm",
+        "size": 12,
+        "line": 16,
+        "weight": 400,
+        "weightName": "Regular",
+        "sample": "12 min · Completed"
+      }
+    ],
+    "space": [4, 8, 12, 16, 20, 24, 32, 48],
+    "radius": [
+      {
+        "token": "radius.sm",
+        "px": 8
+      },
+      {
+        "token": "radius.md",
+        "px": 12
+      },
+      {
+        "token": "radius.lg",
+        "px": 16
+      },
+      {
+        "token": "radius.full",
+        "px": 999
+      }
+    ]
+  },
+
+  /* ----------------------------------------------------------- Case studies
+     Order here is the order on the site.
+     Public case study:    full content below.
+     Protected case study: protected: true, plus title, teaser, tags and cover only.
+                           Keep these public fields free of confidential names and numbers.
+     Block types:   text, callout, steps, principles, decisions, table, metrics, visual
+     Visual kinds:  flow, compare, chat, form, explain, chart, tree, anatomy, registry, slots, image, gallery (your own screens), system (design-system sheets), see README
+     Cover names:   chat, form, explain, grid, layers, journey, chart, system, tree
+     coverImage:    optional screenshot for a home page card, e.g. "assets/work/covers/your-file.webp"
+  */
+  caseStudies: [
+
+    /* ---------- UnitedHealth Group (protected) ---------- */
+    {
+      slug: "member-assistant",
+      group: "uhg",
+      protected: true,
+      title: "A conversational assistant that finishes the job",
+      teaser: "Conversation flows that let health plan members find care, book visits and see lab results without a phone call.",
+      tags: ["Conversational AI", "Healthcare", "Self-service"],
+      cover: "chat"
+    },
+    {
+      slug: "prior-authorization",
+      group: "uhg",
+      protected: true,
+      title: "Prior authorization, right the first time",
+      teaser: "Reducing ambiguity and rework in AI-powered prior-authorization submissions for providers.",
+      tags: ["Workflow design", "Forms and data capture", "Providers"],
+      cover: "form"
+    },
+    {
+      slug: "explainable-clinical-ai",
+      group: "uhg",
+      protected: true,
+      title: "Making clinical risk models legible",
+      teaser: "Turning machine learning risk flags into explanations clinicians can check, trust and act on.",
+      tags: ["Explainable AI", "Clinicians", "Data science partnership"],
+      cover: "explain"
+    },
+    {
+      slug: "ai-ui-standards",
+      group: "uhg",
+      protected: true,
+      title: "Accessibility standards for AI-generated UI",
+      teaser: "The rules generated components must meet inside an enterprise design system, so every surface is WCAG 2.1 AA by default.",
+      tags: ["Design systems", "Accessibility", "Governance"],
+      cover: "grid"
+    },
+    {
+      slug: "ai-augmented-practice",
+      group: "uhg",
+      protected: true,
+      title: "An AI-augmented design practice",
+      teaser: "Using AI in prototyping, layout exploration and research synthesis to ship faster across product squads, without lowering the bar.",
+      tags: ["Design operations", "Prototyping", "Research synthesis"],
+      cover: "layers"
+    },
+
+    /* ---------- Vivma Software / Finlatics ---------- */
+    {
+      "slug": "advisor-ai",
+      "group": "independent",
+      "title": "Advisor.AI: an AI career platform that shows its reasoning",
+      "teaser": "Research, design and three rounds of evaluation for a job-search platform that puts visa sponsorship first. Five students completed every task and rated it ==87== on the SUS.",
+      "tags": [
+        "AI product design",
+        "UX research",
+        "Usability testing"
+      ],
+      "cover": "flow",
+      "coverImage": "assets/work/covers/advisor-ai.webp",
+      "summary": "Graduate students, most of them international, were spreading their job search across four to six tools, and couldn’t tell which jobs would sponsor a visa or whether an AI suggestion was any good. In 12 weeks I researched, designed and tested Advisor.AI, which brings resume building, job search, interview prep, skill development and application tracking into one place, with visa sponsorship up front and AI suggestions that explain themselves. In moderated testing, five students completed all 25 tasks and rated it 87 on the System Usability Scale.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Solo UX researcher and designer"
+        },
+        {
+          "label": "Duration",
+          "value": "12 weeks"
+        },
+        {
+          "label": "Context",
+          "value": "Graduate project, Northeastern University"
+        },
+        {
+          "label": "Methods",
+          "value": "Interviews, affinity mapping, competitive analysis, walkthroughs, heuristic evaluation, usability testing"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, Miro, Dovetail, Julius, Claude, Excel"
+        }
+      ],
+      "outcomes": [
+        {
+          "value": "87",
+          "label": "SUS score in moderated testing"
+        },
+        {
+          "value": "25 / 25",
+          "label": "tasks completed by five participants"
+        },
+        {
+          "value": "6.7%",
+          "label": "error rate across tasks"
+        }
+      ],
+      "sections": [
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Five tasks, four to six tools, one visa question",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Graduate students in Information Systems programs prepare for the U.S. job market on top of a full course load. The students I interviewed described a resume tool, LinkedIn, an interview-practice site and a spreadsheet, each holding part of the picture. For the four in five who needed visa sponsorship, the most important fact about a job was the hardest one to find."
+            },
+            {
+              "type": "text",
+              "body": "This was a solo 12-week project at Northeastern University. I ran the research, designed the product, and evaluated it with students before and after iterating."
+            }
+          ]
+        },
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "Students didn’t lack tools. They lacked one they could trust.",
+          "blocks": [
+            {
+              "type": "callout",
+              "title": "The question",
+              "body": "How might we bring a graduate student’s job search into one place, put visa sponsorship first, and make AI suggestions people can judge for themselves?"
+            },
+            {
+              "type": "text",
+              "body": "Two problems sat under the fragmentation. Students lost hours on roles that would never sponsor them, because sponsorship was buried or missing. And they didn’t act on AI suggestions they couldn’t evaluate: they had no way to tell a good suggestion from a generic one."
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "label": "Research",
+          "title": "Five interviews, five competitors, six needs",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "title": "Interviews",
+                  "body": "Five semi-structured interviews, 45 to 60 minutes each, on how students prepare, where they get stuck, and how they use AI today."
+                },
+                {
+                  "title": "Affinity mapping",
+                  "body": "Tagged and clustered the interview highlights in Dovetail to find patterns across sessions."
+                },
+                {
+                  "title": "Competitive analysis",
+                  "body": "Compared LinkedIn, VMock, TealHQ, Kickresume and Rezi on what they do well and where they fall short."
+                },
+                {
+                  "title": "Task analysis and journey mapping",
+                  "body": "Broke the job search into five core activities and mapped where students lost time, confidence and context."
+                }
+              ]
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Interview highlights tagged in Dovetail, then counted by theme to see which problems came up most.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-research-tags.webp",
+                    "alt": "Dovetail tag board with columns for tasks, cognitive load, trust and missed opportunities, each holding the tags applied to interview highlights.",
+                    "label": "Tagging highlights",
+                    "width": 1028,
+                    "height": 439
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-research-themes.webp",
+                    "alt": "Dovetail bar chart counting highlights per tag. Job searching has the most, followed by skill development and application tracking.",
+                    "label": "Highlights by theme",
+                    "width": 1028,
+                    "height": 437
+                  }
+                ]
+              }
+            },
+            {
+              "type": "table",
+              "caption": "What students told me, and what it meant for the design",
+              "columns": [
+                "Finding",
+                "What I heard",
+                "What it meant"
+              ],
+              "rows": [
+                [
+                  "Visa sponsorship is invisible",
+                  "“I waste hours applying to jobs that don’t sponsor visas—there’s no way to know upfront.”",
+                  "Sponsorship as a primary filter, and visible on every job"
+                ],
+                [
+                  "Tools are fragmented",
+                  "“I use Resume.co for resumes, LinkedIn for jobs, Pramp for interviews, and Excel for tracking—it’s exhausting.”",
+                  "One platform that keeps context across tasks"
+                ],
+                [
+                  "AI isn’t trusted",
+                  "“ChatGPT gives me suggestions, but I don’t know if they’re actually good or just generic.”",
+                  "Every suggestion shows its reasoning and can be edited or dismissed"
+                ],
+                [
+                  "Paywalls break trust",
+                  "“I spent 30 minutes building a resume in Resume.co, then hit a $95 paywall to download it.”",
+                  "Clear pricing, no surprise costs"
+                ],
+                [
+                  "Interview prep is generic",
+                  "“I practice with generic questions, but I need company-specific scenarios for my target roles.”",
+                  "Practice tailored to the company and the role"
+                ],
+                [
+                  "Tracking is manual",
+                  "“I lose track of where I applied and what stage I’m in—I need a visual system.”",
+                  "A visual pipeline that updates as students work"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Where existing tools fell short",
+              "columns": [
+                "Platform",
+                "Strength",
+                "Gap"
+              ],
+              "rows": [
+                [
+                  "VMock",
+                  "Strong ATS scoring and resume feedback",
+                  "Expensive, and resume-only"
+                ],
+                [
+                  "TealHQ",
+                  "Good job tracking and a Chrome extension",
+                  "Separate tools for resumes and jobs, limited AI"
+                ],
+                [
+                  "Kickresume",
+                  "Templates and AI writing",
+                  "Paywall frustration, no job search"
+                ],
+                [
+                  "LinkedIn",
+                  "A huge job database and networking",
+                  "No visa filters, a lot of noise"
+                ],
+                [
+                  "Rezi",
+                  "ATS optimization",
+                  "Generic suggestions, no interview prep"
+                ]
+              ]
+            },
+            {
+              "type": "text",
+              "body": "No single tool covered all five tasks, and none explained why its AI suggested what it did. That gap became the product: integration, transparent reasoning, and context that carries from one task to the next."
+            }
+          ]
+        },
+        {
+          "id": "people",
+          "label": "People",
+          "title": "Two personas, one shared constraint",
+          "blocks": [
+            {
+              "type": "principles",
+              "items": [
+                {
+                  "title": "Leo, the efficiency seeker",
+                  "body": "An international data science student balancing thesis research with applications. Comfortable with AI, short on time, and unsure his communication style lands in U.S. interviews."
+                },
+                {
+                  "title": "Riya, the career switcher",
+                  "body": "An international student moving into business analytics from a non-technical background. Curious about AI but cautious, and wants to know *why* a change makes her resume stronger."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "Both need visa sponsorship and organized tracking. Where they differ, in confidence and in comfort with AI, decided how much the product explains and how much control it hands back."
+            }
+          ]
+        },
+        {
+          "id": "goals",
+          "label": "Goals",
+          "title": "Five goals the design had to meet",
+          "blocks": [
+            {
+              "type": "principles",
+              "items": [
+                {
+                  "title": "One connected experience",
+                  "body": "Link all five career tasks so students stop paying the cost of switching between tools."
+                },
+                {
+                  "title": "Transparent AI",
+                  "body": "Show the reasoning behind every recommendation, so students can judge it."
+                },
+                {
+                  "title": "Visa sponsorship first",
+                  "body": "Make sponsorship a primary filter, never an afterthought."
+                },
+                {
+                  "title": "Context that carries",
+                  "body": "What students enter once informs the rest: resume data shapes job matching and interview prep."
+                },
+                {
+                  "title": "Accessible and inclusive",
+                  "body": "Design for a range of technical skill and international backgrounds, to WCAG AA."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "structure",
+          "label": "Structure",
+          "title": "A hub and five tasks that hand off to each other",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I organized the platform around tasks rather than a fixed sequence, because the journey maps showed students moving back and forth between them. A dashboard links to the five core tasks, and contextual shortcuts carry work across, like saving a job straight to the tracker or tailoring a resume for a specific posting."
+            },
+            {
+              "type": "table",
+              "caption": "How the platform is organized",
+              "columns": [
+                "Area",
+                "What it holds"
+              ],
+              "rows": [
+                [
+                  "Dashboard",
+                  "Entry points to every task, with quick stats"
+                ],
+                [
+                  "Resume builder",
+                  "AI-powered editor, ATS score analysis, templates"
+                ],
+                [
+                  "Job search",
+                  "Visa, location and role filters, AI job matching, saved searches"
+                ],
+                [
+                  "Interview prep",
+                  "Company-specific questions, an AI mock interviewer, feedback analysis"
+                ],
+                [
+                  "Skill development",
+                  "Skills gap analysis, learning paths, a resource library"
+                ],
+                [
+                  "Application tracker",
+                  "A visual pipeline, deadline reminders, status updates"
+                ]
+              ]
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Early wireframes for the resume list, resume editor, job search and application tracker, used in the first walkthroughs.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-wire-resumes.webp",
+                    "alt": "Wireframe of My Resumes: a large tile for creating a new resume next to two saved resumes, each with a match score.",
+                    "label": "My resumes",
+                    "width": 646,
+                    "height": 400
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-wire-editor.webp",
+                    "alt": "Wireframe of the resume editor: a section list on the left, experience, education and skills fields in the middle, and an ATS score of 65% with suggestions on the right.",
+                    "label": "Resume editor",
+                    "width": 646,
+                    "height": 400
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-wire-jobs.webp",
+                    "alt": "Wireframe of job search: a filter sidebar with a visa sponsorship toggle, location, work location and salary range, beside a grid of job cards.",
+                    "label": "Job search",
+                    "width": 646,
+                    "height": 400
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-wire-tracker.webp",
+                    "alt": "Wireframe of the application tracker: summary numbers above a Kanban board with Applied, Screening, Interview, Offer and Rejected columns.",
+                    "label": "Application tracker",
+                    "width": 646,
+                    "height": 400
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "evaluation",
+          "label": "Evaluation",
+          "title": "Three rounds of evaluation before I trusted the design",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "title": "Cognitive walkthroughs",
+                  "body": "Two students, one domestic and one international, worked through five tasks on the wireframe prototype in 40 to 50 minute think-aloud sessions, and an AI-assisted walkthrough ran the same tasks systematically. Together they surfaced ==16 actionable issues==, 7 of them high priority."
+                },
+                {
+                  "title": "Heuristic evaluation",
+                  "body": "I reviewed every screen against Nielsen’s 10 heuristics, with an AI-assisted review alongside. They found different things: I caught gaps between features, and the AI pass caught inconsistencies across screens. ==20 issues== in total, 3 of them critical."
+                },
+                {
+                  "title": "Moderated usability testing",
+                  "body": "Five graduate students, three international and two domestic, completed five tasks over Zoom in 25 to 30 minute sessions, thinking aloud. I measured task completion, time on task, errors, usefulness ratings and SUS."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "The heuristics broken most often were visibility of system status, help and documentation, and aesthetic and minimalist design."
+            }
+          ]
+        },
+        {
+          "id": "iteration",
+          "label": "Iteration",
+          "title": "What changed, and what each change did",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I prioritized fixes by severity, by how often an issue came up, and by its effect on the task, and tied every change to a finding."
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Sponsorship was a toggle in the sidebar and a line of description text. It became a highlighted filter above the results and a status on every job. Sponsorship status is now visible at a glance.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-visa-before.webp",
+                    "alt": "Wireframe of job search with a visa sponsorship toggle in the filter sidebar and a grid of job cards.",
+                    "label": "Before",
+                    "width": 610,
+                    "height": 378
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-visa-after.webp",
+                    "alt": "Redesigned job search with a highlighted visa sponsorship filter above the results list.",
+                    "label": "After",
+                    "width": 610,
+                    "height": 378
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Logging an application took five steps. A quick-add button now opens a short form with just the essentials.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-tracker-before.webp",
+                    "alt": "Wireframe of the application tracker as a Kanban board from Applied to Offer.",
+                    "label": "Before",
+                    "width": 706,
+                    "height": 437
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-tracker-after.webp",
+                    "alt": "Redesigned tracker with application statistics at the top and a prominent Quick add button.",
+                    "label": "After",
+                    "width": 653,
+                    "height": 406
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Students couldn’t tell what the keyword colors meant, and the AI suggestions went unnoticed. A legend, tooltips showing how often each keyword appears, and a clearer suggestions panel made the priorities readable.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-keywords-before.webp",
+                    "alt": "Wireframe of the resume editor with an ATS score of 65% and suggestions in a side panel.",
+                    "label": "Before",
+                    "width": 706,
+                    "height": 437
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-keywords-after.webp",
+                    "alt": "Redesigned resume analysis with extracted keywords color-coded by priority, a legend, highlighted suggestions in the resume, and an ATS score of 87%.",
+                    "label": "After",
+                    "width": 703,
+                    "height": 435
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Both walkthrough participants struggled with the skills radar: ten skills and no legend. It now shows the top five with a persistent legend that marks the biggest gap, and expands on request.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/advisor-ai-skills-before.webp",
+                    "alt": "Radar chart of ten skills with current and target outlines and no legend.",
+                    "label": "Before",
+                    "width": 587,
+                    "height": 500
+                  },
+                  {
+                    "src": "assets/work/advisor-ai-skills-after.webp",
+                    "alt": "Redesigned skills overview for a Data Analyst target role: a radar chart of five skills with a legend for your level, the target level and the priority gap, and a link to show all skills.",
+                    "label": "After",
+                    "width": 598,
+                    "height": 753
+                  }
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "body": "I also replaced an open text field for behavioral answers with a guided Situation, Task, Action, Result template, and made it clear that the AI detects each part as students write."
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "label": "Results",
+          "title": "Tested with five students",
+          "blocks": [
+            {
+              "type": "metrics",
+              "items": [
+                {
+                  "value": "3.2",
+                  "label": "minutes per task, on average"
+                },
+                {
+                  "value": "4.0–4.5",
+                  "label": "usefulness rating out of 5, by task"
+                }
+              ]
+            },
+            {
+              "type": "principles",
+              "title": "What participants said",
+              "items": [
+                {
+                  "title": "International student, data science",
+                  "body": "“The visa badge is genius—I wish LinkedIn had this.”"
+                },
+                {
+                  "title": "International student, business analytics",
+                  "body": "“The AI explanations built my confidence—I knew *why* I was making changes.”"
+                },
+                {
+                  "title": "Career switcher, product management",
+                  "body": "“End-to-end flow felt coherent—resume to job search to interview prep just flows.”"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "Five participants is a small sample, so I read these numbers as a strong signal rather than proof. **What still needed work:** participants wanted to edit several applications at once, a clearer sign of which resume version is active, and interview feedback beyond the STAR format."
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "label": "Reflection",
+          "title": "What I’d do next, and what I learned",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "**Next.** Test with 10 to 15 students, build a working MVP, and pilot it with Northeastern’s career services."
+            },
+            {
+              "type": "text",
+              "body": "**AI-assisted evaluation complements judgment; it doesn’t replace it.** The AI pass was systematic about consistency. People showed me where the workflow broke between tasks."
+            },
+            {
+              "type": "text",
+              "body": "**International students’ needs aren’t an edge case.** I first treated visa sponsorship as an advanced filter. Research showed it was the first thing most users needed."
+            },
+            {
+              "type": "text",
+              "body": "[Open the Figma prototype](https://www.figma.com/proto/Hs268H4pvbqCgwYktyLFfc/UX-Project-Advisor.Ai?node-id=240-3644&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=240%3A3644)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nike-nft-concept",
+      "group": "independent",
+      "title": "Nike app × NFTs: the competitive research behind a concept",
+      "teaser": "My part of a five-person academic concept: a competitive analysis of Adidas and Gucci that shaped how the team introduced NFTs to people who had never bought one.",
+      "tags": [
+        "Competitive analysis",
+        "Market research",
+        "Concept design"
+      ],
+      "cover": "flow",
+      "coverImage": "assets/work/covers/nike-nft.webp",
+      "summary": "Five of us imagined NFTs inside the Nike app: exclusive digital sneakers, proof that a limited pair is yours, and one place for physical and digital collections, in more languages. My part was the competitive analysis and market research. I studied how Adidas and Gucci handled NFTs, and the gaps I found set two of the team’s priorities: explain NFTs to people who have never bought one, and keep everyday shopping familiar.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Competitive analysis and market research"
+        },
+        {
+          "label": "Team",
+          "value": "Five designers and researchers"
+        },
+        {
+          "label": "Duration",
+          "value": "7 weeks"
+        },
+        {
+          "label": "Context",
+          "value": "Academic concept, not affiliated with Nike"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, Moqups"
+        }
+      ],
+      "outcomes": [],
+      "sections": [
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "A concept for bringing NFTs into the Nike app",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "In a seven-week academic project, our team redesigned the Nike mobile app around NFTs. We designed for tech-savvy shoppers aged 18 to 40, collectors who follow Nike for its product designs, and a global audience the app served poorly in languages other than English."
+            },
+            {
+              "type": "text",
+              "body": "**My role.** I owned the competitive analysis and market research. Santosh Krishnan led wireframing and prioritization, Dipti Shevalekar the information architecture and layout, Ajay Devmane the style guide and visual design, and Rethu Fernando the SWOT analysis and personas."
+            }
+          ]
+        },
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "A store, but no reason to come back",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The app offered little beyond shopping, did nothing with digital collectibles, and left out people who don’t read English well. NFTs added a harder problem: the people we designed for were curious, but unfamiliar with how NFTs work and wary of security and ownership."
+            },
+            {
+              "type": "callout",
+              "title": "The question",
+              "body": "How might Nike offer exclusive digital sneakers without making the app harder for everyone who just wants to buy shoes?"
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "label": "My research",
+          "title": "What Adidas and Gucci got right, and wrong",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I compared Nike’s app with Adidas and Gucci, two brands already selling NFTs, on features, visual design, engagement and how each introduced NFTs to its customers."
+            },
+            {
+              "type": "table",
+              "caption": "Competitive analysis",
+              "columns": [
+                "Brand",
+                "Strengths",
+                "Weaknesses",
+                "What we took from it"
+              ],
+              "rows": [
+                [
+                  "Nike (baseline)",
+                  "Strong brand recognition and a loyal customer base",
+                  "No NFT functionality, and a dated digital experience",
+                  "Room to be first with a complete NFT experience"
+                ],
+                [
+                  "Adidas",
+                  "Futuristic visuals, strong community engagement, smooth wallet integration",
+                  "Overwhelming for casual users, with a thin traditional shopping experience",
+                  "Balance NFT and everyday shopping, with optional tutorials"
+                ],
+                [
+                  "Gucci",
+                  "Luxury aesthetics, easy NFT integration, personalized recommendations",
+                  "Complex navigation that assumes NFT knowledge",
+                  "Keep navigation simple and explain NFTs in plain language"
+                ]
+              ]
+            },
+            {
+              "type": "text",
+              "body": "**How it shaped the design.** Both competitors assumed their customers already understood NFTs. That pointed the team at the riskiest moment, someone’s first NFT purchase, and at a rule for the whole app: NFTs one tap away, never in the way of buying shoes."
+            },
+            {
+              "type": "principles",
+              "title": "Who we designed for (personas by Rethu Fernando)",
+              "items": [
+                {
+                  "title": "Nick, the reseller",
+                  "body": "A digital marketing specialist building a side business selling digital sneakers. Wants a marketplace with clear ownership verification and tools to track an asset’s value and history."
+                },
+                {
+                  "title": "Andrew, the collector",
+                  "body": "A UI/UX designer who wants to own and show off rare designs, digital and physical. Frustrated by glitches during exclusive drops, and wants fast checkout when they happen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Design",
+          "title": "Shopping first, NFTs one tap away",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The team kept shopping in the bottom navigation, with an NFT toggle in Shop and a QR scanner for checking a pair’s authenticity, and moved store location, notifications and the cart to the top bar. Separating everyday shopping from discovery kept the familiar paths familiar."
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": false,
+              "caption": "The information architecture, by Dipti Shevalekar.",
+              "data": {
+                "src": "assets/work/nike-nft-ia.webp",
+                "alt": "Information architecture diagram showing how the homepage branches into the shopping, NFT, profile and checkout flows.",
+                "width": 1231,
+                "height": 706
+              }
+            },
+            {
+              "type": "table",
+              "caption": "How the team prioritized, using MoSCoW",
+              "columns": [
+                "Priority",
+                "Feature",
+                "Why"
+              ],
+              "rows": [
+                [
+                  "Must have",
+                  "NFT onboarding that guides first-time buyers",
+                  "Without it, people unfamiliar with NFTs give up"
+                ],
+                [
+                  "Must have",
+                  "Browsing and buying exclusive Nike NFTs in the app",
+                  "The core difference from a standard store"
+                ],
+                [
+                  "Should have",
+                  "Personalized content and recommendations",
+                  "Adds engagement, but the app works without it"
+                ],
+                [
+                  "Should have",
+                  "Multi-language support",
+                  "Important for global reach; English is enough for a first version"
+                ],
+                [
+                  "Could have",
+                  "Sharing a collection on social media",
+                  "Helps reach, but isn’t essential"
+                ],
+                [
+                  "Won’t have",
+                  "AR virtual try-on",
+                  "Too resource-intensive for this scope"
+                ]
+              ]
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": false,
+              "caption": "Early wireframes, by Santosh Krishnan.",
+              "data": {
+                "columns": 4,
+                "columnsSmall": 2,
+                "items": [
+                  {
+                    "src": "assets/work/nike-nft-wire-profile.webp",
+                    "alt": "Low-fidelity wireframe of a profile screen.",
+                    "label": "Profile",
+                    "width": 298,
+                    "height": 556
+                  },
+                  {
+                    "src": "assets/work/nike-nft-wire-profile-2.webp",
+                    "alt": "Low-fidelity wireframe of a second profile layout with a list of rows, each with an icon placeholder.",
+                    "label": "Profile, version 2",
+                    "width": 279,
+                    "height": 553
+                  },
+                  {
+                    "src": "assets/work/nike-nft-wire-login.webp",
+                    "alt": "Low-fidelity wireframe of the login screen.",
+                    "label": "Login",
+                    "width": 292,
+                    "height": 595
+                  },
+                  {
+                    "src": "assets/work/nike-nft-wire-landing.webp",
+                    "alt": "Low-fidelity wireframe of the landing screen with a large image placeholder.",
+                    "label": "Landing",
+                    "width": 343,
+                    "height": 664
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": false,
+              "caption": "The layout spec the team built against: 22 px side margins, 25 px between components, and 320 × 46 px buttons.",
+              "data": {
+                "src": "assets/work/nike-nft-layout-spec.webp",
+                "alt": "Annotated layout spec for an iPhone 13 Pro Max screen showing the side margins, spacing between components, spacing between cards and icon sizes.",
+                "width": 717,
+                "height": 692,
+                "maxWidth": 560
+              }
+            },
+            {
+              "type": "table",
+              "caption": "The style guide, by Ajay Devmane",
+              "columns": [
+                "Token",
+                "Value",
+                "Used for"
+              ],
+              "rows": [
+                [
+                  "Nike Black",
+                  "#000000",
+                  "The main background"
+                ],
+                [
+                  "White",
+                  "#FFFFFF",
+                  "Text on dark, cards and input fields"
+                ],
+                [
+                  "Blue",
+                  "#295BA4",
+                  "Navigation links"
+                ],
+                [
+                  "Emerald",
+                  "#4B7A35",
+                  "Order tracking and success states"
+                ],
+                [
+                  "Gold",
+                  "#E1A569",
+                  "Sale badges and NFT indicators"
+                ],
+                [
+                  "Nike Red",
+                  "#B70F0B",
+                  "Critical actions and errors"
+                ],
+                [
+                  "Type scale",
+                  "48, 36, 24, 16, 14",
+                  "H1, H2, H3, body and caption sizes, in pixels"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "label": "Reflection",
+          "title": "What I’d do differently",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "**Research earns its place when it changes the plan.** The competitive analysis mattered because it pointed the team at its biggest risk: people who had never bought an NFT."
+            },
+            {
+              "type": "text",
+              "body": "**Check contrast against the real background.** On the black background, the blue used for links and the red used for errors both reach only about 3.1:1, below the 4.5:1 that text needs. I’d lighten both before anything else."
+            },
+            {
+              "type": "text",
+              "body": "**Be honest about what a concept can show.** This stayed a concept, so there are no launch numbers to report. What carries over is how to introduce an unfamiliar technology without getting in the way of what people came to do."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "finlatics-learner-journey",
+      "group": "vivma",
+      "title": "From sign-up to the simulator: the Finlatics learner journey",
+      "teaser": "Cutting account-setup drop-off by 34%, reshaping the roadmap with 25+ research sessions, and rebuilding program content for phones first.",
+      "tags": [
+        "Onboarding",
+        "User research",
+        "Mobile-first"
+      ],
+      "cover": "journey",
+      "coverImage": "assets/work/covers/finlatics-learner-journey.webp",
+      "summary": "Finlatics gives finance learners a simulated portfolio to practice with, but too many left during account setup, before they ever reached it. I treated onboarding as the start of the learning journey rather than a registration form, redesigned it with usability testing in Maze, ran a research program that changed the product’s direction, and led a mobile-first redesign of program content.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Senior Product Designer, end-to-end owner"
+        },
+        {
+          "label": "Period",
+          "value": "Sep 2021 – Aug 2023"
+        },
+        {
+          "label": "Users",
+          "value": "500+ active learners and their college partners"
+        },
+        {
+          "label": "Platform",
+          "value": "Web, mobile-responsive"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, Maze, Dovetail, Adobe XD"
+        }
+      ],
+      "outcomes": [
+        {
+          "value": "−34%",
+          "label": "drop-off at account setup"
+        },
+        {
+          "value": "+28%",
+          "label": "session duration on program content"
+        },
+        {
+          "value": "−21%",
+          "label": "bounce rate within 90 days of launch"
+        },
+        {
+          "value": "25+",
+          "label": "moderated research sessions"
+        }
+      ],
+      "sections": [
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "A practice platform for future analysts",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Finlatics supports learners in equity research, investment banking and financial markets programs. They build and manage a simulated portfolio, follow live market movement and apply what their program teaches. Many arrive through college partners, so a learner’s first hour shapes both their own progress and the partnership."
+            },
+            {
+              "type": "text",
+              "body": "I owned product design end to end: research, flows, the component library, dashboards and the review of how each release performed."
+            }
+          ]
+        },
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "Losing learners before they reached the product",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Learners who abandon during account setup never reach the product, which made onboarding the highest-leverage fix on the platform. Program content pages had a second problem: learners spent most of their time there, often on phones, and the pages weren’t designed for small screens."
+            },
+            {
+              "type": "callout",
+              "title": "The question we worked from",
+              "body": "How might we get a learner from sign-up into the simulator with as little friction as possible, and keep them engaged on any device?"
+            },
+            {
+              "type": "principles",
+              "title": "Constraints the design had to respect",
+              "items": [
+                {
+                  "title": "Less friction, same information",
+                  "body": "Account setup had to get easier without losing information the platform needed."
+                },
+                {
+                  "title": "Partners were watching",
+                  "body": "Many learners arrived through college partners, so a poor first hour affected the partnership as well as the learner."
+                },
+                {
+                  "title": "Most reading happened on phones",
+                  "body": "Learners spent most of their time on program content pages, often on phones, and those pages weren’t designed for small screens."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "label": "Research",
+          "title": "25+ sessions, turned into decisions",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I ran ==25+ moderated research sessions== with students and college partners and synthesized the findings in Dovetail. The patterns were strong enough to change direction: they became ==three major product pivots== that expanded institutional B2B partnerships."
+            },
+            {
+              "type": "visual",
+              "kind": "flow",
+              "caption": "How research moved from sessions to roadmap decisions.",
+              "data": {
+                "steps": [
+                  {
+                    "title": "Moderated sessions",
+                    "note": "25+ with students and college partners"
+                  },
+                  {
+                    "title": "Tag and code",
+                    "note": "Highlights and tags in Dovetail"
+                  },
+                  {
+                    "title": "Cluster",
+                    "note": "Affinity mapping into themes"
+                  },
+                  {
+                    "title": "Frame insights",
+                    "note": "Each backed by quotes and observed behavior"
+                  },
+                  {
+                    "title": "Decide",
+                    "note": "3 major product pivots",
+                    "highlight": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "decisions",
+          "label": "Decisions",
+          "title": "Decisions that shaped the journey",
+          "blocks": [
+            {
+              "type": "decisions",
+              "items": [
+                {
+                  "decision": "Treat onboarding as the start of learning",
+                  "why": "Setup is a learner’s first experience of the platform, so I designed it to move people toward the simulator, not just to collect their details."
+                },
+                {
+                  "decision": "Let testing decide what changed",
+                  "why": "I tested the flow in Maze to see where people hesitated or failed during account setup, and iterated on that evidence instead of visual judgment."
+                },
+                {
+                  "decision": "Design content for phones first",
+                  "why": "Program content was where learners spent their time, so hierarchy and reading flow were designed for small screens first, then scaled up to desktop."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "onboarding",
+          "label": "Onboarding",
+          "title": "Redesigning account setup with evidence",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I redesigned the onboarding flow in Figma and tested it in Maze to see where people hesitated or failed during account setup. Each round targeted those steps, and evidence from testing, not opinion, decided what changed."
+            },
+            {
+              "type": "visual",
+              "kind": "flow",
+              "caption": "The learner journey. Account setup was where learners left.",
+              "data": {
+                "steps": [
+                  {
+                    "title": "Discover",
+                    "note": "From a program or college link"
+                  },
+                  {
+                    "title": "Sign up",
+                    "note": "Create an account"
+                  },
+                  {
+                    "title": "Account setup",
+                    "note": "Where learners dropped off",
+                    "highlight": true
+                  },
+                  {
+                    "title": "Enter the simulator",
+                    "note": "Build a first portfolio"
+                  },
+                  {
+                    "title": "Learn and practice",
+                    "note": "Lessons alongside the portfolio"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "The onboarding, recreated for this portfolio: pick a track, create the account, then review and confirm, with errors explained next to each field.",
+              "data": {
+                "columns": 4,
+                "columnsSmall": 2,
+                "items": [
+                  {
+                    "src": "assets/work/finlatics-onboarding-1-choose-program.webp",
+                    "alt": "Step 1 of 3. Pick a learning track: Equity Research (selected), Investment Banking or Financial Markets, with a Continue button.",
+                    "label": "Choose a program",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-onboarding-2-account-setup.webp",
+                    "alt": "Step 2 of 3. Account form with full name, college email and password, and a note that the Equity Research program starts with ₹10,00,000 in virtual capital.",
+                    "label": "Create the account",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-onboarding-3-validation-errors.webp",
+                    "alt": "The same form with an error under each field: enter your full name, enter a valid college email address, and choose a password with at least 8 characters.",
+                    "label": "Errors in place",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-onboarding-4-review.webp",
+                    "alt": "Step 3 of 3. A review of name, email, program and starting capital, with Create account and Back buttons.",
+                    "label": "Review and confirm",
+                    "width": 390,
+                    "height": 844
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "mobile",
+          "label": "Mobile-first content",
+          "title": "Program content, designed for phones first",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Program content pages were where learners spent their time, so I led a mobile-first redesign in Adobe XD: hierarchy and reading flow designed for small screens first, then scaled up to desktop."
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "Program content, designed for phones first: progress at the top, the next lesson one tap away, and a clear finish line.",
+              "data": {
+                "columns": 4,
+                "columnsSmall": 2,
+                "items": [
+                  {
+                    "src": "assets/work/finlatics-course-1-overview.webp",
+                    "alt": "Course overview for Equity Research Fundamentals, module 2 of 6, one of three lessons complete, with a Continue lesson card and the module’s lesson list.",
+                    "label": "Module overview",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-course-2-lesson.webp",
+                    "alt": "Lesson 2.2, Balance sheet ratios: a short summary of the current, quick and debt-to-equity ratios, with Mark complete and Return to course buttons.",
+                    "label": "Lesson",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-course-3-progress.webp",
+                    "alt": "The course overview after the lesson, now two of three lessons complete, with the next lesson queued.",
+                    "label": "Progress updates",
+                    "width": 390,
+                    "height": 844
+                  },
+                  {
+                    "src": "assets/work/finlatics-course-4-complete.webp",
+                    "alt": "A module-complete message with all three lessons checked and a Review this module button.",
+                    "label": "Module complete",
+                    "width": 390,
+                    "height": 844
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "compare",
+              "caption": "Engagement within 90 days of launch, indexed to the previous pages.",
+              "data": {
+                "beforeLabel": "Previous pages",
+                "afterLabel": "Mobile-first redesign",
+                "items": [
+                  {
+                    "label": "Session duration",
+                    "before": 100,
+                    "after": 128,
+                    "unit": "index",
+                    "display": "+28%"
+                  },
+                  {
+                    "label": "Bounce rate",
+                    "before": 100,
+                    "after": 79,
+                    "unit": "index",
+                    "display": "−21%"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "label": "Validation",
+          "title": "What changed",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Drop-off at account setup fell ==34%==. On program content, sessions grew ==28%== longer and bounce fell ==21%== within 90 days of launch. The research program’s three pivots expanded the platform’s institutional B2B partnerships."
+            },
+            {
+              "type": "text",
+              "body": "**What I took forward.** Research only matters when it changes decisions. I plan every study around the decision it should inform."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "slug": "portfolio-simulation-dashboards",
+      "group": "vivma",
+      "title": "Real-time portfolio simulation that learners can read",
+      "teaser": "Interactive dashboards for a live BSE 500 simulation, with chart interactions and tooltip behavior specified state by state for engineering.",
+      "tags": [
+        "Data visualization",
+        "Interaction design",
+        "Dev handoff"
+      ],
+      "cover": "chart",
+      "coverImage": "assets/work/covers/finlatics-dashboards.webp",
+      "summary": "Finlatics learners manage simulated portfolios against live movement in the BSE 500. Real-time data is hard to read unless chart behavior is carefully defined, so I designed the dashboards with engineering, specifying chart interaction patterns and tooltip behaviors and delivering them as Zeplin specs.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Senior Product Designer"
+        },
+        {
+          "label": "Period",
+          "value": "Sep 2021 – Aug 2023"
+        },
+        {
+          "label": "Data",
+          "value": "Real-time BSE 500 portfolio simulation"
+        },
+        {
+          "label": "Partners",
+          "value": "Engineering"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, Zeplin"
+        }
+      ],
+      "outcomes": [],
+      "sections": [
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Learning markets by managing a portfolio",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The BSE 500 covers a broad slice of the companies listed on India’s Bombay Stock Exchange. On Finlatics, learners build portfolios from that universe and watch them move in real time, which turns coursework into decisions with visible consequences."
+            }
+          ]
+        },
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "Charts that move while you read them",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Live data is hard to read unless chart behavior is carefully defined. A tooltip that jumps when a new price arrives, a crosshair that lags behind the pointer, or an axis that rescales mid-glance can break a learner’s read of what just happened. These learners were still building market intuition, so the dashboards had to be calmer than the market."
+            }
+          ]
+        },
+        {
+          "id": "approach",
+          "label": "Approach",
+          "title": "Interaction first, visuals second",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "title": "Define the questions",
+                  "body": "What a learner needs from each chart: how am I doing, against what, and since when."
+                },
+                {
+                  "title": "Specify the interaction model",
+                  "body": "Hover, focus, touch and keyboard behavior for every chart, before polishing visuals."
+                },
+                {
+                  "title": "Design every state",
+                  "body": "Loading, live updates and empty portfolios, not just the happy path."
+                },
+                {
+                  "title": "Work through live updates with engineering",
+                  "body": "How charts and tooltips behave as new data arrives, defined together before build."
+                },
+                {
+                  "title": "Hand off as specs",
+                  "body": "Annotated Zeplin specs for chart interaction patterns and tooltip behaviors."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "spec",
+          "label": "Interaction spec",
+          "title": "The chart, specified",
+          "blocks": [
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": true,
+              "caption": "The dashboard at its default 3-month range: summary metrics, the portfolio against its benchmark, and holdings.",
+              "data": {
+                "src": "assets/work/finlatics-dashboard-3m.webp",
+                "alt": "Desktop portfolio dashboard with four summary cards (portfolio value ₹11,23,780, return versus benchmark +3.2%, 6 open positions and ₹1,82,000 in cash), a performance chart comparing the portfolio with its benchmark over 3 months with a tooltip on the latest point, and a holdings list.",
+                "width": 1440,
+                "height": 1263,
+                "frame": "plain"
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "Changing the range or the sort order updates the view without moving anything else.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/finlatics-dashboard-1y.webp",
+                    "alt": "The same dashboard with the 1-year range selected and the tooltip on the latest point.",
+                    "label": "1-year range",
+                    "width": 1440,
+                    "height": 1263
+                  },
+                  {
+                    "src": "assets/work/finlatics-dashboard-sorted.webp",
+                    "alt": "Holdings sorted by performance, with the strongest position first.",
+                    "label": "Sorted by performance",
+                    "width": 1440,
+                    "height": 1263
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": true,
+              "caption": "Selecting a holding opens its details beside the dashboard, so the chart and the rest of the list stay in view.",
+              "data": {
+                "src": "assets/work/finlatics-dashboard-holding-detail.webp",
+                "alt": "Dashboard with HDFC Bank selected. A side panel lists 120 shares held, an average cost of ₹1,505, a current price of ₹1,652, a market value of ₹1,98,240 and a total gain of ₹17,640 (+9.8%), with Buy more and Sell buttons.",
+                "width": 1440,
+                "height": 1263
+              }
+            },
+            {
+              "type": "table",
+              "caption": "The kinds of behavior the spec defined, recreated for this portfolio",
+              "columns": [
+                "Interaction",
+                "Behavior"
+              ],
+              "rows": [
+                [
+                  "Pointer",
+                  "The crosshair follows the pointer and snaps to the nearest point. The tooltip sits beside it, never under the cursor."
+                ],
+                [
+                  "Keyboard",
+                  "Arrow keys step through points. Home and End jump to the first and last."
+                ],
+                [
+                  "Touch",
+                  "Press and hold to scrub. Lifting keeps the last value pinned until the next tap."
+                ],
+                [
+                  "Live update",
+                  "New points append on the right. An open tooltip stays on its point instead of jumping."
+                ],
+                [
+                  "Stale data",
+                  "If updates pause, the chart labels the latest time so learners know what they’re looking at."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "states",
+          "label": "States",
+          "title": "Every state, not just the happy path",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Live data means the dashboard spends real time loading, and every new learner starts with an empty portfolio. I designed both states alongside the default, plus a single-column layout for phones where a holding’s details open full-screen instead of in a side panel."
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "Loading and an empty portfolio, designed alongside the default.",
+              "data": {
+                "columns": 2,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/finlatics-dashboard-loading.webp",
+                    "alt": "Loading state with skeleton placeholders for the summary cards, chart and holdings.",
+                    "label": "Loading",
+                    "width": 1440,
+                    "height": 955
+                  },
+                  {
+                    "src": "assets/work/finlatics-dashboard-empty.webp",
+                    "alt": "Empty state for a new account: ₹10,00,000 in cash, no positions yet, and a prompt to place a first demo trade.",
+                    "label": "Empty portfolio",
+                    "width": 1440,
+                    "height": 529
+                  }
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": true,
+              "caption": "On phones, the summary cards, chart and holdings stack into one column.",
+              "data": {
+                "src": "assets/work/finlatics-dashboard-mobile.webp",
+                "alt": "Mobile layout with the four summary cards stacked above the performance chart and the first three holdings.",
+                "width": 390,
+                "height": 1136,
+                "frame": "phone",
+                "maxWidth": 390
+              }
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "label": "Impact",
+          "title": "What changed",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Engineering built against a shared interaction spec instead of interpreting static mockups, and the dashboards were designed to stay readable while the data moved."
+            },
+            {
+              "type": "text",
+              "body": "**What I took forward.** For data products, the interaction model is the design. I specify behavior and states before I polish a single chart."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "slug": "finlatics-design-system",
+      "group": "vivma",
+      "title": "A 60-component design system for a team moving fast",
+      "teaser": "A Figma component library for web and mobile-responsive views that cut new designers’ ramp-up time by 40%.",
+      "tags": [
+        "Design systems",
+        "Figma",
+        "Team enablement"
+      ],
+      "cover": "system",
+      "summary": "Without shared components, new designers rebuilt patterns from scratch and the product drifted. I built and maintained a Figma component library of 60+ components for web and mobile-responsive views, which cut designer ramp-up time by 40% for new team members.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Senior Product Designer, system owner"
+        },
+        {
+          "label": "Period",
+          "value": "Sep 2021 – Aug 2023"
+        },
+        {
+          "label": "Scope",
+          "value": "60+ components for web and mobile-responsive views"
+        },
+        {
+          "label": "Tools",
+          "value": "Figma, Zeplin"
+        }
+      ],
+      "outcomes": [
+        {
+          "value": "60+",
+          "label": "components, built and maintained"
+        },
+        {
+          "value": "−40%",
+          "label": "ramp-up time for new designers"
+        }
+      ],
+      "sections": [
+        {
+          "id": "problem",
+          "label": "Problem",
+          "title": "Every new designer started from zero",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Without a shared library, each designer rebuilt buttons, inputs, cards and chart containers in their own way. Small differences piled up into a product that felt inconsistent, and new team members had to learn the product’s patterns by digging through old files."
+            }
+          ]
+        },
+        {
+          "id": "approach",
+          "label": "Approach",
+          "title": "Building the system in layers",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "title": "Audit",
+                  "body": "Inventory the patterns already in the product and the variations that had crept in."
+                },
+                {
+                  "title": "Foundations",
+                  "body": "Color, type, spacing and elevation as named tokens."
+                },
+                {
+                  "title": "Core components",
+                  "body": "Buttons, inputs, selects, navigation and feedback, with every state designed."
+                },
+                {
+                  "title": "Product patterns",
+                  "body": "Data cards, chart containers and learning layouts built from the core."
+                },
+                {
+                  "title": "Document and maintain",
+                  "body": "Usage rules alongside each component, and updates to the library as the product changed."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "foundations",
+          "label": "Foundations",
+          "title": "Foundations everything is built from",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Color, type, spacing and corner radius live as named tokens. Each color’s contrast is measured before it’s allowed into a component, so accessibility starts at the foundation."
+            },
+            {
+              "type": "text",
+              "body": "The sheets below are a recreation built for this portfolio from the Finlatics screens, not the original library."
+            },
+            {
+              "type": "visual",
+              "kind": "system",
+              "illustrative": true,
+              "caption": "Foundations, with each color’s contrast measured against WCAG 2.1 AA. Colors are taken from the Finlatics screens.",
+              "data": {
+                "section": "foundations"
+              }
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "label": "Components",
+          "title": "Core components, with every state",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Each component shipped with its states, responsive behavior and the tokens it uses, so a designer could drop it into a file and trust it."
+            },
+            {
+              "type": "visual",
+              "kind": "system",
+              "illustrative": true,
+              "caption": "Core components in every state, with the accessibility checks they pass.",
+              "data": {
+                "section": "components"
+              }
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "label": "Patterns",
+          "title": "Product patterns built from the core",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Larger patterns for the simulator and the courses were assembled from the core components, which kept the dashboard and the learning pages consistent."
+            },
+            {
+              "type": "visual",
+              "kind": "system",
+              "illustrative": true,
+              "caption": "Product patterns assembled from the core: metric cards, chart controls, holdings, lessons, and loading and empty states.",
+              "data": {
+                "section": "patterns"
+              }
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "label": "Impact",
+          "title": "What changed",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "New designers ramped up ==40% faster==, working from 60+ maintained components instead of old files. The same library carried the onboarding redesign and the simulation dashboards."
+            },
+            {
+              "type": "text",
+              "body": "**What I took forward.** A design system is an onboarding tool as much as a consistency tool. The same thinking shapes my work on standards in an enterprise design system today."
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ---------- Adons Softech ---------- */
+    {
+      slug: "b2b-saas-navigation",
+      group: "adons",
+      title: "Halving navigation depth in a B2B SaaS product",
+      teaser: "Journey maps and a restructured sitemap that brought core workflows from 4 clicks to 2 and lifted task completion by 31%.",
+      tags: ["Information architecture", "Journey mapping", "Usability testing"],
+      cover: "tree",
+      summary: "Core workflows in a B2B SaaS client’s product were buried four levels deep. I created user journey maps and IA sitemaps that restructured the product around its most important tasks, reducing navigation depth from 4 clicks to 2 and improving task completion by 31% in usability testing.",
+      meta: [
+        { label: "Role", value: "UI/UX Designer" },
+        { label: "Period", value: "May 2019 – Aug 2021" },
+        { label: "Client", value: "Early-stage B2B SaaS company" },
+        { label: "Methods", value: "Journey mapping, IA sitemaps, usability testing" },
+        { label: "Tools", value: "Sketch, InVision" }
+      ],
+      outcomes: [
+        { value: "4 → 2", label: "clicks to reach core workflows" },
+        { value: "+31%", label: "task completion in usability testing" }
+      ],
+      sections: [
+        {
+          id: "context", label: "Context", title: "Studio work for early-stage startups",
+          blocks: [
+            { type: "text", body: "At Adons Softech I designed responsive web products for six early-stage startups across e-commerce and SaaS, delivering wireframes, high-fidelity prototypes and dev-ready assets. This B2B SaaS client had grown its feature set faster than its navigation." }
+          ]
+        },
+        {
+          id: "problem", label: "Problem", title: "The most important things were the hardest to reach",
+          blocks: [
+            { type: "text", body: "Deep navigation was making core workflows harder to finish. Users had to remember where things lived several levels down, and every extra level was another chance to take a wrong turn." }
+          ]
+        },
+        {
+          id: "approach", label: "Approach", title: "Map the journeys, then the structure",
+          blocks: [
+            {
+              type: "steps",
+              items: [
+                { title: "Map core journeys", body: "Document how users actually moved through the product to finish their most important tasks." },
+                { title: "Sitemap the current IA", body: "Lay out every level to see where core tasks were buried." },
+                { title: "Restructure around tasks", body: "Bring core workflows to the top two levels and group the rest by what users were trying to do." },
+                { title: "Prototype", body: "Build the new navigation in Sketch and InVision." },
+                { title: "Test", body: "Run usability tests on core tasks with the new structure." }
+              ]
+            },
+            {
+              type: "visual", kind: "tree", caption: "The same core task before and after the restructure. Labels are illustrative.",
+              data: {
+                before: { title: "Before", path: ["Dashboard", "Workspace", "Settings", "Data", "Export report"] },
+                after: { title: "After", path: ["Dashboard", "Reports", "Export report"] }
+              }
+            }
+          ]
+        },
+        {
+          id: "impact", label: "Impact", title: "What changed",
+          blocks: [
+            { type: "text", body: "Core workflows went from ==4 clicks to 2==, and task completion improved by ==31%== in usability testing." },
+            { type: "text", body: "**Alongside this work.** I created brand identities and icon sets for three clients, each with a full style guide covering typography, color systems, spacing tokens and component usage rules." },
+            { type: "text", body: "**What I took forward.** The best navigation is the kind users don’t have to think about. I start IA work by mapping journeys, not menus." }
+          ]
+        }
+      ]
+    }
+  ]
+};
