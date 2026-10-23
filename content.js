@@ -34,7 +34,7 @@ window.PORTFOLIO = {
   hero: {
     intro: "AI Product Designer at UnitedHealth Group, based in Boston",
     headline: "I design AI products that finish real tasks, show their reasoning, and work for everyone.",
-    summary: "For 5+ years I’ve made complex workflows understandable and actionable across healthcare technology, fintech education and B2B SaaS: conversational AI, data-heavy interfaces, information architecture, research-led product changes and the design systems behind them.",
+    summary: "5+ years designing for healthcare technology, fintech education and B2B SaaS.",
     evidenceTitle: "What the work shows",
     evidenceHint: "Open a claim to see the case studies behind it.",
     // Each claim lists case studies by slug (see caseStudies below).
@@ -83,6 +83,9 @@ window.PORTFOLIO = {
      {count} in the intro is replaced with the number of case studies. */
   work: {
     title: "Selected work",
+    // The four cards on the home page, in order. Use a case study’s slug, or "uhg" for the protected UnitedHealth Group card.
+    featured: ["uhg", "advisor-ai", "finlatics-learner-journey", "portfolio-simulation-dashboards"],
+    allTitle: "All work",
     intro: "{count} case studies across healthcare, fintech education, career tools and SaaS. My current work at UnitedHealth Group is shared privately to respect confidentiality.",
     groups: [
       {
@@ -91,6 +94,9 @@ window.PORTFOLIO = {
         role: "AI Product Designer",
         period: "Aug 2025 – present",
         protected: true,
+        title: "AI for members, providers and clinicians",
+        teaser: "Five case studies on a conversational assistant, prior authorization, explainable clinical AI and accessibility standards for AI-generated UI.",
+        cover: "chat",
         description: "AI-native experiences for members, providers and clinicians, built inside an enterprise design system."
       },
       {"id": "independent", "company": "Independent projects", "role": "UX research and design", "description": "Academic projects outside my jobs: one solo, one in a team of five."},
@@ -111,7 +117,18 @@ window.PORTFOLIO = {
     ]
   },
 
+  /* ------------------------------------------------------------------ About */
+  // The short bio on the home page. Experience and education under it come from `experience` below.
+  about: {
+    title: "About",
+    paragraphs: [
+      "I design digital products that make complex workflows understandable and actionable. Across healthcare technology, fintech education and B2B SaaS, I’ve worked on conversational AI, data-heavy interfaces, information architecture, research-led product changes and design systems.",
+      "I work closely with engineers, product partners and data scientists, and I don’t treat a design as finished when it’s handed off. It’s finished when it changes something for the people using it."
+    ]
+  },
+
   /* ------------------------------------------------------------- How I work */
+  // Not shown on the simplified home page (nor are capabilities or hero.evidence). Kept so you can bring them back.
   approach: {
     title: "How I work",
     intro: "Five habits that show up in every project, whatever the industry.",
