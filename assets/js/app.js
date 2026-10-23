@@ -70,6 +70,15 @@
   function nextFrame(fn) { window.requestAnimationFrame(function () { window.requestAnimationFrame(fn); }); }
 
   var ICON = {
+    problem: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.1"/></svg>',
+    approach: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg>',
+    result: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M5 15l4.5-4.5 3.5 3.5L19 8"/><path d="M15 8h4v4"/></svg>',
+    learn: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
+    next: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></svg>',
+    role: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>',
+    note: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg>',
+    no: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>',
+    yes: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.7 2.7L16 9.6"/></svg>',
     lock: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
     unlock: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 6.6-1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
     chevron: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -371,7 +380,7 @@
       (cs.protected ? '<span class="cs__lock">' + (locked ? ICON.lock : ICON.unlock) + (locked ? "Protected" : "Unlocked") + "</span>" : "") + "</p>" +
       '<h1 class="cs__title" tabindex="-1">' + esc(cs.title) + "</h1>" +
       '<p class="cs__sum">' + fmt(locked ? cs.teaser : (cs.summary || cs.teaser)) + "</p>" +
-      (locked ? tags(cs.tags, "cs__tags") : metaView(cs.meta) + outcomesView(cs.outcomes)) +
+      (locked ? tags(cs.tags, "cs__tags") : metaView(cs.meta) + outcomesView(cs.outcomes) + glanceView(cs.glance)) +
       "</header>";
   }
 
@@ -415,22 +424,65 @@
     }).join("") + "</ul>";
   }
 
+  var GLANCE = [["problem", "Problem"], ["approach", "What I did"], ["result", "Result"]];
+  function glanceView(list) {
+    if (!list || !list.length) return "";
+    return '<ol class="gl" aria-label="At a glance">' + list.map(function (it, i) {
+      var k = GLANCE[i] || GLANCE[GLANCE.length - 1];
+      return '<li class="gl__item gl__item--' + k[0] + '"><span class="gl__icon">' + ICON[k[0]] + '</span><span class="gl__k">' + esc(it.label || k[1]) + '</span><span class="gl__b">' + fmt(it.body) + "</span></li>";
+    }).join("") + "</ol>";
+  }
+
+  function noteKind(label) {
+    if (/took forward|learned|lesson|isn’t an edge case|complements/i.test(label)) return "learn";
+    if (/^next|measure|evaluate|change now|do differently/i.test(label)) return "next";
+    if (/my part|my role/i.test(label)) return "role";
+    return "note";
+  }
+  function textBlock(body) {
+    var m = /^\*\*([^*]+?)\*\*\s*([\s\S]*)$/.exec(String(body || ""));
+    if (!m || !m[2]) return '<p class="b-text">' + fmt(body) + "</p>";
+    var label = m[1].replace(/[.:]\s*$/, ""), kind = noteKind(label);
+    return '<div class="b-note b-note--' + kind + '"><span class="b-note__i">' + ICON[kind] + '</span><p class="b-note__t">' + fmt(label) + '</p><p class="b-note__b">' + fmt(m[2]) + "</p></div>";
+  }
+  function initials(title) {
+    var words = String(title || "").replace(/[(),].*$/, "").trim().split(/\s+/);
+    return words.filter(function (w) { return /^[A-Z]/.test(w); }).slice(0, 2).map(function (w) { return w[0]; }).join("") || "•";
+  }
+  function baView(b) {
+    var cols = b.columns || [];
+    return '<div class="ba">' + (b.caption ? '<p class="b-table__cap">' + esc(b.caption) + "</p>" : "") +
+      '<div class="ba__head" aria-hidden="true"><span></span><span>' + ICON.no + esc(cols[1]) + "</span><span>" + ICON.yes + esc(cols[2]) + "</span></div>" +
+      '<ul class="ba__list">' + (b.rows || []).map(function (r) {
+        return '<li class="ba__row"><p class="ba__label">' + fmt(r[0]) + "</p>" +
+          '<p class="ba__before"><span class="ba__tag">' + ICON.no + esc(cols[1]) + '</span><span class="sr-only">' + esc(cols[1]) + ': </span>' + fmt(r[1]) + "</p>" +
+          '<p class="ba__after"><span class="ba__tag">' + ICON.yes + esc(cols[2]) + '</span><span class="sr-only">' + esc(cols[2]) + ': </span>' + fmt(r[2]) + "</p></li>";
+      }).join("") + "</ul></div>";
+  }
+
   function block(b, nextFig) {
     switch (b.type) {
       case "text":
-        return '<p class="b-text">' + fmt(b.body) + "</p>";
+        return textBlock(b.body);
       case "callout":
-        return '<div class="b-callout">' + (b.title ? '<p class="b-callout__t">' + esc(b.title) + "</p>" : "") + '<p class="b-callout__b">' + fmt(b.body) + "</p></div>";
+        return '<div class="b-callout"><span class="b-callout__mark" aria-hidden="true">?</span>' + (b.title ? '<p class="b-callout__t">' + esc(b.title) + "</p>" : "") + '<p class="b-callout__b">' + fmt(b.body) + "</p></div>";
       case "steps":
         return (b.title ? '<h3 class="b-h3">' + esc(b.title) + "</h3>" : "") +
-          '<ol class="b-steps">' + (b.items || []).map(function (it) {
+          '<ol class="b-steps' + ((b.items || []).length <= 5 ? " b-steps--h" : "") + '" style="--n:' + (b.items || []).length + '">' + (b.items || []).map(function (it) {
             return '<li><span class="b-steps__t">' + esc(it.title) + "</span>" + (it.body ? '<span class="b-steps__b">' + fmt(it.body) + "</span>" : "") + "</li>";
           }).join("") + "</ol>";
       case "principles":
         return (b.title ? '<h3 class="b-h3">' + esc(b.title) + "</h3>" : "") +
-          '<ul class="b-prin">' + (b.items || []).map(function (it) {
-            return '<li><span class="b-prin__t">' + esc(it.title) + '</span><span class="b-prin__b">' + fmt(it.body) + "</span></li>";
-          }).join("") + "</ul>";
+          (function () {
+            var items = b.items || [], quotes = items.length && items.every(function (it) { return /^“/.test(it.body || ""); });
+            var style = b.style === "personas" ? "personas" : quotes ? "quotes" : "cards";
+            var cols = items.length <= 3 ? items.length : items.length === 4 ? 2 : 3;
+            return '<ul class="b-prin b-prin--' + style + '" style="--c:' + cols + '">' + items.map(function (it) {
+              if (style === "quotes") return '<li><span class="b-prin__b">' + fmt(it.body) + '</span><span class="b-prin__t">' + esc(it.title) + "</span></li>";
+              return '<li>' + (style === "personas" ? '<span class="b-prin__av" aria-hidden="true">' + esc(initials(it.title)) + "</span>" : "") +
+                '<span class="b-prin__txt"><span class="b-prin__t">' + esc(it.title) + '</span><span class="b-prin__b">' + fmt(it.body) + "</span></span></li>";
+            }).join("") + "</ul>";
+          })();
       case "decisions":
         return (b.title ? '<h3 class="b-h3">' + esc(b.title) + "</h3>" : "") +
           '<ul class="dec">' + (b.items || []).map(function (d) {
@@ -439,7 +491,7 @@
               (d.tradeoff ? '<div class="dec__c dec__c--to"><p class="dec__k">Trade-off</p><p>' + fmt(d.tradeoff) + "</p></div>" : "") + "</li>";
           }).join("") + "</ul>";
       case "table":
-        return tableView(b);
+        return (b.columns || []).length === 3 && /before/i.test(b.columns[1]) && /after/i.test(b.columns[2]) ? baView(b) : tableView(b);
       case "metrics":
         return outcomesView(b.items, "b-metrics");
       case "visual":
