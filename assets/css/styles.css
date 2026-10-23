@@ -857,3 +857,85 @@ a.wl__row:hover .wl__t { text-decoration: underline; text-decoration-thickness: 
 .dec__c--to .dec__k, .dec__c--to .dec__k + p { display: inline; }
 .dec__c--to .dec__k { margin: 0; font-size: inherit; font-weight: 600; }
 .dec__c--to .dec__k::after { content: ": "; }
+
+
+/* =============================================================================
+   VISUAL BLOCKS
+   Case studies explain with pictures first: an at-a-glance strip, process
+   diagrams, cards for constraints and decisions, before-and-after panels.
+   ============================================================================= */
+/* At a glance */
+.gl { list-style: none; margin: clamp(32px, 4vw, 52px) 0 0; padding: 0; display: grid; gap: 14px; max-width: 1040px; }
+@media (min-width: 900px) { .gl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; } }
+.gl__item { position: relative; display: grid; align-content: start; gap: 8px; padding: 20px 22px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md); }
+@media (min-width: 900px) {
+  .gl__item + .gl__item::before { content: ""; position: absolute; left: -30px; top: 37px; width: 24px; height: 2px; background: var(--rule-strong); }
+  .gl__item + .gl__item::after { content: ""; position: absolute; left: -12px; top: 33px; border: 5px solid transparent; border-left: 7px solid var(--rule-strong); }
+}
+.gl__icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--wash); color: var(--ink); }
+.gl__item--result .gl__icon { background: var(--mark); color: var(--on-mark); }
+.gl__k { font-weight: 700; }
+.gl__b { color: var(--slate); line-height: 1.5; }
+
+/* Notes: short labelled takeaways instead of paragraphs */
+.b-note { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 2px 14px; max-width: 70ch; padding: 18px 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md); }
+.b-note__i { grid-row: span 2; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--wash); color: var(--ink); }
+.b-note--learn .b-note__i { background: var(--mark); color: var(--on-mark); }
+.b-note__t { font-weight: 700; line-height: 1.4; }
+.b-note__b { color: var(--slate); line-height: 1.55; }
+.cs__sec > .b-note + .b-note { margin-top: 12px; }
+
+/* The question */
+.b-callout { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 2px 16px; align-items: start; }
+.b-callout__mark { grid-row: span 2; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--mark); color: var(--on-mark); font-size: 1.35rem; font-weight: 700; }
+
+/* Process steps as a diagram */
+@media (min-width: 900px) {
+  .b-steps--h { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 22px; max-width: none; }
+  .b-steps--h > li { padding: 52px 0 0; }
+  .b-steps--h > li::after { left: 44px; right: -18px; top: 16.25px; bottom: auto; width: auto; height: 1.5px; }
+  .b-steps--h > li:last-child::after { display: none; }
+}
+
+/* Cards: constraints, goals, personas, quotes */
+.b-prin { gap: 14px; }
+.b-prin > li { padding: 18px 20px; border: 1px solid var(--rule); border-radius: var(--r-md); background: var(--surface); box-shadow: inset 4px 0 0 var(--mark); }
+.b-prin__txt { display: grid; gap: 6px; }
+.b-prin--personas > li { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; box-shadow: none; }
+.b-prin__av { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: var(--on-ink); font-weight: 700; letter-spacing: .02em; }
+.b-prin--quotes > li { display: grid; gap: 12px; background: var(--wash); border-color: transparent; box-shadow: none; }
+.b-prin--quotes > li::before { content: "“"; height: .5em; color: var(--ink); font-size: 3rem; line-height: 1; font-weight: 700; }
+.b-prin--quotes .b-prin__b { color: var(--ink); font-size: var(--fs-lead); line-height: 1.45; font-weight: 600; }
+.b-prin--quotes .b-prin__t { color: var(--slate); font-size: var(--fs-small); font-weight: 600; }
+
+/* Decisions as cards */
+.dec { display: grid; gap: 14px; max-width: none; }
+@media (min-width: 900px) { .dec { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.dec__item, .dec__item:first-child { display: grid; align-content: start; gap: 10px; padding: 20px 22px; border: 1px solid var(--rule); border-radius: var(--r-md); background: var(--surface); }
+.dec__d { font-size: 1.0625rem; }
+.dec__c--to { justify-self: start; padding: 6px 12px; border-radius: var(--r-sm); background: var(--wash); color: var(--slate); font-size: var(--fs-small); }
+
+/* Before and after */
+.ba { max-width: 1040px; }
+.ba__head, .ba__row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 4fr) minmax(0, 4fr); gap: 10px; }
+.ba__head { margin-bottom: 10px; font-weight: 700; }
+.ba__head span { display: inline-flex; align-items: center; gap: 8px; }
+.ba__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ba__row > * { margin: 0; padding: 12px 14px; border-radius: var(--r-sm); line-height: 1.45; }
+.ba__label { padding-left: 0; font-weight: 700; }
+.ba__before { background: var(--flag-soft); }
+.ba__after { background: var(--good-soft); }
+.ba__head svg:first-child { color: var(--flag); }
+.ba__head span:last-child svg { color: var(--good); }
+.ba__tag { display: none; }
+@media (max-width: 720px) {
+  .ba__head { display: none; }
+  .ba__row { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-bottom: 8px; }
+  .ba__tag { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: var(--fs-small); font-weight: 700; }
+  .ba__tag svg { width: 16px; height: 16px; }
+  .ba__tag + .sr-only + * { display: inline; }
+}
+
+/* Card grids use the full column: 2 or 3 across, never a lone orphan row of four */
+.b-prin, .cs__sec > .b-prin { max-width: none; }
+@media (min-width: 900px) { .b-prin { grid-template-columns: repeat(var(--c, 3), minmax(0, 1fr)); } }
