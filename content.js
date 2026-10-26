@@ -1726,7 +1726,7 @@ window.PORTFOLIO = {
         {
           "id": "behind",
           "label": "Behind the work",
-          "title": "Scope, process and the questions interviewers ask",
+          "title": "Scope, process and measurement",
           "blocks": [
             {
               "type": "facts",
@@ -1844,44 +1844,6 @@ window.PORTFOLIO = {
                 {
                   "label": "How it was measured",
                   "body": "Drop-off compares learners who started account setup with those who completed it, old flow against new, as a relative reduction. Session duration and bounce compare matched periods before and after launch. Exact rates are confidential."
-                }
-              ]
-            },
-            {
-              "type": "faq",
-              "title": "Questions interviewers ask",
-              "items": [
-                {
-                  "q": "What exactly did you own?",
-                  "a": "End-to-end design: the research, the onboarding flows, the mobile-first content pages, the component library and the dashboards, plus reviewing results after release."
-                },
-                {
-                  "q": "How did you know onboarding was the problem?",
-                  "a": "Learners who quit during setup never reached the simulator, which made it the highest-leverage fix. Research and testing showed where people hesitated."
-                },
-                {
-                  "q": "How many Maze rounds did you run?",
-                  "a": "Two rounds with roughly 16 learners each: the first on the existing onboarding, the second on the revised prototype."
-                },
-                {
-                  "q": "What did testing change?",
-                  "a": "Maze showed where people hesitated or failed, and each round targeted those steps. Evidence, not visual judgment, decided what changed."
-                },
-                {
-                  "q": "What were the three pivots?",
-                  "a": "Onboarding-first activation, getting learners from setup into the simulator; mobile-first learning content; and interactive portfolio comprehension through the BSE 500 dashboards."
-                },
-                {
-                  "q": "Why mobile first?",
-                  "a": "Learners spent most of their time on program content, often on phones, and those pages weren’t built for small screens."
-                },
-                {
-                  "q": "Does a longer session mean better learning?",
-                  "a": "Not on its own. I read it alongside lesson completion and whether learners move on into the simulator."
-                },
-                {
-                  "q": "What did you learn?",
-                  "a": "Research only matters when it changes decisions, so I plan every study around the decision it should inform."
                 }
               ]
             },
@@ -2185,7 +2147,7 @@ window.PORTFOLIO = {
         {
           "id": "behind",
           "label": "Behind the work",
-          "title": "Scope, process and the questions interviewers ask",
+          "title": "Scope, process and measurement",
           "blocks": [
             {
               "type": "facts",
@@ -2295,36 +2257,6 @@ window.PORTFOLIO = {
                 {
                   "label": "What I’d track",
                   "body": "Chart points inspected, range changes and holdings opened, and whether learners can say how they’re doing against the benchmark."
-                }
-              ]
-            },
-            {
-              "type": "faq",
-              "title": "Questions interviewers ask",
-              "items": [
-                {
-                  "q": "What was hard about real-time charts?",
-                  "a": "Keeping them readable while values change. A tooltip that jumps, a crosshair that lags or an axis that rescales breaks a learner’s read."
-                },
-                {
-                  "q": "How did you work with engineering?",
-                  "a": "On what the static design couldn’t show: chart behavior, time context, responsive states and tooltip behavior, delivered as annotated Zeplin specs."
-                },
-                {
-                  "q": "How does it work without a mouse?",
-                  "a": "On a keyboard, arrows step through points and Home and End jump to the ends. On touch, press and hold to scrub, and lifting keeps the value pinned."
-                },
-                {
-                  "q": "What happens when data stops updating?",
-                  "a": "The chart says so and shows the time of the last update, so learners never mistake old values for live ones."
-                },
-                {
-                  "q": "Why specify behavior before visuals?",
-                  "a": "For data products, the interaction model is the design. If behavior isn’t specified, engineering has to guess it."
-                },
-                {
-                  "q": "What did you learn?",
-                  "a": "I specify behavior and states before I polish a chart."
                 }
               ]
             },
@@ -2524,7 +2456,7 @@ window.PORTFOLIO = {
         {
           "id": "behind",
           "label": "Behind the work",
-          "title": "Scope, process and the questions interviewers ask",
+          "title": "Scope, process and measurement",
           "blocks": [
             {
               "type": "facts",
@@ -2634,36 +2566,6 @@ window.PORTFOLIO = {
                 {
                   "label": "How it was measured",
                   "body": "By comparing how long new designers took to reach the same productivity milestone, before and after the shared library. Exact figures are confidential."
-                }
-              ]
-            },
-            {
-              "type": "faq",
-              "title": "Questions interviewers ask",
-              "items": [
-                {
-                  "q": "Why build a design system at a small company?",
-                  "a": "Every designer was rebuilding the same patterns and the product drifted. Shared components fixed both, and made new designers productive faster."
-                },
-                {
-                  "q": "How did you decide what goes in?",
-                  "a": "Check what exists first, build from tokens, and add a component only when a pattern repeats. One-offs stay local to the screen."
-                },
-                {
-                  "q": "How do you keep it from going stale?",
-                  "a": "Usage rules for every component, updated as the product changed."
-                },
-                {
-                  "q": "What changed for new designers?",
-                  "a": "They worked from 60+ maintained components instead of learning patterns from old files, and ramped up 40% faster."
-                },
-                {
-                  "q": "How was the 40% measured?",
-                  "a": "By comparing how long new designers took to reach the same productivity milestone, before and after the shared library. Exact figures are confidential."
-                },
-                {
-                  "q": "What did you learn?",
-                  "a": "A design system is an onboarding tool as much as a consistency tool. It shapes my enterprise standards work today."
                 }
               ]
             },
