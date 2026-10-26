@@ -251,12 +251,27 @@ window.Visuals = (function () {
   function image(d) {
     return '<div class="v-shot v-shot--' + esc(d.frame || "plain") + '"' + (d.maxWidth ? ' style="max-width:' + Number(d.maxWidth) + 'px"' : "") + ">" + zoomable(d) + "</div>";
   }
+  function pinsHtml(pins, num) {
+    return (pins || []).map(function (p) { return '<span class="v-pin" style="left:' + Number(p.x) + "%;top:" + Number(p.y) + '%" aria-hidden="true">' + Number(num || p.n) + "</span>"; }).join("");
+  }
+  function stage(d, num) {
+    return '<div class="v-stage"' + (d.maxWidth ? ' style="max-width:' + Number(d.maxWidth) + 'px"' : "") + ">" + zoomable(d) + pinsHtml(d.pins, num) + "</div>";
+  }
+  function annotated(d) {
+    var notes = d.notes || [];
+    return '<div class="v-ann"><div class="v-ann__plate">' + stage(d) + "</div>" + (notes.length ? '<ol class="v-notes">' + notes.map(function (t, i) {
+      return '<li><span class="v-notes__n" aria-hidden="true">' + (i + 1) + "</span><span>" + esc(t) + "</span></li>";
+    }).join("") + "</ol>" : "") + "</div>";
+  }
   function gallery(d) {
     var items = d.items || [];
     var cols = Number(d.columns) || Math.min(items.length, 4) || 1;
     var small = Number(d.columnsSmall) || Math.min(cols, 2);
-    return '<div class="v-gallery" style="--cols:' + cols + ";--cols-sm:" + small + '">' + items.map(function (it) {
-      return '<figure class="v-gallery__item">' + zoomable(it) + (it.label ? '<figcaption class="v-gallery__label">' + esc(it.label) + "</figcaption>" : "") + "</figure>";
+    return '<div class="v-gallery' + (items.some(function (it) { return it.note; }) ? " v-gallery--notes" : "") + '" style="--cols:' + cols + ";--cols-sm:" + small + '">' + items.map(function (it, i) {
+      var n = it.n || i + 1;
+      return '<figure class="v-gallery__item"><div class="v-gallery__shot">' + (it.pins ? stage(it, n) : zoomable(it)) + "</div>" +
+        (it.label || it.note ? '<figcaption class="v-gallery__cap">' + (it.label ? '<span class="v-gallery__label">' + esc(it.label) + "</span>" : "") +
+        (it.note ? '<span class="v-gallery__note">' + (it.pins ? '<span class="v-notes__n" aria-hidden="true">' + n + "</span>" : "") + "<span>" + esc(it.note) + "</span></span>" : "") + "</figcaption>" : "") + "</figure>";
     }).join("") + "</div>";
   }
 
@@ -378,7 +393,7 @@ window.Visuals = (function () {
     return '<div class="fx" style="' + esc(vars) + '">' + body + "</div>";
   }
 
-  var R = { flow: flow, compare: compare, chat: chat, form: form, explain: explain, chart: chart, tree: tree, anatomy: anatomy, registry: registry, slots: slots, image: image, gallery: gallery, system: system };
+  var R = { flow: flow, compare: compare, chat: chat, form: form, explain: explain, chart: chart, tree: tree, anatomy: anatomy, registry: registry, slots: slots, image: image, gallery: gallery, annotated: annotated, system: system };
 
   /* ---------------------------------------------------------------- covers
      Abstract illustrations for case study cards (480 × 300). */

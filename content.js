@@ -33,6 +33,7 @@ window.PORTFOLIO = {
   /* -------------------------------------------------------------------- Hero */
   hero: {
     intro: "AI Product Designer at UnitedHealth Group, based in Boston",
+    visual: [{ src: "assets/work/finlatics-dashboard-3m.webp", width: 1440, height: 1263, role: "main" }, { src: "assets/work/finlatics-onboarding-2-account-setup.webp", width: 390, height: 844, role: "phone" }],
     headline: "I design AI products that finish real tasks, show their reasoning, and work for everyone.",
     summary: "5+ years designing for healthcare technology, fintech education and B2B SaaS.",
     evidenceTitle: "What the work shows",
@@ -1397,7 +1398,11 @@ window.PORTFOLIO = {
           "value": "Senior Product Designer, end-to-end owner"
         },
         {
-          "label": "Period",
+          "label": "Team",
+          "value": "About 1 product owner, 2–3 frontend and 1–2 backend engineers"
+        },
+        {
+          "label": "When",
           "value": "Sep 2021 – Aug 2023"
         },
         {
@@ -1717,6 +1722,174 @@ window.PORTFOLIO = {
               "body": "**What I took forward.** Research only matters when it changes decisions, so I plan every study around the decision it should inform."
             }
           ]
+        },
+        {
+          "id": "behind",
+          "label": "Behind the work",
+          "title": "Scope, process and the questions interviewers ask",
+          "blocks": [
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "What I owned",
+                  "body": "End-to-end design of the Finlatics learner journey: onboarding and account setup, the research program, and the mobile-first redesign of program content."
+                },
+                {
+                  "label": "Who I worked with",
+                  "body": "About one product owner, two to three frontend and one to two backend engineers, and analytics support, plus students and college partners in research."
+                },
+                {
+                  "label": "When",
+                  "body": "As Senior Product Designer at Vivma Software, September 2021 to August 2023."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "title": "How I approached it",
+              "items": [
+                {
+                  "title": "Find where learners leave",
+                  "body": "Account setup, before the simulator."
+                },
+                {
+                  "title": "Research with learners and partners",
+                  "body": "25+ sessions, Dovetail."
+                },
+                {
+                  "title": "Redesign in Figma",
+                  "body": "Setup as the start of learning."
+                },
+                {
+                  "title": "Test in Maze",
+                  "body": "Two rounds, about 16 learners each."
+                },
+                {
+                  "title": "Check after launch",
+                  "body": "Drop-off, sessions and bounce."
+                }
+              ]
+            },
+            {
+              "type": "lists",
+              "columns": [
+                {
+                  "title": "Edge cases and states",
+                  "items": [
+                    [
+                      "The chosen track stays visible through account setup",
+                      "Create account"
+                    ],
+                    [
+                      "Starting virtual capital shown before the account is created",
+                      "Create account"
+                    ],
+                    [
+                      "Errors appear next to each field, saying what to fix",
+                      "Errors"
+                    ],
+                    [
+                      "A review step before the account is created",
+                      "Review"
+                    ],
+                    [
+                      "Progress visible across modules and lessons",
+                      "Course"
+                    ],
+                    [
+                      "A clear finish, with a way to review",
+                      "Module complete"
+                    ]
+                  ]
+                },
+                {
+                  "title": "Accessibility notes",
+                  "items": [
+                    [
+                      "Errors in text next to each field, not color alone",
+                      "3.3.1"
+                    ],
+                    [
+                      "Labels stay visible above fields",
+                      "3.3.2"
+                    ],
+                    [
+                      "The chosen track marked with a check and text",
+                      "1.4.1"
+                    ],
+                    [
+                      "Brand green at 5.35:1, body text at 17.87:1",
+                      "1.4.3"
+                    ],
+                    [
+                      "Content reflows on small screens",
+                      "1.4.10"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "measure",
+              "items": [
+                {
+                  "label": "Reported",
+                  "body": "−34% drop-off at account setup; +28% session duration and −21% bounce on program content within 90 days of launch; 25+ moderated sessions; three pivots that expanded B2B partnerships."
+                },
+                {
+                  "label": "What it doesn’t show",
+                  "body": "Learning outcomes. Session length and bounce are engagement signals, not proof that learners learned more."
+                },
+                {
+                  "label": "How it was measured",
+                  "body": "Drop-off compares learners who started account setup with those who completed it, old flow against new, as a relative reduction. Session duration and bounce compare matched periods before and after launch. Exact rates are confidential."
+                }
+              ]
+            },
+            {
+              "type": "faq",
+              "title": "Questions interviewers ask",
+              "items": [
+                {
+                  "q": "What exactly did you own?",
+                  "a": "End-to-end design: the research, the onboarding flows, the mobile-first content pages, the component library and the dashboards, plus reviewing results after release."
+                },
+                {
+                  "q": "How did you know onboarding was the problem?",
+                  "a": "Learners who quit during setup never reached the simulator, which made it the highest-leverage fix. Research and testing showed where people hesitated."
+                },
+                {
+                  "q": "How many Maze rounds did you run?",
+                  "a": "Two rounds with roughly 16 learners each: the first on the existing onboarding, the second on the revised prototype."
+                },
+                {
+                  "q": "What did testing change?",
+                  "a": "Maze showed where people hesitated or failed, and each round targeted those steps. Evidence, not visual judgment, decided what changed."
+                },
+                {
+                  "q": "What were the three pivots?",
+                  "a": "Onboarding-first activation, getting learners from setup into the simulator; mobile-first learning content; and interactive portfolio comprehension through the BSE 500 dashboards."
+                },
+                {
+                  "q": "Why mobile first?",
+                  "a": "Learners spent most of their time on program content, often on phones, and those pages weren’t built for small screens."
+                },
+                {
+                  "q": "Does a longer session mean better learning?",
+                  "a": "Not on its own. I read it alongside lesson completion and whether learners move on into the simulator."
+                },
+                {
+                  "q": "What did you learn?",
+                  "a": "Research only matters when it changes decisions, so I plan every study around the decision it should inform."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "Recreated screens use fictional data. Team and study sizes are approximate; exact figures are confidential."
+            }
+          ]
         }
       ],
       "glance": [
@@ -1729,7 +1902,35 @@ window.PORTFOLIO = {
         {
           "body": "−34% setup drop-off, +28% session duration, −21% bounce."
         }
-      ]
+      ],
+      "hero": {
+        "kind": "gallery",
+        "data": {
+          "columns": 3,
+          "columnsSmall": 3,
+          "items": [
+            {
+              "src": "assets/work/finlatics-onboarding-1-choose-program.webp",
+              "alt": "Step 1 of 3. Pick a learning track: Equity Research (selected), Investment Banking or Financial Markets, with a Continue button.",
+              "width": 390,
+              "height": 844
+            },
+            {
+              "src": "assets/work/finlatics-onboarding-2-account-setup.webp",
+              "alt": "Step 2 of 3. Account form with full name, college email and password, and a note that the Equity Research program starts with ₹10,00,000 in virtual capital.",
+              "width": 390,
+              "height": 844
+            },
+            {
+              "src": "assets/work/finlatics-onboarding-4-review.webp",
+              "alt": "Step 3 of 3. A review of name, email, program and starting capital, with Create account and Back buttons.",
+              "width": 390,
+              "height": 844
+            }
+          ]
+        },
+        "caption": "Onboarding, recreated for this portfolio: choose a track, create the account, review and confirm."
+      }
     },
 
     {
@@ -1751,7 +1952,11 @@ window.PORTFOLIO = {
           "value": "Senior Product Designer"
         },
         {
-          "label": "Period",
+          "label": "Team",
+          "value": "2–3 frontend and 1–2 backend engineers"
+        },
+        {
+          "label": "When",
           "value": "Sep 2021 – Aug 2023"
         },
         {
@@ -1976,6 +2181,158 @@ window.PORTFOLIO = {
               "body": "**What I took forward.** For data products, the interaction model is the design. I specify behavior and states before I polish a chart."
             }
           ]
+        },
+        {
+          "id": "behind",
+          "label": "Behind the work",
+          "title": "Scope, process and the questions interviewers ask",
+          "blocks": [
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "What I owned",
+                  "body": "Interactive dashboards for the real-time BSE 500 portfolio simulation, with chart interaction patterns and tooltip behavior specified for engineering."
+                },
+                {
+                  "label": "Who I worked with",
+                  "body": "Two to three frontend and one to two backend engineers on the charts, data and simulation, with specs delivered through Zeplin."
+                },
+                {
+                  "label": "When",
+                  "body": "As Senior Product Designer at Vivma Software, September 2021 to August 2023."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "title": "How I worked with engineering",
+              "items": [
+                {
+                  "title": "List what a mockup can’t show",
+                  "body": "Behavior, time context, states."
+                },
+                {
+                  "title": "Agree how data arrives",
+                  "body": "And what happens when it stops."
+                },
+                {
+                  "title": "Specify inspection for every input",
+                  "body": "Pointer, keyboard, touch."
+                },
+                {
+                  "title": "Specify every state",
+                  "body": "Loading, empty, paused, mobile."
+                },
+                {
+                  "title": "Deliver it in Zeplin",
+                  "body": "Annotated specs."
+                }
+              ]
+            },
+            {
+              "type": "lists",
+              "columns": [
+                {
+                  "title": "Edge cases and states",
+                  "items": [
+                    [
+                      "A tooltip open while data refreshes stays on its point",
+                      "Live update"
+                    ],
+                    [
+                      "Paused updates show the time of the last value",
+                      "Stale data"
+                    ],
+                    [
+                      "Loading keeps the layout while data arrives",
+                      "Loading"
+                    ],
+                    [
+                      "A new learner’s empty portfolio shows cash and a first step",
+                      "Empty"
+                    ],
+                    [
+                      "On phones, inspection uses press and hold, not hover",
+                      "Touch"
+                    ]
+                  ]
+                },
+                {
+                  "title": "Accessibility notes",
+                  "items": [
+                    [
+                      "Every chart point reachable by keyboard: arrows, Home, End",
+                      "2.1.1"
+                    ],
+                    [
+                      "Tooltips stay while pointed at and can be dismissed",
+                      "1.4.13"
+                    ],
+                    [
+                      "Gains and losses shown with signs and words",
+                      "1.4.1"
+                    ],
+                    [
+                      "The range control is a labeled group with a selected state",
+                      "4.1.2"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "measure",
+              "items": [
+                {
+                  "label": "Reported",
+                  "body": "Engineering built from a shared interaction spec instead of interpreting static mockups, and the dashboards stayed readable as data moved."
+                },
+                {
+                  "label": "What it doesn’t show",
+                  "body": "Learning or investing skill. Using a chart more doesn’t mean understanding the market better."
+                },
+                {
+                  "label": "What I’d track",
+                  "body": "Chart points inspected, range changes and holdings opened, and whether learners can say how they’re doing against the benchmark."
+                }
+              ]
+            },
+            {
+              "type": "faq",
+              "title": "Questions interviewers ask",
+              "items": [
+                {
+                  "q": "What was hard about real-time charts?",
+                  "a": "Keeping them readable while values change. A tooltip that jumps, a crosshair that lags or an axis that rescales breaks a learner’s read."
+                },
+                {
+                  "q": "How did you work with engineering?",
+                  "a": "On what the static design couldn’t show: chart behavior, time context, responsive states and tooltip behavior, delivered as annotated Zeplin specs."
+                },
+                {
+                  "q": "How does it work without a mouse?",
+                  "a": "On a keyboard, arrows step through points and Home and End jump to the ends. On touch, press and hold to scrub, and lifting keeps the value pinned."
+                },
+                {
+                  "q": "What happens when data stops updating?",
+                  "a": "The chart says so and shows the time of the last update, so learners never mistake old values for live ones."
+                },
+                {
+                  "q": "Why specify behavior before visuals?",
+                  "a": "For data products, the interaction model is the design. If behavior isn’t specified, engineering has to guess it."
+                },
+                {
+                  "q": "What did you learn?",
+                  "a": "I specify behavior and states before I polish a chart."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "Recreated with fictional holdings and prices. Team sizes are approximate; engineering details such as the charting library aren’t shown here."
+            }
+          ]
         }
       ],
       "glance": [
@@ -1988,7 +2345,17 @@ window.PORTFOLIO = {
         {
           "body": "Engineering built from a shared interaction spec, not static mockups."
         }
-      ]
+      ],
+      "hero": {
+        "kind": "image",
+        "data": {
+          "src": "assets/work/finlatics-dashboard-3m.webp",
+          "alt": "Desktop portfolio dashboard with four summary cards (portfolio value ₹11,23,780, return versus benchmark +3.2%, 6 open positions and ₹1,82,000 in cash), a performance chart comparing the portfolio with its benchmark over 3 months with a tooltip on the latest point, and a holdings list.",
+          "width": 1440,
+          "height": 1263
+        },
+        "caption": "The default dashboard, recreated with fictional BSE 500 holdings."
+      }
     },
 
     {
@@ -2153,6 +2520,158 @@ window.PORTFOLIO = {
               "body": "**What I took forward.** A design system is an onboarding tool as much as a consistency tool. It shapes my enterprise standards work today."
             }
           ]
+        },
+        {
+          "id": "behind",
+          "label": "Behind the work",
+          "title": "Scope, process and the questions interviewers ask",
+          "blocks": [
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "What I owned",
+                  "body": "Built and maintained the Finlatics component library in Figma: 60+ components for web and mobile-responsive views, with tokens, states and usage rules."
+                },
+                {
+                  "label": "Who I worked with",
+                  "body": "The designers who used it and the engineers who built from it, with specs delivered through Zeplin."
+                },
+                {
+                  "label": "When",
+                  "body": "As Senior Product Designer at Vivma Software, September 2021 to August 2023."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "title": "How a component gets into the library",
+              "items": [
+                {
+                  "title": "Check before adding",
+                  "body": "An existing variant may cover it."
+                },
+                {
+                  "title": "Build from tokens",
+                  "body": "Color, type, spacing, radius."
+                },
+                {
+                  "title": "Design every state",
+                  "body": "Default, hover, focus, error, disabled."
+                },
+                {
+                  "title": "Document usage",
+                  "body": "When to use it, and when not."
+                },
+                {
+                  "title": "Maintain it",
+                  "body": "Updated as the product changed."
+                }
+              ]
+            },
+            {
+              "type": "lists",
+              "columns": [
+                {
+                  "title": "States the library covers",
+                  "items": [
+                    [
+                      "Buttons in default, hover, focus and disabled",
+                      "Button"
+                    ],
+                    [
+                      "Inputs in default, focus, filled and error",
+                      "Text input"
+                    ],
+                    [
+                      "The selected card marked with a check, not color alone",
+                      "Selection card"
+                    ],
+                    [
+                      "Loading skeletons and empty states included",
+                      "Patterns"
+                    ],
+                    [
+                      "Responsive variants for web and mobile",
+                      "All"
+                    ]
+                  ]
+                },
+                {
+                  "title": "Accessibility notes",
+                  "items": [
+                    [
+                      "Brand green 5.35:1, body 17.87:1, secondary 5.63:1 on white",
+                      "1.4.3"
+                    ],
+                    [
+                      "One focus ring style for every interactive component",
+                      "2.4.7"
+                    ],
+                    [
+                      "Inputs keep visible labels; errors in text",
+                      "3.3.2"
+                    ],
+                    [
+                      "Status marks pair an icon and words with color",
+                      "1.4.1"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "measure",
+              "items": [
+                {
+                  "label": "Reported",
+                  "body": "New designers ramped up 40% faster, working from 60+ maintained components. The same library carried the onboarding redesign and the dashboards."
+                },
+                {
+                  "label": "What it doesn’t show",
+                  "body": "Component count isn’t success on its own. What matters is how much faster designers ship with it, and how consistent the product stays."
+                },
+                {
+                  "label": "How it was measured",
+                  "body": "By comparing how long new designers took to reach the same productivity milestone, before and after the shared library. Exact figures are confidential."
+                }
+              ]
+            },
+            {
+              "type": "faq",
+              "title": "Questions interviewers ask",
+              "items": [
+                {
+                  "q": "Why build a design system at a small company?",
+                  "a": "Every designer was rebuilding the same patterns and the product drifted. Shared components fixed both, and made new designers productive faster."
+                },
+                {
+                  "q": "How did you decide what goes in?",
+                  "a": "Check what exists first, build from tokens, and add a component only when a pattern repeats. One-offs stay local to the screen."
+                },
+                {
+                  "q": "How do you keep it from going stale?",
+                  "a": "Usage rules for every component, updated as the product changed."
+                },
+                {
+                  "q": "What changed for new designers?",
+                  "a": "They worked from 60+ maintained components instead of learning patterns from old files, and ramped up 40% faster."
+                },
+                {
+                  "q": "How was the 40% measured?",
+                  "a": "By comparing how long new designers took to reach the same productivity milestone, before and after the shared library. Exact figures are confidential."
+                },
+                {
+                  "q": "What did you learn?",
+                  "a": "A design system is an onboarding tool as much as a consistency tool. It shapes my enterprise standards work today."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "This file recreates a representative slice of the original library. Exact figures are confidential."
+            }
+          ]
         }
       ],
       "glance": [
@@ -2165,7 +2684,14 @@ window.PORTFOLIO = {
         {
           "body": "New designers ramped up 40% faster."
         }
-      ]
+      ],
+      "hero": {
+        "kind": "system",
+        "data": {
+          "section": "components"
+        },
+        "caption": "Core components, drawn live from the library’s tokens."
+      }
     },
 
     /* ---------- Adons Softech ---------- */

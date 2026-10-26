@@ -129,7 +129,9 @@
       '<p class="hero__sum">' + fmt(h.summary) + "</p>" +
       '<p class="hero__cta"><a class="btn btn--primary" href="#/selected">See my work</a><a class="btn btn--ghost" href="mailto:' + esc(m.email) + '">Email me</a></p>' +
       (m.availability ? '<p class="hero__avail">' + fmt(m.availability) + "</p>" : "") +
-      "</div></div></section>";
+      "</div>" + (h.visual ? '<div class="hero__visual" aria-hidden="true">' + h.visual.map(function (v) {
+        return '<img class="hero__shot hero__shot--' + esc(v.role || "main") + '" src="' + esc(safeUrl(v.src)) + '" alt="" width="' + Number(v.width) + '" height="' + Number(v.height) + '" decoding="async">';
+      }).join("") + "</div>" : "") + "</div></section>";
   }
 
   function groupById(id) { return groups().filter(function (g) { return g.id === id; })[0]; }
@@ -380,7 +382,7 @@
       (cs.protected ? '<span class="cs__lock">' + (locked ? ICON.lock : ICON.unlock) + (locked ? "Protected" : "Unlocked") + "</span>" : "") + "</p>" +
       '<h1 class="cs__title" tabindex="-1">' + esc(cs.title) + "</h1>" +
       '<p class="cs__sum">' + fmt(locked ? cs.teaser : (cs.summary || cs.teaser)) + "</p>" +
-      (locked ? tags(cs.tags, "cs__tags") : metaView(cs.meta) + outcomesView(cs.outcomes) + glanceView(cs.glance)) +
+      (locked ? tags(cs.tags, "cs__tags") : caseHeroView(cs.hero) + metaView(cs.meta) + outcomesView(cs.outcomes) + glanceView(cs.glance)) +
       "</header>";
   }
 
@@ -410,6 +412,12 @@
     return '<article class="cs">' + caseHead(cs, g, false) +
       '<div class="wrap cs__body"><div class="cs__content">' + body + "</div></div>" +
       nextView(cs) + "</article>";
+  }
+
+  function caseHeroView(h) {
+    if (!h) return "";
+    return '<figure class="cs__hero">' + '<div class="cs__hero-plate">' + V.render(h.kind || "image", h.data || h, h) + "</div>" +
+      (h.caption ? '<figcaption class="cs__hero-cap">' + fmt(h.caption) + "</figcaption>" : "") + "</figure>";
   }
 
   function metaView(meta) {
@@ -490,6 +498,22 @@
               '<div class="dec__c"><p class="dec__k">Why</p><p>' + fmt(d.why) + "</p></div>" +
               (d.tradeoff ? '<div class="dec__c dec__c--to"><p class="dec__k">Trade-off</p><p>' + fmt(d.tradeoff) + "</p></div>" : "") + "</li>";
           }).join("") + "</ul>";
+      case "faq":
+        return (b.title ? '<h3 class="b-sub">' + esc(b.title) + "</h3>" : "") + '<div class="b-faq">' + (b.items || []).map(function (it) {
+          return '<details class="b-faq__item"><summary class="b-faq__q">' + esc(it.q) + '</summary><div class="b-faq__a">' + fmt(it.a) + "</div></details>";
+        }).join("") + "</div>";
+      case "facts":
+        return '<dl class="b-facts">' + (b.items || []).map(function (it) { return '<div class="b-facts__item"><dt>' + esc(it.label) + "</dt><dd>" + fmt(it.body) + "</dd></div>"; }).join("") + "</dl>";
+      case "lists":
+        return '<div class="b-lists">' + (b.columns || []).map(function (col) {
+          return '<div class="b-lists__col"><h3 class="b-sub">' + esc(col.title) + '</h3><ul class="b-lists__ul">' + (col.items || []).map(function (it) {
+            return "<li><span>" + fmt(it[0]) + "</span>" + (it[1] ? '<span class="b-lists__tag">' + esc(it[1]) + "</span>" : "") + "</li>";
+          }).join("") + "</ul></div>";
+        }).join("") + "</div>";
+      case "measure":
+        return '<div class="b-measure">' + (b.items || []).map(function (it, i) {
+          return '<div class="b-measure__item' + (i === 0 ? " is-key" : "") + '"><p class="b-measure__k">' + esc(it.label) + '</p><p class="b-measure__b">' + fmt(it.body) + "</p></div>";
+        }).join("") + "</div>";
       case "table":
         return (b.columns || []).length === 3 && /before/i.test(b.columns[1]) && /after/i.test(b.columns[2]) ? baView(b) : tableView(b);
       case "metrics":

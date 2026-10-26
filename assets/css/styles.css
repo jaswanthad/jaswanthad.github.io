@@ -939,3 +939,81 @@ a.wl__row:hover .wl__t { text-decoration: underline; text-decoration-thickness: 
 /* Card grids use the full column: 2 or 3 across, never a lone orphan row of four */
 .b-prin, .cs__sec > .b-prin { max-width: none; }
 @media (min-width: 900px) { .b-prin { grid-template-columns: repeat(var(--c, 3), minmax(0, 1fr)); } }
+
+
+/* =============================================================================
+   CLEAN PASS: visual-first case studies
+   Screens lead, shown large on a quiet plate with numbered annotation pins.
+   Boxes give way to hairlines and whitespace; the highlighter yellow is kept
+   for pins and evidence only.
+   ============================================================================= */
+.cs__title { max-width: 20ch; }
+.cs__sum { max-width: 62ch; }
+.cs__hero { margin: clamp(32px, 4.5vw, 64px) 0 clamp(28px, 3.5vw, 48px); }
+.cs__hero-plate { display: grid; place-items: center; padding: clamp(20px, 4vw, 64px); background: var(--wash); border-radius: var(--r-lg); overflow: hidden; }
+.cs__hero-plate > * { width: 100%; max-width: 1100px; }
+.cs__hero-plate .v-shot { margin: 0 auto; }
+.cs__hero-plate img { display: block; width: 100%; height: auto; }
+.cs__hero-cap { margin-top: 12px; color: var(--slate); font-size: var(--fs-small); }
+
+/* Facts row under the hero: one quiet line, no boxes */
+.cs .cs__meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 18px 32px; margin-top: 0; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.cs .cs__meta > div { padding: 0; border: 0; background: none; }
+
+/* At a glance: three columns on a rule, no cards or arrows */
+.cs .gl__item { padding: 16px 0 0; background: none; border: 0; border-top: 2px solid var(--ink); border-radius: 0; }
+.cs .gl__item + .gl__item::before, .cs .gl__item + .gl__item::after { display: none; }
+.cs .gl__icon { width: 32px; height: 32px; }
+
+/* Notes, cards and decisions without boxes */
+.cs .b-note { padding: 0; background: none; border: 0; border-radius: 0; }
+.cs .b-prin > li { padding: 16px 0 0; background: none; border: 0; border-top: 1px solid var(--rule); border-radius: 0; box-shadow: none; }
+.cs .b-prin--personas > li { border-top: 1px solid var(--rule); }
+.cs .b-prin--quotes > li { padding: 22px; background: var(--wash); border: 0; border-radius: var(--r-md); }
+.cs .dec__item, .cs .dec__item:first-child { padding: 18px 0 0; background: none; border: 0; border-top: 1px solid var(--rule); border-radius: 0; }
+.cs .b-callout { background: none; padding: 0; }
+
+/* Screen plates and annotation pins */
+.v-stage { position: relative; margin: 0 auto; }
+.v-stage .v-zoom, .v-stage img { display: block; width: 100%; height: auto; }
+.v-pin { position: absolute; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; transform: translate(-50%, -50%); border-radius: 50%; background: #FFE45C; color: #15233B; border: 2px solid #15233B; box-shadow: 0 0 0 2px #FFFFFF; font-size: .8125rem; font-weight: 700; line-height: 1; pointer-events: none; }
+.v-ann__plate { padding: clamp(16px, 3.5vw, 48px); background: var(--wash); border-radius: var(--r-lg); }
+.fig--annotated .fig__canvas { padding: 0; background: none; }
+.v-notes { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px 36px; }
+.v-notes li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start; line-height: 1.55; }
+.v-notes__n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--mark); color: var(--on-mark); font-size: .8125rem; font-weight: 700; }
+.v-gallery--notes { align-items: start; }
+.v-gallery__cap { display: grid; gap: 8px; margin-top: 14px; }
+.v-gallery__note { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; color: var(--ink); font-size: var(--fs-small); line-height: 1.5; text-align: left; }
+.v-gallery__note > span:only-child { grid-column: 1 / -1; }
+
+/* Behind the work */
+.b-sub { margin: 0 0 12px; font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
+.b-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px 40px; margin: 0; }
+.b-facts__item { padding-top: 14px; border-top: 2px solid var(--ink); }
+.b-facts dt { margin-bottom: 6px; font-weight: 700; }
+.b-facts dd { margin: 0; color: var(--slate); line-height: 1.55; }
+.b-lists { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px 48px; }
+.b-lists__ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.b-lists__ul li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); line-height: 1.5; }
+.b-lists__tag { flex: none; color: var(--slate); font-size: .8125rem; font-weight: 600; white-space: nowrap; }
+.b-measure { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.b-measure__item { padding: 18px 20px; background: var(--wash); border-radius: var(--r-md); }
+.b-measure__item.is-key { box-shadow: inset 4px 0 0 var(--mark); }
+.b-measure__k { margin: 0 0 6px; font-weight: 700; }
+.b-measure__b { margin: 0; color: var(--slate); line-height: 1.55; }
+.b-faq { max-width: 920px; border-top: 1px solid var(--rule); }
+.b-faq__item { border-bottom: 1px solid var(--rule); }
+.b-faq__q { position: relative; padding: 18px 44px 18px 0; font-weight: 700; line-height: 1.45; cursor: pointer; list-style: none; }
+.b-faq__q::-webkit-details-marker { display: none; }
+.b-faq__q::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-52%); color: var(--slate); font-size: 1.5rem; font-weight: 400; }
+.b-faq__item[open] > .b-faq__q::after { content: "−"; }
+.b-faq__a { max-width: 70ch; padding: 0 0 20px; color: var(--slate); line-height: 1.6; }
+
+/* Home hero: the work itself, quietly layered beside the headline */
+@media (min-width: 1040px) { .hero__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; } }
+.hero__visual { position: relative; display: none; }
+@media (min-width: 1040px) { .hero__visual { display: block; padding: 0 0 56px 56px; } }
+.hero__shot { display: block; height: auto; border: 1px solid var(--rule); border-radius: 14px; background: var(--surface); }
+.hero__shot--main { width: 100%; }
+.hero__shot--phone { position: absolute; left: 0; bottom: 0; width: 34%; border-radius: 18px; box-shadow: 0 18px 40px rgba(21, 35, 59, .18); }
