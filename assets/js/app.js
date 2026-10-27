@@ -709,6 +709,13 @@
     return a.name === "home" || a.name === "work" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
   }
 
+  // One Google Analytics page view per page, with the route as a readable path (/work/member-assistant).
+  function trackPage() {
+    if (typeof window.gtag !== "function") return;
+    var path = "/" + String(location.hash || "").replace(/^#\/?/, "");
+    window.gtag("event", "page_view", { page_title: document.title, page_location: location.origin + path + location.search, page_path: path });
+  }
+
   function render(opts) {
     opts = opts || {};
     var r = parseRoute();
@@ -723,6 +730,7 @@
     }
     state.route = r;
     setTitle(r);
+    if (!keep) trackPage();
     setNav(r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
     toggleMenu(false);
 
