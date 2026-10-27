@@ -121,17 +121,18 @@
   }
 
   function heroView() {
-    var h = C.hero || {}, m = C.meta || {};
-    return '<section class="hero" aria-labelledby="hero-title"><div class="wrap hero__grid">' +
-      '<div class="hero__main">' +
-      '<p class="hero__who"><span class="hero__name">' + esc(m.name) + '</span><span class="hero__role">' + fmt(h.intro) + "</span></p>" +
-      '<h1 class="hero__title" id="hero-title">' + fmt(h.headline) + "</h1>" +
-      '<p class="hero__sum">' + fmt(h.summary) + "</p>" +
-      '<p class="hero__cta"><a class="btn btn--primary" href="#/selected">See my work</a><a class="btn btn--ghost" href="mailto:' + esc(m.email) + '">Email me</a></p>' +
-      (m.availability ? '<p class="hero__avail">' + fmt(m.availability) + "</p>" : "") +
-      "</div>" + (h.visual ? '<div class="hero__visual" aria-hidden="true">' + h.visual.map(function (v) {
-        return '<img class="hero__shot hero__shot--' + esc(v.role || "main") + '" src="' + esc(safeUrl(v.src)) + '" alt="" width="' + Number(v.width) + '" height="' + Number(v.height) + '" decoding="async">';
-      }).join("") + "</div>" : "") + "</div></section>";
+    var h = C.hero || {};
+    var st = [["pin", "1", "10%", "4%", "-6deg", "7s"], ["chip", "Submitted for review", "36%", "0%", "3deg", "9s"], ["bubble", "You’re booked with Dr. Rivera on Thursday at 9:30 AM.", "52%", "24%", "-2deg", "8s"],
+      ["meter", "<i></i><i></i><i class=\"off\"></i>Moderate confidence", "4%", "44%", "4deg", "10s"], ["dim", "<span>44 px</span>", "40%", "66%", "-3deg", "8.5s"], ["ratio", "5.34:1 passes AA", "66%", "84%", "5deg", "9.5s"]];
+    var stickers = '<div class="stk" aria-hidden="true">' + st.map(function (s, k) {
+      return '<span class="stk__i stk__' + s[0] + '" style="--x:' + s[2] + ";--y:" + s[3] + ";--r:" + s[4] + ";--d:" + s[5] + ";--k:" + k + '">' + s[1] + "</span>";
+    }).join("") + "</div>";
+    return '<section class="intro" aria-labelledby="hero-title"><div class="wrap intro__grid"><div class="intro__text">' +
+      '<h1 class="intro__t" id="hero-title">' + fmt(h.headline) + "</h1>" +
+      '<p class="intro__b">' + fmt(h.summary) + "</p>" +
+      (h.intro ? '<p class="intro__m">' + fmt(h.intro) + "</p>" : "") +
+      '<p class="intro__now"><span class="intro__dot" aria-hidden="true"></span>It’s <span data-clock>now</span> in Boston</p>' +
+      "</div>" + stickers + "</div></section>";
   }
 
   function groupById(id) { return groups().filter(function (g) { return g.id === id; })[0]; }
@@ -145,13 +146,39 @@
     }).filter(Boolean);
   }
 
+  var INDEX_ORDER = ["uhg", "finlatics-learner-journey", "portfolio-simulation-dashboards", "finlatics-design-system", "advisor-ai", "nike-nft-concept", "b2b-saas-navigation"];
+  function thumb(src, cover) {
+    return '<span class="ix__thumb" aria-hidden="true">' + (src ? '<img src="' + esc(safeUrl(src)) + '" alt="" loading="lazy" decoding="async">' : V.cover(cover)) + "</span>";
+  }
+  function indexRow(o) {
+    return '<li class="ix__item"><a class="ix__row" href="' + o.href + '" style="--proj:' + esc(o.color || "#2C3340") + '"' + (o.preview ? ' data-preview="' + esc(safeUrl(o.preview)) + '"' : "") + ">" +
+      '<span class="ix__when">' + esc(o.when || "") + "</span>" +
+      '<span class="ix__main"><span class="ix__name">' + esc(o.title) + '</span><span class="ix__co">' + (o.meta || "") + "</span></span>" +
+      thumb(o.src, o.cover) + "</a></li>";
+  }
+  function indexItems(list) {
+    return list.map(function (id) {
+      var g = groupById(id);
+      if (g) return indexRow({ href: "#/work/" + g.id, color: g.color, when: g.indexWhen || g.period, title: g.indexTitle || g.title || g.company,
+        meta: esc(g.indexMeta || g.company) + (state.unlocked ? "" : ' <span class="ix__lock">' + ICON.lock + "Password protected</span>"), cover: g.cover || "chat", preview: g.preview });
+      var cs = findCase(id); if (!cs) return "";
+      var gg = groupOf(cs);
+      return indexRow({ href: "#/work/" + cs.slug, color: cs.color, when: cs.indexWhen || gg.period || "", title: cs.indexTitle || cs.title, meta: esc(cs.indexMeta || gg.company || ""), src: cs.coverImage, cover: cs.cover, preview: cs.preview });
+    }).join("");
+  }
   function selectedView() {
     var w = C.work || {};
-    return '<section class="sec sel" id="selected" aria-labelledby="sel-title"><div class="wrap">' +
-      '<h2 class="sec__title sel__title" id="sel-title">' + esc(w.title) + "</h2>" +
-      '<div class="feats sel__grid">' + featured().map(function (f) { return f.group ? groupCard(f.group) : caseCard(f.cs); }).join("") + "</div>" +
-      '<p class="sel__more"><a class="btn btn--ghost" href="#/work">See all ' + cases().length + " case studies</a></p>" +
-      "</div></section>";
+    return '<section class="sec ix" id="selected" aria-labelledby="sel-title"><div class="wrap">' +
+      '<h2 class="ix__h" id="sel-title">' + esc(w.indexHeading || "Selected work") + "</h2>" +
+      '<ol class="ix__list">' + indexItems(w.index || INDEX_ORDER) + "</ol>" +
+      '<p class="ix__more"><a href="#/work">Every case study, by company</a></p></div></section>' + toolsView();
+  }
+  function toolsView() {
+    var t = C.tools || [];
+    if (!t.length) return "";
+    var set = function (hidden) { return '<ul class="marq__set"' + (hidden ? ' aria-hidden="true"' : "") + ">" + t.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; };
+    return '<section class="tools" aria-labelledby="tools-h"><div class="wrap"><h2 class="ix__h" id="tools-h">Tools I work in</h2></div>' +
+      '<div class="marq"><div class="marq__track">' + set(false) + set(true) + "</div></div></section>";
   }
 
   function cardCover(cs) {
@@ -215,18 +242,18 @@
   function viewGroup(g) {
     if (!g) return viewNotFound();
     var list = cases().filter(function (c) { return c.group === g.id; }), open = !!state.unlocked;
-    return '<article class="cs hub"><header class="cs__head wrap">' +
-      '<a class="back" href="#/work">' + ICON.back + "<span>All work</span></a>" +
-      '<p class="cs__co"><span>' + esc(g.company) + '</span><span class="cs__lock">' + (open ? ICON.unlock : ICON.lock) + (open ? "Unlocked" : "Protected") + "</span></p>" +
-      '<h1 class="cs__title" tabindex="-1">' + esc(g.title || g.company) + "</h1>" +
-      '<p class="cs__sum">' + fmt(g.description || "") + "</p></header>" +
+    return '<article class="cs hub" style="--proj:' + esc(g.color || "#1F3480") + '"><header class="cv"><div class="wrap cv__in">' +
+      '<a class="back cv__back" href="#/work">' + ICON.back + "<span>All work</span></a>" +
+      '<p class="cv__co"><span>' + esc(g.company) + '</span><span class="cv__lock">' + (open ? ICON.unlock : ICON.lock) + (open ? "Unlocked" : "Protected") + "</span></p>" +
+      '<h1 class="cv__title" tabindex="-1">' + esc(g.title || g.company) + "</h1>" +
+      '<p class="cv__sum">' + fmt(g.description || "") + "</p></div></header>" +
       '<div class="wrap hub__body">' +
       (open ? "" : '<div class="gate"><span class="gate__icon">' + ICON.lock + "</span>" +
         '<h2 class="gate__t">Shared privately</h2>' +
         '<p class="gate__b">These case studies cover current work at ' + esc(g.company) + ". Enter the password you received to open all " + list.length + " of them for this visit.</p>" +
         unlockForm("hub") + "</div>") +
       '<h2 class="wl__co hub__h">' + list.length + " case studies</h2>" +
-      '<ul class="wl__list">' + list.map(function (cs) { return workRow(cs, g, true); }).join("") + "</ul></div></article>";
+      '<ol class="ix__list hub__list">' + list.map(function (cs) { return indexRow({ href: "#/work/" + cs.slug, color: cs.color, when: "", title: cs.title, meta: fmt(cs.teaser || ""), cover: cs.cover }); }).join("") + "</ol></div></article>";
   }
 
   function evidenceView(h) {
@@ -375,19 +402,32 @@
     return full ? caseView(full, g) : lockedView(cs, g);
   }
 
+  function caseColor(cs, g) { return cs.color || (g && g.color) || "#2C3340"; }
+  function hasRecreation(cs) {
+    return (cs.sections || []).some(function (s) { return (s.blocks || []).some(function (b) { return b.type === "visual" && (b.illustrative || (b.illustrative == null && V.isMock(b.kind))); }); });
+  }
+  function readMode() { var m = "tour"; try { m = window.sessionStorage.getItem("portfolio-mode") || "tour"; } catch (e) { /* storage unavailable */ } return m === "story" ? "story" : "tour"; }
+  function modeSwitch() {
+    var m = readMode();
+    return '<div class="mode" role="group" aria-label="How to read this case study">' +
+      '<button type="button" class="mode__b" data-mode="tour" aria-pressed="' + (m === "tour") + '">Visual tour</button>' +
+      '<button type="button" class="mode__b" data-mode="story" aria-pressed="' + (m === "story") + '">Full story</button></div>';
+  }
   function caseHead(cs, g, locked) {
-    return '<header class="cs__head wrap">' +
-      '<a class="back" href="#/work">' + ICON.back + "<span>All work</span></a>" +
-      '<p class="cs__co"><span>' + esc(g.company || "") + "</span>" +
-      (cs.protected ? '<span class="cs__lock">' + (locked ? ICON.lock : ICON.unlock) + (locked ? "Protected" : "Unlocked") + "</span>" : "") + "</p>" +
-      '<h1 class="cs__title" tabindex="-1">' + esc(cs.title) + "</h1>" +
-      '<p class="cs__sum">' + fmt(locked ? cs.teaser : (cs.summary || cs.teaser)) + "</p>" +
-      (locked ? tags(cs.tags, "cs__tags") : caseHeroView(cs.hero) + metaView(cs.meta) + outcomesView(cs.outcomes) + glanceView(cs.glance)) +
-      "</header>";
+    var hasHero = !locked && cs.hero;
+    return '<header class="cv' + (hasHero ? " cv--hero" : "") + '"><div class="wrap cv__in">' +
+      '<a class="back cv__back" href="#/work">' + ICON.back + "<span>All work</span></a>" +
+      '<p class="cv__co"><span>' + esc(g.company || "") + "</span>" +
+      (cs.protected ? '<span class="cv__lock">' + (locked ? ICON.lock : ICON.unlock) + (locked ? "Protected" : "Unlocked") + "</span>" : "") + "</p>" +
+      '<h1 class="cv__title" tabindex="-1">' + esc(cs.title) + "</h1>" +
+      '<p class="cv__sum">' + fmt(locked ? cs.teaser : (cs.summary || cs.teaser)) + "</p>" +
+      "</div>" + (hasHero ? '<div class="wrap cv__hero">' + caseHeroView(cs.hero) + "</div>" : "") + "</header>" +
+      (locked ? "" : '<div class="wrap cs__top">' + metaView(cs.meta) + outcomesView(cs.outcomes) +
+        '<div class="cs__tools">' + modeSwitch() + (hasRecreation(cs) ? '<p class="cs__note">Screens on this page are recreations with fictional data.</p>' : "") + "</div></div>");
   }
 
   function lockedView(cs, g) {
-    return '<article class="cs cs--locked">' + caseHead(cs, g, true) +
+    return '<article class="cs cs--locked" style="--proj:' + esc(caseColor(cs, g)) + '">' + caseHead(cs, g, true) +
       '<div class="wrap"><div class="gate">' +
       '<span class="gate__icon">' + ICON.lock + "</span>" +
       '<h2 class="gate__t">This case study is shared privately</h2>' +
@@ -409,9 +449,11 @@
     var toc = secs.length > 1 ? '<nav class="toc" aria-label="On this page"><p class="toc__t">On this page</p><ol class="toc__list">' +
       secs.map(function (s) { return '<li><a class="toc__a" href="#/work/' + esc(cs.slug) + "/" + esc(s.id) + '" data-sec="' + esc(s.id) + '">' + esc(s.label || s.title) + "</a></li>"; }).join("") +
       "</ol></nav>" : "";
-    return '<article class="cs">' + caseHead(cs, g, false) +
-      '<div class="wrap cs__body"><div class="cs__content">' + body + "</div></div>" +
-      nextView(cs) + "</article>";
+    return '<article class="cs' + (readMode() === "story" ? " cs--story" : "") + '" style="--proj:' + esc(caseColor(cs, g)) + '">' + caseHead(cs, g, false) +
+      '<div class="wrap cs__body"><div class="cs__content">' + body +
+      '<div class="tour-end"><p class="tour-end__t">That’s the visual tour.</p><p class="tour-end__b">The full story adds the context, the decisions and how the work was measured.</p>' +
+      '<button type="button" class="btn btn--primary mode__b" data-mode="story" aria-pressed="false">Read the full story</button></div>' +
+      "</div></div>" + nextView(cs) + "</article>";
   }
 
   function caseHeroView(h) {
@@ -551,8 +593,8 @@
     var nx = list[(i + 1) % list.length];
     if (!nx || nx.slug === cs.slug) return "";
     var g = groupOf(nx);
-    return '<nav class="next" aria-label="Next case study"><div class="wrap"><a class="next__a" href="#/work/' + esc(nx.slug) + '">' +
-      '<span class="next__k">Next case study' + (nx.protected && !isOpen(nx) ? ", protected" : "") + "</span>" +
+    return '<nav class="next" aria-label="Next case study" style="--next:' + esc(caseColor(nx, g)) + '"><div class="wrap"><a class="next__a" href="#/work/' + esc(nx.slug) + '">' +
+      '<span class="next__k">Next' + (nx.protected && !isOpen(nx) ? ", password protected" : "") + "</span>" +
       '<span class="next__t">' + esc(nx.title) + '</span><span class="next__g">' + esc(g.company || "") + "</span></a></div></nav>";
   }
 
@@ -677,6 +719,7 @@
       state.tableN = 0;
       byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : viewNotFound();
       mount(r);
+      enhance(r);
     }
     state.route = r;
     setTitle(r);
@@ -790,6 +833,108 @@
     big.alt = img.alt;
     if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
   }
+
+  /* ---------------------------------------------------------------- motion */
+  var fine = !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  var motionObs = null, clockTimer = null;
+  var floater = null, fx = 0, fy = 0, tx = 0, ty = 0, vx = 0, rafId = 0, floatOn = false, preloaded = false;
+  function enhance() {
+    if (motionObs) { motionObs.disconnect(); motionObs = null; }
+    if (floater) { floatOn = false; floater.classList.remove("is-on"); }
+    var stages = document.querySelectorAll("#main .v-stage");
+    if (stages.length) {
+      if (reduceMotion || !("IntersectionObserver" in window)) [].forEach.call(stages, function (s) { s.classList.add("is-in"); });
+      else {
+        motionObs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); motionObs.unobserve(e.target); } }); }, { threshold: 0.3 });
+        [].forEach.call(stages, function (s) { motionObs.observe(s); });
+      }
+    }
+    if (clockTimer) { clearInterval(clockTimer); clockTimer = null; }
+    var clk = document.querySelector("[data-clock]");
+    if (clk) {
+      var tick = function () { try { clk.textContent = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }).format(new Date()); } catch (e) { clk.textContent = "daytime"; } };
+      tick(); clockTimer = setInterval(tick, 30000);
+    }
+    var w = document.querySelector(".wipe.is-covering");
+    if (w) requestAnimationFrame(function () { w.classList.remove("is-covering"); w.classList.add("is-leaving"); setTimeout(function () { w.classList.remove("is-leaving"); }, 560); });
+  }
+
+  // A preview that follows the cursor over the project index, tilting with its speed.
+  function ensureFloater() {
+    if (floater) return floater;
+    floater = document.createElement("div"); floater.className = "floater"; floater.setAttribute("aria-hidden", "true");
+    floater.innerHTML = '<img alt="" decoding="async"><span class="floater__tag">Open case study</span>';
+    document.body.appendChild(floater); return floater;
+  }
+  function floatLoop() {
+    fx += (tx - fx) * 0.16; fy += (ty - fy) * 0.16; var dx = tx - fx; vx += (dx - vx) * 0.2;
+    var rot = Math.max(-7, Math.min(7, vx * 0.09));
+    floater.style.transform = "translate3d(" + (fx + 28) + "px," + (fy - floater.offsetHeight / 2) + "px,0) rotate(" + rot.toFixed(2) + "deg)";
+    rafId = (floatOn || Math.abs(dx) > 0.5) ? requestAnimationFrame(floatLoop) : 0;
+  }
+  if (fine && !reduceMotion) {
+    document.documentElement.classList.add("has-floater");
+    document.addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; if (floatOn && !rafId) rafId = requestAnimationFrame(floatLoop); }, { passive: true });
+    document.addEventListener("pointerover", function (e) {
+      var row = e.target.closest && e.target.closest(".ix__row[data-preview]"); if (!row) return;
+      if (!preloaded) { preloaded = true; [].forEach.call(document.querySelectorAll(".ix__row[data-preview]"), function (r) { var im = new Image(); im.src = r.getAttribute("data-preview"); }); }
+      var f = ensureFloater(), img = f.querySelector("img");
+      if (img.getAttribute("src") !== row.getAttribute("data-preview")) img.setAttribute("src", row.getAttribute("data-preview"));
+      f.style.setProperty("--proj", row.style.getPropertyValue("--proj"));
+      if (!floatOn) { fx = tx = e.clientX; fy = ty = e.clientY; vx = 0; }
+      floatOn = true; f.classList.add("is-on"); if (!rafId) rafId = requestAnimationFrame(floatLoop);
+    });
+    document.addEventListener("pointerout", function (e) {
+      var row = e.target.closest && e.target.closest(".ix__row[data-preview]");
+      if (!row || (e.relatedTarget && row.contains(e.relatedTarget))) return;
+      floatOn = false; if (floater) floater.classList.remove("is-on");
+    });
+  }
+
+  // A wipe in the project's color when opening a case study.
+  document.addEventListener("click", function (e) {
+    if (reduceMotion || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest("a.ix__row, a.next__a"); if (!a) return;
+    var href = a.getAttribute("href"); if (!href || href.charAt(0) !== "#") return;
+    e.preventDefault();
+    var nav = a.closest(".next"), color = (a.style.getPropertyValue("--proj") || (nav ? nav.style.getPropertyValue("--next") : "") || "#000").trim();
+    var w = document.querySelector(".wipe");
+    if (!w) { w = document.createElement("div"); w.className = "wipe"; w.setAttribute("aria-hidden", "true"); document.body.appendChild(w); }
+    w.style.background = color; w.classList.remove("is-leaving"); void w.offsetWidth; w.classList.add("is-covering");
+    setTimeout(function () { if (location.hash === href) render({ force: true }); else location.hash = href; }, 380);
+  });
+
+  // Spec stickers in the intro can be picked up and moved.
+  var drag = null;
+  document.addEventListener("pointerdown", function (e) {
+    var s = e.target.closest && e.target.closest(".stk__i"); if (!s) return;
+    e.preventDefault(); try { s.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+    drag = { el: s, x: e.clientX, y: e.clientY, dx: parseFloat(s.getAttribute("data-dx") || 0), dy: parseFloat(s.getAttribute("data-dy") || 0), nx: 0, ny: 0 };
+    s.classList.add("is-drag");
+  });
+  document.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    drag.nx = drag.dx + e.clientX - drag.x; drag.ny = drag.dy + e.clientY - drag.y;
+    drag.el.style.translate = drag.nx + "px " + drag.ny + "px";
+  });
+  ["pointerup", "pointercancel"].forEach(function (t) {
+    document.addEventListener(t, function () {
+      if (!drag) return;
+      drag.el.setAttribute("data-dx", drag.nx || drag.dx); drag.el.setAttribute("data-dy", drag.ny || drag.dy);
+      drag.el.classList.remove("is-drag"); drag = null;
+    });
+  });
+
+  // Reading mode: a visual tour by default, the full story on request.
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".mode__b"); if (!b) return;
+    var mode = b.getAttribute("data-mode") === "story" ? "story" : "tour";
+    try { window.sessionStorage.setItem("portfolio-mode", mode); } catch (err) { /* storage unavailable */ }
+    var art = document.querySelector("article.cs"); if (art) art.classList.toggle("cs--story", mode === "story");
+    [].forEach.call(document.querySelectorAll(".mode .mode__b"), function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-mode") === mode)); });
+    announce(mode === "story" ? "Showing the full story" : "Showing the visual tour");
+    if (b.closest(".tour-end")) { var top = document.querySelector(".cs__top"); if (top) top.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }
+  });
 
   document.addEventListener("click", function (e) {
     var zoom = e.target.closest(".v-zoom");

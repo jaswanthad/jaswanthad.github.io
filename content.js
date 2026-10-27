@@ -27,15 +27,14 @@ window.PORTFOLIO = {
     resumeUrl: "assets/Jaswanth_Adusumilli_Resume.pdf",
     // Optional line under the hero, e.g. "Open to senior and lead product design roles."
     availability: "",
-    lastUpdated: "October 2026"
+    lastUpdated: ""
   },
 
   /* -------------------------------------------------------------------- Hero */
   hero: {
-    intro: "AI Product Designer at UnitedHealth Group, based in Boston",
-    visual: [{ src: "assets/work/finlatics-dashboard-3m.webp", width: 1440, height: 1263, role: "main" }, { src: "assets/work/finlatics-onboarding-2-account-setup.webp", width: 390, height: 844, role: "phone" }],
-    headline: "I design AI products that finish real tasks, show their reasoning, and work for everyone.",
-    summary: "5+ years designing for healthcare technology, fintech education and B2B SaaS.",
+    intro: "Jaswanth Adusumilli, AI product designer at UnitedHealth Group",
+    headline: "I design AI products for healthcare.",
+    summary: "Right now that’s at UnitedHealth Group, on tools for members booking care, office staff submitting prior authorizations and clinicians reading risk models. Before that, I spent two years designing Finlatics, a stock-market simulator for 500+ finance students.",
     evidenceTitle: "What the work shows",
     evidenceHint: "Open a claim to see the case studies behind it.",
     // Each claim lists case studies by slug (see caseStudies below).
@@ -91,6 +90,11 @@ window.PORTFOLIO = {
     groups: [
       {
         id: "uhg",
+        color: "#1F3480",
+        indexTitle: "AI for members, providers and clinicians",
+        indexWhen: "2025 to now",
+        indexMeta: "UnitedHealth Group. Five case studies",
+      preview: "assets/work/preview-uhg.webp",
         company: "UnitedHealth Group",
         role: "AI Product Designer",
         period: "Aug 2025 – present",
@@ -123,8 +127,8 @@ window.PORTFOLIO = {
   about: {
     title: "About",
     paragraphs: [
-      "I design digital products that make complex workflows understandable and actionable. Across healthcare technology, fintech education and B2B SaaS, I’ve worked on conversational AI, data-heavy interfaces, information architecture, research-led product changes and design systems.",
-      "I work closely with engineers, product partners and data scientists, and I don’t treat a design as finished when it’s handed off. It’s finished when it changes something for the people using it."
+      "I’ve been designing products for about five years: websites and SaaS tools for early-stage startups at Adons Softech, a learning platform at Vivma Software, and now AI tools at UnitedHealth Group. I studied computer science in Hyderabad and information systems at Northeastern.",
+      "I like working close to engineering and data science, prototyping early and testing with the people who will use the thing. The problems I enjoy most are the ones where the interface has to be honest about what a system knows."
     ]
   },
 
@@ -201,6 +205,8 @@ window.PORTFOLIO = {
     ]
   },
 
+  tools: ["Figma", "Figma AI", "Maze", "Dovetail", "Zeplin", "Adobe XD", "Sketch", "Miro", "Principle", "ChatGPT", "Claude", "Gemini", "Galileo AI", "Midjourney", "Jira", "Confluence", "Notion", "Amplitude", "Mixpanel", "Hotjar"],
+
   capabilities: {
     title: "Capabilities and tools",
     groups: [
@@ -220,7 +226,7 @@ window.PORTFOLIO = {
     accessNote: "Need the password for the UnitedHealth Group case studies?"
   },
 
-  colophon: "Set in Atkinson Hyperlegible Next, a typeface the Braille Institute designed to stay legible for readers with low vision. Hand-built as a static site, designed to meet WCAG 2.1 AA, with no analytics.",
+  colophon: "",
 
   /* --------------------------------------------------- Independent projects
      Shown as an “Independent work” section once this list has entries.
@@ -400,54 +406,79 @@ window.PORTFOLIO = {
 
     /* ---------- UnitedHealth Group (protected) ---------- */
     {
-      slug: "member-assistant",
-      group: "uhg",
-      protected: true,
-      title: "A conversational assistant that finishes the job",
-      teaser: "Conversation flows that let health plan members find care, book visits and see lab results without a phone call.",
-      tags: ["Conversational AI", "Healthcare", "Self-service"],
-      cover: "chat"
+      "slug": "member-assistant",
+      "group": "uhg",
+      "protected": true,
+      "title": "A conversational assistant that finishes the job",
+      "teaser": "Conversation flows that let health plan members find care, book visits and see lab results without a phone call.",
+      "tags": [
+        "Conversational AI",
+        "Healthcare",
+        "Self-service"
+      ],
+      "cover": "chat",
+      "color": "#2340C8"
     },
     {
-      slug: "prior-authorization",
-      group: "uhg",
-      protected: true,
-      title: "Prior authorization, right the first time",
-      teaser: "Reducing ambiguity and rework in AI-powered prior-authorization submissions for providers.",
-      tags: ["Workflow design", "Forms and data capture", "Providers"],
-      cover: "form"
+      "slug": "prior-authorization",
+      "group": "uhg",
+      "protected": true,
+      "title": "Prior authorization, right the first time",
+      "teaser": "Reducing ambiguity and rework in AI-powered prior-authorization submissions for providers.",
+      "tags": [
+        "Workflow design",
+        "Forms and data capture",
+        "Providers"
+      ],
+      "cover": "form",
+      "color": "#0B6874"
     },
     {
-      slug: "explainable-clinical-ai",
-      group: "uhg",
-      protected: true,
-      title: "Making clinical risk models legible",
-      teaser: "Turning machine learning risk flags into explanations clinicians can check, trust and act on.",
-      tags: ["Explainable AI", "Clinicians", "Data science partnership"],
-      cover: "explain"
+      "slug": "explainable-clinical-ai",
+      "group": "uhg",
+      "protected": true,
+      "title": "Making clinical risk models legible",
+      "teaser": "Turning machine learning risk flags into explanations clinicians can check, trust and act on.",
+      "tags": [
+        "Explainable AI",
+        "Clinicians",
+        "Data science partnership"
+      ],
+      "cover": "explain",
+      "color": "#6A2DA0"
     },
     {
-      slug: "ai-ui-standards",
-      group: "uhg",
-      protected: true,
-      title: "Accessibility standards for AI-generated UI",
-      teaser: "The rules generated components must meet inside an enterprise design system, so every surface is WCAG 2.1 AA by default.",
-      tags: ["Design systems", "Accessibility", "Governance"],
-      cover: "grid"
+      "slug": "ai-ui-standards",
+      "group": "uhg",
+      "protected": true,
+      "title": "Accessibility standards for AI-generated UI",
+      "teaser": "The rules generated components must meet inside an enterprise design system, so every surface is WCAG 2.1 AA by default.",
+      "tags": [
+        "Design systems",
+        "Accessibility",
+        "Governance"
+      ],
+      "cover": "grid",
+      "color": "#2C3340"
     },
     {
-      slug: "ai-augmented-practice",
-      group: "uhg",
-      protected: true,
-      title: "An AI-augmented design practice",
-      teaser: "Using AI in prototyping, layout exploration and research synthesis to ship faster across product squads, without lowering the bar.",
-      tags: ["Design operations", "Prototyping", "Research synthesis"],
-      cover: "layers"
+      "slug": "ai-augmented-practice",
+      "group": "uhg",
+      "protected": true,
+      "title": "An AI-augmented design practice",
+      "teaser": "Using AI in prototyping, layout exploration and research synthesis to ship faster across product squads, without lowering the bar.",
+      "tags": [
+        "Design operations",
+        "Prototyping",
+        "Research synthesis"
+      ],
+      "cover": "layers",
+      "color": "#AE1F3C"
     },
 
     /* ---------- Vivma Software / Finlatics ---------- */
     {
-      "slug": "advisor-ai",
+      "slug": "advisor-ai", "preview": "assets/work/preview-advisor-ai.webp",
       "group": "independent",
       "title": "Advisor.AI: an AI career platform that shows its reasoning",
       "teaser": "Research, design and three rounds of evaluation for a job-search platform that puts visa sponsorship first. Five students completed every task and rated it ==87== on the SUS.",
@@ -1031,10 +1062,23 @@ window.PORTFOLIO = {
         {
           "body": "SUS 87 and 25 of 25 tasks completed in moderated testing."
         }
-      ]
+      ],
+      "color": "#3C35C2",
+      "indexTitle": "Advisor.AI",
+      "indexWhen": "Graduate project",
+      "indexMeta": "Northeastern University. A job-search platform, SUS 87",
+      "hero": {
+        "kind": "image",
+        "data": {
+          "src": "assets/work/advisor-ai-visa-after.webp",
+          "alt": "Advisor.AI job search with a visa sponsorship filter and a sponsorship status on every job.",
+          "width": 610,
+          "height": 378
+        }
+      }
     },
     {
-      "slug": "nike-nft-concept",
+      "slug": "nike-nft-concept", "preview": "assets/work/preview-nike-nft-concept.webp",
       "group": "independent",
       "title": "Nike app × NFTs: the competitive research behind a concept",
       "teaser": "My part of a five-person academic concept: a competitive analysis of Adidas and Gucci that shaped how the team introduced NFTs to people who had never bought one.",
@@ -1377,10 +1421,24 @@ window.PORTFOLIO = {
         {
           "body": "Two team priorities: explain NFTs to first-time buyers, keep shopping familiar."
         }
-      ]
+      ],
+      "color": "#1F2023",
+      "indexTitle": "Nike app and NFTs",
+      "indexWhen": "Team concept",
+      "indexMeta": "Academic project. Competitive research for a five-person team",
+      "hero": {
+        "kind": "image",
+        "data": {
+          "src": "assets/work/nike-nft-wire-landing.webp",
+          "alt": "Wireframe of the Nike app landing screen with the NFT section one tap away.",
+          "width": 343,
+          "height": 664,
+          "maxWidth": 420
+        }
+      }
     },
     {
-      "slug": "finlatics-learner-journey",
+      "slug": "finlatics-learner-journey", "preview": "assets/work/preview-finlatics-learner-journey.webp",
       "group": "vivma",
       "title": "From sign-up to the simulator: the Finlatics learner journey",
       "teaser": "Cutting account-setup drop-off by 34%, reshaping the roadmap with 25+ research sessions, and rebuilding program content for phones first.",
@@ -1892,11 +1950,15 @@ window.PORTFOLIO = {
           ]
         },
         "caption": "Onboarding, recreated for this portfolio: choose a track, create the account, review and confirm."
-      }
+      },
+      "color": "#1D6A46",
+      "indexTitle": "Finlatics learner journey",
+      "indexWhen": "2021 to 2023",
+      "indexMeta": "Vivma Software. Onboarding, research and mobile content"
     },
 
     {
-      "slug": "portfolio-simulation-dashboards",
+      "slug": "portfolio-simulation-dashboards", "preview": "assets/work/preview-portfolio-simulation-dashboards.webp",
       "group": "vivma",
       "title": "Real-time portfolio simulation that learners can read",
       "teaser": "Interactive dashboards for a live BSE 500 simulation, with chart interactions and tooltip behavior specified state by state for engineering.",
@@ -2287,11 +2349,15 @@ window.PORTFOLIO = {
           "height": 1263
         },
         "caption": "The default dashboard, recreated with fictional BSE 500 holdings."
-      }
+      },
+      "color": "#14513A",
+      "indexTitle": "Real-time portfolio dashboards",
+      "indexWhen": "2021 to 2023",
+      "indexMeta": "Vivma Software. Live BSE 500 charts, specified for engineering"
     },
 
     {
-      "slug": "finlatics-design-system",
+      "slug": "finlatics-design-system", "preview": "assets/work/preview-finlatics-design-system.webp",
       "group": "vivma",
       "title": "A 60-component design system for a team moving fast",
       "teaser": "A Figma component library for web and mobile-responsive views that cut new designers’ ramp-up time by 40%.",
@@ -2593,12 +2659,16 @@ window.PORTFOLIO = {
           "section": "components"
         },
         "caption": "Core components, drawn live from the library’s tokens."
-      }
+      },
+      "color": "#4D6620",
+      "indexTitle": "Finlatics design system",
+      "indexWhen": "2021 to 2023",
+      "indexMeta": "Vivma Software. 60+ components, 40% faster ramp-up"
     },
 
     /* ---------- Adons Softech ---------- */
     {
-      "slug": "b2b-saas-navigation",
+      "slug": "b2b-saas-navigation", "preview": "assets/work/preview-b2b-saas-navigation.webp",
       "group": "adons",
       "title": "Halving navigation depth in a B2B SaaS product",
       "teaser": "Journey maps and a restructured sitemap that brought core workflows from 4 clicks to 2 and lifted task completion by 31%.",
@@ -2751,7 +2821,34 @@ window.PORTFOLIO = {
         {
           "body": "4 clicks to 2, and task completion up 31% in usability testing."
         }
-      ]
+      ],
+      "color": "#36537A",
+      "indexTitle": "B2B SaaS navigation",
+      "indexWhen": "2019 to 2021",
+      "indexMeta": "Adons Softech. Four clicks to two, +31% task completion",
+      "hero": {
+        "kind": "tree",
+        "data": {
+          "before": {
+            "title": "Before",
+            "path": [
+              "Dashboard",
+              "Workspace",
+              "Settings",
+              "Data",
+              "Export report"
+            ]
+          },
+          "after": {
+            "title": "After",
+            "path": [
+              "Dashboard",
+              "Reports",
+              "Export report"
+            ]
+          }
+        }
+      }
     }
   ]
 };

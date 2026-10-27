@@ -252,7 +252,7 @@ window.Visuals = (function () {
     return '<div class="v-shot v-shot--' + esc(d.frame || "plain") + '"' + (d.maxWidth ? ' style="max-width:' + Number(d.maxWidth) + 'px"' : "") + ">" + zoomable(d) + "</div>";
   }
   function pinsHtml(pins, num) {
-    return (pins || []).map(function (p) { return '<span class="v-pin" style="left:' + Number(p.x) + "%;top:" + Number(p.y) + '%" aria-hidden="true">' + Number(num || p.n) + "</span>"; }).join("");
+    return (pins || []).map(function (p, i) { return '<span class="v-pin" style="left:' + Number(p.x) + "%;top:" + Number(p.y) + "%;--i:" + i + '" aria-hidden="true">' + Number(num || p.n) + "</span>"; }).join("");
   }
   function stage(d, num) {
     return '<div class="v-stage"' + (d.maxWidth ? ' style="max-width:' + Number(d.maxWidth) + 'px"' : "") + ">" + zoomable(d) + pinsHtml(d.pins, num) + "</div>";
