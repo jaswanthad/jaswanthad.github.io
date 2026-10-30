@@ -205,6 +205,56 @@ window.PORTFOLIO = {
     ]
   },
 
+  motion: {
+
+    title: "In-app motion",
+
+    kicker: "Motion studies",
+
+    color: "#C8321E",
+
+    summary: "How the products in this portfolio move. Each study shows why the motion is there, its timing and easing, and what happens when someone asks for less motion. Turn on slow motion to see the choreography.",
+
+    note: "Studies built for the recreated flows in this portfolio, with fictional data.",
+
+    indexTitle: "In-app motion",
+
+    indexWhen: "Motion studies",
+
+    indexMeta: "Six micro-interactions, with timing and easing specs",
+
+    preview: "assets/work/preview-motion.webp",
+
+    tokens: {
+
+      title: "The motion system",
+
+      durations: [["Quick", "120–160 ms", "State changes: a time selected, a label swapped, a button pressed."], ["Base", "200–280 ms", "Things arriving: messages, cards and panels."], ["Slow", "320–480 ms", "Progress and data: steps completing, bars and lines drawing."]],
+
+      easings: [["Enter", "cubic-bezier(.05, .7, .1, 1)", "Starts fast and lands gently, for things arriving.", [0.05, 0.7, 0.1, 1]], ["Exit", "cubic-bezier(.3, 0, .8, .15)", "Leaves quickly and gets out of the way.", [0.3, 0, 0.8, 0.15]], ["Standard", "cubic-bezier(.2, 0, 0, 1)", "Moves things within the screen.", [0.2, 0, 0, 1]], ["Settle", "cubic-bezier(.34, 1.56, .64, 1)", "A small overshoot, only for confirmations.", [0.34, 1.56, 0.64, 1]]],
+
+      reduced: "Nothing moves or scales. Changes cross-fade in 120 ms or less, and these studies wait for Play instead of looping."
+
+    },
+
+    demos: [
+
+      { id: "message", context: "Healthcare assistant", title: "A reply arrives", purpose: "Show that the assistant is working, then land the answer where the eye already is.", spec: [["Message in", "240 ms, enter, rises 12 px from 96%"], ["Typing", "fades in at 420 ms; dots bounce 120 ms apart"], ["Reply in", "240 ms, enter, in the typing bubble’s place"], ["Result card", "280 ms, enter, 200 ms after the reply"], ["Quick replies", "200 ms each, 60 ms apart"]] },
+
+      { id: "booking", context: "Healthcare assistant", title: "Choosing a time, then booking", purpose: "Selected, booking and booked are three different moments, so a tap never feels like a booking.", spec: [["Tap", "420 ms ripple"], ["Time selected", "140 ms, standard"], ["Button ready", "the label swaps in 160 ms"], ["Booking", "the button narrows to a spinner in 260 ms"], ["Booked", "the check draws in 240 ms with settle; the confirmation rises in 280 ms"]] },
+
+      { id: "steps", context: "Prior authorization form", title: "A requirement is met", purpose: "Tie the fix to its result: the requirement turns complete, then the step it was blocking moves on.", spec: [["Requirement met", "200 ms tint; the icon swaps with a 320 ms settle"], ["Label", "Missing to Complete in a 160 ms cross-fade"], ["Step done", "number to check, 320 ms settle"], ["Progress line", "fills in 320 ms, standard"], ["Next step", "activates in 160 ms; the status badge rises in 240 ms"]] },
+
+      { id: "flag", context: "Clinical risk flag", title: "A risk flag explains itself", purpose: "Reveal the evidence in order of strength, so the reason is read before the score.", spec: [["Panel in", "240 ms, enter"], ["Risk level", "280 ms settle, first"], ["Confidence", "bars fill in 160 ms each, 80 ms apart"], ["Data date", "fades in at 640 ms"], ["Evidence", "bars grow in 480 ms, strongest first, 90 ms apart"]] },
+
+      { id: "live", context: "Finlatics dashboard", title: "Live data, a steady tooltip", purpose: "Let new data arrive without moving what the learner is reading.", spec: [["First draw", "the line draws in 900 ms, standard"], ["Inspect", "crosshair and tooltip in 160 to 200 ms"], ["New data", "the line extends in 420 ms; the tooltip stays put"], ["New point", "280 ms settle"], ["Paused", "the line greys and the time label rises in 220 ms"]] },
+
+      { id: "range", context: "Finlatics dashboard", title: "Changing range, opening a holding", purpose: "Keep context: the control slides, the chart settles, and details open beside the list.", spec: [["Range control", "the thumb slides in 300 ms with a slight overshoot"], ["Chart", "the old line fades in 160 ms; the new one settles from 94% in 300 ms"], ["Open a holding", "the row tints in 120 ms"], ["Detail panel", "slides in over 320 ms, enter, as the page dims"], ["Close", "240 ms, exit"]] }
+
+    ]
+
+  },
+
   tools: ["Figma", "Figma AI", "Maze", "Dovetail", "Zeplin", "Adobe XD", "Sketch", "Miro", "Principle", "ChatGPT", "Claude", "Gemini", "Galileo AI", "Midjourney", "Jira", "Confluence", "Notion", "Amplitude", "Mixpanel", "Hotjar"],
 
   capabilities: {

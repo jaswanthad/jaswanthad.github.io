@@ -95,7 +95,7 @@
   /* -------------------------------------------------------- header/footer */
   function renderHeader() {
     var m = C.meta || {};
-    var links = [["work", "Work"], ["about", "About"]];
+    var links = [["work", "Work"], ["motion", "Motion"], ["about", "About"]];
     byId("site-header").innerHTML =
       '<div class="wrap hdr__in">' +
       '<a class="brand" href="#/">' + ICON.brand + "<span>" + esc(m.name) + "</span></a>" +
@@ -146,7 +146,7 @@
     }).filter(Boolean);
   }
 
-  var INDEX_ORDER = ["uhg", "finlatics-learner-journey", "portfolio-simulation-dashboards", "finlatics-design-system", "advisor-ai", "nike-nft-concept", "b2b-saas-navigation"];
+  var INDEX_ORDER = ["uhg", "motion", "finlatics-learner-journey", "portfolio-simulation-dashboards", "finlatics-design-system", "advisor-ai", "nike-nft-concept", "b2b-saas-navigation"];
   function thumb(src, cover) {
     return '<span class="ix__thumb" aria-hidden="true">' + (src ? '<img src="' + esc(safeUrl(src)) + '" alt="" loading="lazy" decoding="async">' : V.cover(cover)) + "</span>";
   }
@@ -158,6 +158,7 @@
   }
   function indexItems(list) {
     return list.map(function (id) {
+      if (id === "motion") { var M = C.motion || {}; return indexRow({ href: "#/motion", color: M.color || "#C8321E", when: M.indexWhen || "Studies", title: M.indexTitle || "In-app motion", meta: esc(M.indexMeta || ""), src: M.preview, cover: "flow", preview: M.preview }); }
       var g = groupById(id);
       if (g) return indexRow({ href: "#/work/" + g.id, color: g.color, when: g.indexWhen || g.period, title: g.indexTitle || g.title || g.company,
         meta: esc(g.indexMeta || g.company) + (state.unlocked ? "" : ' <span class="ix__lock">' + ICON.lock + "Password protected</span>"), cover: g.cover || "chat", preview: g.preview });
@@ -701,12 +702,13 @@
       if (!findCase(parts[1]) && groupById(parts[1])) return { name: "group", id: parts[1] };
       return { name: "case", slug: parts[1], section: parts[2] || null };
     }
+    if (parts[0] === "motion") return { name: "motion" };
     if (HOME_SECTIONS.indexOf(parts[0]) > -1) return { name: "home", section: parts[0] };
     return { name: "notfound" };
   }
   function samePage(a, b) {
     if (!a || !b || a.name !== b.name) return false;
-    return a.name === "home" || a.name === "work" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
+    return a.name === "home" || a.name === "work" || a.name === "motion" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
   }
 
   // One Google Analytics page view per page, with the route as a readable path (/work/member-assistant).
@@ -724,14 +726,14 @@
     if (!keep) {
       cleanup();
       state.tableN = 0;
-      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : viewNotFound();
+      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : r.name === "motion" ? viewMotion() : viewNotFound();
       mount(r);
       enhance(r);
     }
     state.route = r;
     setTitle(r);
     if (!keep) trackPage();
-    setNav(r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
+    setNav(r.name === "motion" ? "motion" : r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
     toggleMenu(false);
 
     if (opts.restoreY != null) { window.scrollTo(0, opts.restoreY); return; }
@@ -755,7 +757,7 @@
   function setTitle(r) {
     var m = C.meta || {}, cs = r.name === "case" ? findCase(r.slug) : null;
     var g = r.name === "group" ? groupById(r.id) : null;
-    document.title = cs ? cs.title + " | " + m.name : g ? g.company + " | " + m.name : r.name === "work" ? ((C.work && C.work.allTitle) || "All work") + " | " + m.name : r.name === "notfound" ? "Page not found | " + m.name : m.name + ", " + m.role;
+    document.title = cs ? cs.title + " | " + m.name : g ? g.company + " | " + m.name : r.name === "work" ? ((C.work && C.work.allTitle) || "All work") + " | " + m.name : r.name === "motion" ? ((C.motion && C.motion.title) || "In-app motion") + " | " + m.name : r.name === "notfound" ? "Page not found | " + m.name : m.name + ", " + m.role;
   }
 
   // The home page's selected-work section belongs to the Work link.
@@ -848,6 +850,7 @@
   var floater = null, fx = 0, fy = 0, tx = 0, ty = 0, vx = 0, rafId = 0, floatOn = false, preloaded = false;
   function enhance() {
     if (motionObs) { motionObs.disconnect(); motionObs = null; }
+    enhanceMotion();
     if (floater) { floatOn = false; floater.classList.remove("is-on"); }
     var stages = document.querySelectorAll("#main .v-stage");
     if (stages.length) {
@@ -931,6 +934,214 @@
       drag.el.setAttribute("data-dx", drag.nx || drag.dx); drag.el.setAttribute("data-dy", drag.ny || drag.dy);
       drag.el.classList.remove("is-drag"); drag = null;
     });
+  });
+
+  /* --------------------------------------------------------- in-app motion studies */
+  var EASE = { std: "cubic-bezier(.2,0,0,1)", enter: "cubic-bezier(.05,.7,.1,1)", exit: "cubic-bezier(.3,0,.8,.15)", settle: "cubic-bezier(.34,1.56,.64,1)", slide: "cubic-bezier(.3,1.25,.5,1)" };
+  function A(el, kf, d, at, e, sp, fill) { if (!el) return null; return el.animate(kf, { duration: d / sp, delay: at / sp, easing: EASE[e] || e || EASE.std, fill: fill || "both" }); }
+  var IN = function (y, s) { return [{ opacity: 0, transform: "translateY(" + (y || 12) + "px)" + (s ? " scale(" + s + ")" : "") }, { opacity: 1, transform: "none" }]; };
+  var FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
+  var CK = '<svg viewBox="0 0 20 20" class="mui__ck" aria-hidden="true"><path d="M5 10.5l3.3 3.3L15 7" pathLength="1"/></svg>';
+  function tap(stage, target, at, sp) {
+    var t = stage.querySelector(".mui__tap"); if (!t || !target) return;
+    var s = stage.getBoundingClientRect(), r = target.getBoundingClientRect();
+    t.style.left = (r.left - s.left + r.width / 2) + "px"; t.style.top = (r.top - s.top + r.height / 2) + "px";
+    t.animate([{ opacity: .35, transform: "scale(.3)" }, { opacity: 0, transform: "scale(1.5)" }], { duration: 420 / sp, delay: at / sp, easing: EASE.std, fill: "both" });
+  }
+  var DEMOS = {
+    message: {
+      html: '<div class="mui mui--phone"><div class="mui__bar"><span class="mui__av">AI</span><b>Care assistant</b></div><div class="mui__cv">' +
+        '<p class="mui__b mui__b--m" data-k="m1">I need a dermatologist near me.</p>' +
+        '<div class="mui__slot"><p class="mui__typing" data-k="ty"><i></i><i></i><i></i></p><p class="mui__b" data-k="a1">I found 3 in-network dermatologists within 5 miles.</p></div>' +
+        '<div class="mui__card" data-k="c1"><b>Dr. Ana Rivera</b><span>Next opening Thu, 9:30 AM</span><span class="mui__row"><em class="mui__ok">In network</em><span class="mui__btn">Book</span></span></div>' +
+        '<p class="mui__qr" data-k="qr"><span>Show 2 more</span><span>Other times</span><span>Talk to a person</span></p>' +
+        '</div><div class="mui__comp"><span>Type a message</span><i></i></div></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        A(q("m1"), IN(12, .96), 240, 0, "enter", sp);
+        A(q("ty"), [{ opacity: 0, transform: "scale(.9)" }, { opacity: 1, transform: "none" }], 160, 420, "std", sp);
+        [].forEach.call(q("ty").children, function (d, i) { d.animate([{ transform: "none" }, { transform: "translateY(-4px)" }, { transform: "none" }], { duration: 560 / sp, delay: (560 + i * 120) / sp, iterations: 2, easing: EASE.std }); });
+        A(q("ty"), FADE_OUT, 120, 1720, "exit", sp, "forwards");
+        A(q("a1"), IN(12, .96), 240, 1760, "enter", sp);
+        A(q("c1"), IN(16), 280, 1960, "enter", sp);
+        [].forEach.call(q("qr").children, function (c, i) { A(c, IN(8), 200, 2240 + i * 60, "enter", sp); });
+        return 2700;
+      }
+    },
+    booking: {
+      html: '<div class="mui mui--phone"><div class="mui__bar"><span class="mui__back">‹</span><b>Book a visit</b></div><div class="mui__cv">' +
+        '<p class="mui__lbl">Dr. Ana Rivera, Thursday, Oct 15</p>' +
+        '<div class="mui__slots"><span class="off">8:30 AM</span><span data-k="s">9:30 AM</span><span>11:00 AM</span><span>1:45 PM</span><span class="off">3:30 PM</span><span>4:15 PM</span></div>' +
+        '<span class="mui__cta" data-k="cta"><span data-k="l1">Choose a time</span><span class="mui__cta-l2" data-k="l2">Book Thu at 9:30 AM</span><span class="mui__spin" data-k="sp"></span><span class="mui__done" data-k="ck">' + CK + "</span></span>" +
+        '<div class="mui__card mui__confirm" data-k="cf"><b>You’re booked</b><span>Thu, Oct 15 at 9:30 AM with Dr. Ana Rivera, Downtown clinic</span></div>' +
+        '</div><span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        var cta = q("cta"), w = cta.offsetWidth;
+        tap(s, q("s"), 380, sp);
+        A(q("s"), [{ backgroundColor: "#FFFFFF", color: "#15233B", borderColor: "#7C8698" }, { backgroundColor: "#15233B", color: "#FFFFFF", borderColor: "#15233B" }], 140, 500, "std", sp);
+        A(cta, [{ backgroundColor: "#E8ECF2", color: "#7C8698" }, { backgroundColor: "#15233B", color: "#FFFFFF" }], 200, 600, "std", sp);
+        A(q("l1"), FADE_OUT, 100, 600, "exit", sp, "forwards");
+        A(q("l2"), [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], 160, 680, "enter", sp);
+        tap(s, cta, 1500, sp);
+        A(q("l2"), FADE_OUT, 100, 1620, "exit", sp, "forwards");
+        A(cta, [{ width: w + "px" }, { width: "48px" }], 260, 1620, "std", sp);
+        A(q("sp"), [{ opacity: 0 }, { opacity: 1 }], 120, 1800, "std", sp);
+        q("sp").animate([{ transform: "rotate(0deg)" }, { transform: "rotate(540deg)" }], { duration: 700 / sp, delay: 1800 / sp, easing: "linear" });
+        A(q("sp"), FADE_OUT, 100, 2420, "exit", sp, "forwards");
+        A(cta, [{ backgroundColor: "#15233B" }, { backgroundColor: "#1B6E45" }], 200, 2420, "std", sp, "forwards");
+        A(q("ck").querySelector("path"), [{ strokeDashoffset: "1px" }, { strokeDashoffset: "0px" }], 240, 2460, "settle", sp);
+        A(q("cf"), IN(20), 280, 2720, "enter", sp);
+        return 3300;
+      }
+    },
+    steps: {
+      html: '<div class="mui mui--desk"><div class="mui__steps">' +
+        '<span class="mui__st done"><i>' + CK + '</i>Member</span><span class="mui__ln full"></span>' +
+        '<span class="mui__st cur" data-k="s2"><i data-k="s2i"><b data-k="s2n">2</b><span data-k="s2c">' + CK + '</span></i>Clinical</span><span class="mui__ln"><b data-k="ln"></b></span>' +
+        '<span class="mui__st up" data-k="s3"><i data-k="s3i">3</i>Documents</span><span class="mui__ln"></span><span class="mui__st up"><i>4</i>Review</span></div>' +
+        '<div class="mui__reqs"><div class="mui__req"><span class="mui__ok2">' + CK + '</span>Clinical notes, last 60 days<em>Complete</em></div><div class="mui__req"><span class="mui__ok2">' + CK + '</span>Imaging history<em>Complete</em></div>' +
+        '<div class="mui__req mui__req--miss" data-k="r3"><span class="mui__ri"><b data-k="ri1">i</b><span class="mui__ok2" data-k="ri2">' + CK + '</span></span>Prior treatment, with dates<em class="mui__w"><span data-k="w1">Missing</span><span data-k="w2">Complete</span></em></div></div>' +
+        '<p class="mui__badge" data-k="bd">Clinical information complete</p></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        A(q("r3"), [{ backgroundColor: "#FFFFFF", borderColor: "#7C8698" }, { backgroundColor: "#E3F4EA", borderColor: "#E3F4EA" }], 200, 420, "std", sp);
+        A(q("ri1"), [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(.6)" }], 120, 400, "exit", sp);
+        A(q("ri2"), [{ opacity: 0, transform: "scale(.4)" }, { opacity: 1, transform: "none" }], 320, 480, "settle", sp);
+        A(q("w1"), FADE_OUT, 100, 400, "exit", sp);
+        A(q("w2"), [{ opacity: 0 }, { opacity: 1 }], 160, 480, "std", sp);
+        A(q("s2n"), [{ opacity: 1 }, { opacity: 0 }], 100, 1000, "exit", sp);
+        A(q("s2c"), [{ opacity: 0, transform: "scale(.4)" }, { opacity: 1, transform: "none" }], 320, 1060, "settle", sp);
+        A(q("s2i"), [{ backgroundColor: "#15233B" }, { backgroundColor: "#1B6E45" }], 200, 1000, "std", sp);
+        A(q("ln"), [{ width: "0%" }, { width: "100%" }], 320, 1200, "std", sp);
+        A(q("s3i"), [{ backgroundColor: "#FFFFFF", color: "#5B6677", borderColor: "#7C8698" }, { backgroundColor: "#15233B", color: "#FFFFFF", borderColor: "#15233B" }], 160, 1480, "std", sp);
+        A(q("s3"), [{ color: "#5B6677" }, { color: "#15233B" }], 160, 1480, "std", sp);
+        A(q("bd"), IN(8), 240, 1700, "enter", sp);
+        return 2300;
+      }
+    },
+    flag: {
+      html: '<div class="mui mui--desk"><div class="mui__flag" data-k="pn"><div class="mui__frow"><span class="mui__risk" data-k="rk">Rising risk: type 2 diabetes</span>' +
+        '<span class="mui__conf"><i data-k="b1"></i><i data-k="b2"></i><i class="off"></i>Moderate confidence</span><span class="mui__date" data-k="dt">Data through Oct 2</span></div>' +
+        '<p class="mui__stmt">Associated with a higher risk. This is not a diagnosis.</p>' +
+        [["A1C rising", "5.9% to 6.3%", 80], ["Fasting glucose above range", "118 mg/dL", 55], ["BMI", "31.2", 50], ["Family history", "Parent", 28]].map(function (f, i) {
+          return '<div class="mui__fact" data-k="f' + i + '"><span class="mui__row"><b>' + f[0] + "</b><span>" + f[1] + '</span></span><span class="mui__track"><i data-k="t' + i + '" style="width:' + f[2] + '%"></i></span></div>';
+        }).join("") + "</div></div>",
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        A(q("pn"), IN(8), 240, 0, "enter", sp);
+        A(q("rk"), [{ opacity: 0, transform: "scale(.8)" }, { opacity: 1, transform: "none" }], 280, 200, "settle", sp);
+        A(q("b1"), [{ backgroundColor: "#EEF2F7" }, { backgroundColor: "#15233B" }], 160, 420, "std", sp);
+        A(q("b2"), [{ backgroundColor: "#EEF2F7" }, { backgroundColor: "#15233B" }], 160, 500, "std", sp);
+        A(q("dt"), [{ opacity: 0 }, { opacity: 1 }], 160, 640, "std", sp);
+        for (var i = 0; i < 4; i++) {
+          A(q("f" + i), [{ opacity: 0 }, { opacity: 1 }], 160, 760 + i * 90, "std", sp);
+          var t = q("t" + i); A(t, [{ width: "0%" }, { width: t.style.width }], 480, 800 + i * 90, "enter", sp);
+        }
+        return 1900;
+      }
+    },
+    live: {
+      html: '<div class="mui mui--desk mui--fin"><div class="mui__frow mui__frow--sp"><b>Portfolio against the BSE 500</b><span class="mui__pause" data-k="pz">Paused. Last update 10:42 AM</span></div>' +
+        '<svg class="mui__chart" viewBox="0 0 480 210" aria-hidden="true"><path class="mui__grid" d="M0 50H480M0 100H480M0 150H480"/>' +
+        '<path class="mui__bench" d="M8 168L74 160L140 156L206 148L272 142L338 134L404 128"/>' +
+        '<path class="mui__line" data-k="ln" pathLength="1" d="M8 176L74 140L140 154L206 110L272 124L338 82L404 96"/>' +
+        '<path class="mui__line" data-k="ext" pathLength="1" d="M404 96L470 62"/>' +
+        '<line class="mui__x" data-k="x" x1="272" x2="272" y1="12" y2="198"/><circle class="mui__pt" data-k="pt" cx="272" cy="124" r="5"/>' +
+        '<g data-k="tp"><rect x="284" y="78" width="118" height="40" rx="7" class="mui__tipbg"/><text x="296" y="95" class="mui__tipk">Sep 14</text><text x="296" y="110" class="mui__tipv">₹11,08,240</text></g>' +
+        '<circle class="mui__pt mui__pt--new" data-k="np" cx="470" cy="62" r="5"/></svg>' +
+        '<p class="mui__hint" data-k="hn">The tooltip stays on its point while new data arrives</p></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        A(q("ln"), [{ strokeDashoffset: "1px" }, { strokeDashoffset: "0px" }], 900, 0, "std", sp);
+        A(q("x"), [{ opacity: 0 }, { opacity: 1 }], 160, 1000, "std", sp);
+        A(q("pt"), [{ opacity: 0 }, { opacity: 1 }], 160, 1000, "std", sp);
+        A(q("tp"), [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }], 200, 1040, "enter", sp);
+        A(q("ext"), [{ strokeDashoffset: "1px" }, { strokeDashoffset: "0px" }], 420, 1700, "std", sp);
+        A(q("np"), [{ opacity: 0, transform: "scale(.3)" }, { opacity: 1, transform: "none" }], 280, 2080, "settle", sp);
+        A(q("hn"), [{ opacity: 0 }, { opacity: 1 }], 200, 2140, "std", sp);
+        A(q("pz"), IN(6), 220, 2800, "enter", sp);
+        A(q("ln"), [{ stroke: "#0F7A52" }, { stroke: "#8C9099" }], 300, 2800, "std", sp, "forwards");
+        A(q("ext"), [{ stroke: "#0F7A52" }, { stroke: "#8C9099" }], 300, 2800, "std", sp, "forwards");
+        return 3400;
+      }
+    },
+    range: {
+      html: '<div class="mui mui--desk mui--fin"><div class="mui__frow mui__frow--sp"><b>BSE 500 portfolio</b><span class="mui__seg"><span class="mui__thumb" data-k="th"></span><span>1M</span><span class="on" data-k="t3">3M</span><span>6M</span><span data-k="ty">1Y</span></span></div>' +
+        '<svg class="mui__chart mui__chart--sm" viewBox="0 0 480 150" aria-hidden="true"><path class="mui__grid" d="M0 40H480M0 80H480M0 120H480"/>' +
+        '<path class="mui__line mui__line--a" data-k="pa" d="M8 120L80 104L152 110L224 80L296 88L368 60L472 48"/><path class="mui__line mui__line--b" data-k="pb" d="M8 136L60 128L112 118L164 122L216 100L268 104L320 76L372 70L424 52L472 30"/></svg>' +
+        '<div class="mui__holds"><div class="mui__hold" data-k="h1"><b>HDFC Bank</b><span>₹1,86,240</span><em>+8.6%</em></div><div class="mui__hold"><b>ICICI Bank</b><span>₹1,37,280</span><em>+5.3%</em></div><div class="mui__hold"><b>Infosys</b><span>₹1,50,800</span><em>+2.6%</em></div></div>' +
+        '<div class="mui__scrim" data-k="sc"></div><div class="mui__panel" data-k="pl"><b>HDFC Bank</b><span>120 shares, avg ₹1,420</span><span>Value ₹1,86,240, +8.6%</span><span class="mui__btn">Close</span></div>' +
+        '<span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        var dx = q("ty").offsetLeft - q("t3").offsetLeft;
+        tap(s, q("ty"), 380, sp);
+        A(q("th"), [{ transform: "none" }, { transform: "translateX(" + dx + "px)" }], 300, 500, "slide", sp);
+        A(q("t3"), [{ color: "#FFFFFF" }, { color: "#5B6677" }], 160, 560, "std", sp);
+        A(q("ty"), [{ color: "#5B6677" }, { color: "#FFFFFF" }], 160, 560, "std", sp);
+        A(q("pa"), [{ opacity: 1 }, { opacity: 0 }], 160, 600, "exit", sp);
+        A(q("pb"), [{ opacity: 0, transform: "scaleY(.94)" }, { opacity: 1, transform: "none" }], 300, 680, "enter", sp);
+        tap(s, q("h1"), 1500, sp);
+        A(q("h1"), [{ backgroundColor: "#FFFFFF" }, { backgroundColor: "#E7F3EC" }], 120, 1560, "std", sp);
+        A(q("sc"), [{ opacity: 0 }, { opacity: 1 }], 240, 1660, "std", sp);
+        A(q("pl"), [{ transform: "translateX(100%)" }, { transform: "none" }], 320, 1660, "enter", sp);
+        A(q("pl"), [{ transform: "none" }, { transform: "translateX(100%)" }], 240, 3300, "exit", sp, "forwards");
+        A(q("sc"), [{ opacity: 1 }, { opacity: 0 }], 200, 3300, "std", sp, "forwards");
+        return 3700;
+      }
+    }
+  };
+  function curveSvg(b) {
+    var x1 = b[0] * 120, y1 = 80 - b[1] * 80, x2 = b[2] * 120, y2 = 80 - b[3] * 80;
+    return '<svg class="mo-curve" viewBox="-6 -28 132 116" aria-hidden="true"><path class="mo-curve__axis" d="M0 80H120M0 80V-20"/><path class="mo-curve__line" d="M0 80C' + x1 + " " + y1 + " " + x2 + " " + y2 + ' 120 0"/></svg>';
+  }
+  function viewMotion() {
+    var M = C.motion || {}, T = M.tokens || {};
+    return '<article class="cs mo-page" style="--proj:' + esc(M.color || "#C8321E") + '"><header class="cv"><div class="wrap cv__in">' +
+      '<a class="back cv__back" href="#/">' + ICON.back + "<span>Home</span></a>" +
+      '<p class="cv__co"><span>' + esc(M.kicker || "Motion studies") + "</span></p>" +
+      '<h1 class="cv__title" tabindex="-1">' + esc(M.title || "In-app motion") + '</h1><p class="cv__sum">' + fmt(M.summary || "") + "</p></div></header>" +
+      '<div class="wrap mo-body">' +
+      '<section class="mo-tokens" aria-labelledby="mo-tok"><h2 class="cs__h2" id="mo-tok">' + esc(T.title || "The motion system") + "</h2>" +
+      '<dl class="mo-dur">' + (T.durations || []).map(function (d) { return '<div><dt>' + esc(d[0]) + '</dt><dd><span class="mo-dur__v">' + esc(d[1]) + "</span>" + esc(d[2]) + "</dd></div>"; }).join("") + "</dl>" +
+      '<ul class="mo-ease">' + (T.easings || []).map(function (e) { return "<li>" + curveSvg(e[3]) + '<p class="mo-ease__n">' + esc(e[0]) + '</p><p class="mo-ease__d">' + esc(e[2]) + "</p><code>" + esc(e[1]) + "</code></li>"; }).join("") + "</ul>" +
+      (T.reduced ? '<p class="mo-reduced"><strong>Reduced motion.</strong> ' + esc(T.reduced) + "</p>" : "") + "</section>" +
+      (M.note ? '<p class="cs__note mo-note">' + esc(M.note) + "</p>" : "") +
+      '<div class="mo-grid">' + (M.demos || []).map(function (d) {
+        var def = DEMOS[d.id]; if (!def) return "";
+        return '<figure class="mo" data-demo="' + esc(d.id) + '"><div class="mo__stage">' + def.html + "</div>" +
+          '<figcaption class="mo__cap"><p class="mo__ctx">' + esc(d.context || "") + '</p><h2 class="mo__t">' + esc(d.title) + '</h2><p class="mo__p">' + esc(d.purpose || "") + "</p>" +
+          '<div class="mo__ctl"><button type="button" class="mo__play">Play</button><button type="button" class="mo__slow" aria-pressed="false">Slow motion</button></div>' +
+          '<dl class="mo__spec">' + (d.spec || []).map(function (r) { return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>"; }).join("") + "</dl></figcaption></figure>";
+      }).join("") + "</div></div></article>";
+  }
+  var moTimers = [], moObs = null;
+  function playDemo(fig, auto) {
+    var def = DEMOS[fig.getAttribute("data-demo")]; if (!def) return;
+    var stage = fig.querySelector(".mo__stage");
+    clearTimeout(fig._loop);
+    if (stage.getAnimations) stage.getAnimations({ subtree: true }).forEach(function (a) { a.cancel(); });
+    stage.innerHTML = def.html;
+    var sp = reduceMotion && !auto ? 40 : fig.classList.contains("is-slow") ? 0.25 : 1;
+    var total = def.play(stage, sp) / sp;
+    if (!reduceMotion) fig._loop = setTimeout(function () { if (fig._vis && document.visibilityState !== "hidden") playDemo(fig, true); }, total + 2600);
+    moTimers.push(fig._loop);
+  }
+  function enhanceMotion() {
+    moTimers.forEach(clearTimeout); moTimers = [];
+    if (moObs) { moObs.disconnect(); moObs = null; }
+    var figs = document.querySelectorAll("#main .mo"); if (!figs.length || reduceMotion || !("IntersectionObserver" in window)) return;
+    moObs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { var f = e.target; var was = f._vis; f._vis = e.isIntersecting; if (e.isIntersecting && !was) playDemo(f, true); if (!e.isIntersecting) clearTimeout(f._loop); });
+    }, { threshold: 0.45 });
+    [].forEach.call(figs, function (f) { moObs.observe(f); });
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".mo__play, .mo__slow"); if (!b) return;
+    var fig = b.closest(".mo"); if (!fig) return;
+    if (b.classList.contains("mo__slow")) { var on = !fig.classList.contains("is-slow"); fig.classList.toggle("is-slow", on); b.setAttribute("aria-pressed", String(on)); }
+    playDemo(fig, false);
   });
 
   // Reading mode: a visual tour by default, the full story on request.
