@@ -33,6 +33,16 @@ window.PORTFOLIO = {
   /* -------------------------------------------------------------------- Hero */
   hero: {
     intro: "Jaswanth Adusumilli, AI product designer at UnitedHealth Group",
+    liquid: {
+      words: ["Decisions", "have", "weight."],
+      subtitle: "I’m Jaswanth Adusumilli, an AI product designer. I work on healthcare and finance products, where every decision matters to someone, and make them clear enough to act on.",
+      primary: "See the work",
+      secondary: "In-app motion",
+      dots: ["#2340C8", "#0B6874", "#6A2DA0", "#1D6A46", "#3C35C2"],
+      proof: "Healthcare AI at UnitedHealth Group. Fintech learning at Finlatics.",
+      hintPointer: "Move through the words. Click anywhere to send a pulse.",
+      hintTouch: "Tap anywhere to send a pulse."
+    },
     headline: "I design AI products for healthcare.",
     summary: "Right now that’s at UnitedHealth Group, on tools for members booking care, office staff submitting prior authorizations and clinicians reading risk models. Before that, I spent two years designing Finlatics, a stock-market simulator for 500+ finance students.",
     evidenceTitle: "What the work shows",
@@ -82,81 +92,220 @@ window.PORTFOLIO = {
      A group with protected: true is shown as a password-protected list.
      {count} in the intro is replaced with the number of case studies. */
   work: {
-    title: "Selected work",
-    // The four cards on the home page, in order. Use a case study’s slug, or "uhg" for the protected UnitedHealth Group card.
-    featured: ["uhg", "advisor-ai", "finlatics-learner-journey", "portfolio-simulation-dashboards"],
-    allTitle: "All work",
-    intro: "{count} case studies across healthcare, fintech education, career tools and SaaS. My current work at UnitedHealth Group is shared privately to respect confidentiality.",
-    groups: [
+    "title": "Selected work",
+    "featured": [
+      "uhg",
+      "advisor-ai",
+      "finlatics-learner-journey",
+      "portfolio-simulation-dashboards"
+    ],
+    "allTitle": "Work",
+    "intro": "{count} case studies across healthcare, fintech education, career tools and SaaS. My current work at UnitedHealth Group is shared privately to respect confidentiality.",
+    "groups": [
       {
-        id: "uhg",
-        color: "#1F3480",
-        indexTitle: "AI for members, providers and clinicians",
-        indexWhen: "2025 to now",
-        indexMeta: "UnitedHealth Group. Five case studies",
-      preview: "assets/work/preview-uhg.webp",
-        company: "UnitedHealth Group",
-        role: "AI Product Designer",
-        period: "Aug 2025 – present",
-        protected: true,
-        title: "AI for members, providers and clinicians",
-        teaser: "Five case studies on a conversational assistant, prior authorization, explainable clinical AI and accessibility standards for AI-generated UI.",
-        cover: "chat",
-        description: "AI-native experiences for members, providers and clinicians, built inside an enterprise design system."
+        "id": "uhg",
+        "color": "#1F3480",
+        "indexTitle": "AI for members, providers and clinicians",
+        "indexWhen": "2025 to now",
+        "indexMeta": "UnitedHealth Group. Five case studies",
+        "preview": "assets/work/preview-uhg.webp",
+        "company": "UnitedHealth Group",
+        "role": "AI Product Designer",
+        "period": "Aug 2025 – present",
+        "protected": true,
+        "title": "AI for members, providers and clinicians",
+        "teaser": "Five case studies on a conversational assistant, prior authorization, explainable clinical AI and accessibility standards for AI-generated UI.",
+        "cover": "chat",
+        "description": "AI-native experiences for members, providers and clinicians, built inside an enterprise design system.",
+        "tags": [
+          "healthcare",
+          "ai"
+        ]
       },
-      {"id": "independent", "company": "Independent projects", "role": "UX research and design", "description": "Academic projects outside my jobs: one solo, one in a team of five."},
       {
-        id: "vivma",
-        company: "Vivma Software",
-        role: "Senior Product Designer",
-        period: "Sep 2021 – Aug 2023",
-        description: "End-to-end design for Finlatics, a simulated portfolio management platform for 500+ learners in finance programs."
+        "id": "independent",
+        "company": "Independent projects",
+        "role": "UX research and design",
+        "description": "Academic projects outside my jobs: one solo, one in a team of five."
       },
       {
-        id: "adons",
-        company: "Adons Softech",
-        role: "UI/UX Designer",
-        period: "May 2019 – Aug 2021",
-        description: "Product and brand design for six early-stage startups in e-commerce and SaaS."
+        "id": "vivma",
+        "company": "Vivma Software",
+        "role": "Senior Product Designer",
+        "period": "Sep 2021 – Aug 2023",
+        "description": "End-to-end design for Finlatics, a simulated portfolio management platform for 500+ learners in finance programs."
+      },
+      {
+        "id": "adons",
+        "company": "Adons Softech",
+        "role": "UI/UX Designer",
+        "period": "May 2019 – Aug 2021",
+        "description": "Product and brand design for six early-stage startups in e-commerce and SaaS."
       }
+    ],
+    "pageTitle": "Work",
+    "pageIntro": "Healthcare AI, fintech learning and a few personal projects.",
+    "selected": [
+      "uhg",
+      "advisor-ai",
+      "finlatics-learner-journey",
+      "finlatics-design-system"
+    ],
+    "other": [
+      "portfolio-simulation-dashboards",
+      "motion",
+      "nike-nft-concept",
+      "b2b-saas-navigation"
+    ],
+    "filters": [
+      [
+        "all",
+        "All"
+      ],
+      [
+        "healthcare",
+        "Healthcare"
+      ],
+      [
+        "fintech",
+        "Fintech"
+      ],
+      [
+        "ai",
+        "AI"
+      ],
+      [
+        "personal",
+        "Personal"
+      ]
     ]
   },
 
   /* ------------------------------------------------------------------ About */
   // The short bio on the home page. Experience and education under it come from `experience` below.
   about: {
-    title: "About",
-    paragraphs: [
-      "I’ve been designing products for about five years: websites and SaaS tools for early-stage startups at Adons Softech, a learning platform at Vivma Software, and now AI tools at UnitedHealth Group. I studied computer science in Hyderabad and information systems at Northeastern.",
-      "I like working close to engineering and data science, prototyping early and testing with the people who will use the thing. The problems I enjoy most are the ones where the interface has to be honest about what a system knows."
-    ]
+    "title": "About",
+    "paragraphs": [
+      "My best work starts before Figma, in the moment someone relaxes and tells me what really goes wrong. I make people comfortable enough to get there, then look at the problem from where they sit.",
+      "Five years in, I’ve designed for startups at Adons Softech, for Finlatics at Vivma Software, and now AI tools at UnitedHealth Group.",
+      "I work close to engineers and data scientists, prototype early, and test with the people who will use the thing."
+    ],
+    "lead": "My biggest flex is empathy."
   },
 
   /* ------------------------------------------------------------- How I work */
   // Not shown on the simplified home page (nor are capabilities or hero.evidence). Kept so you can bring them back.
+  impact: {
+    "title": "Impact",
+    "note": "UnitedHealth Group results are product-wide; my work contributed.",
+    "items": [
+      {
+        "value": "96%",
+        "label": "first-submission approval on prior authorizations",
+        "source": "UnitedHealth Group",
+        "color": "#0B6874"
+      },
+      {
+        "value": "+18",
+        "label": "points of clinician trust in risk flags",
+        "source": "UnitedHealth Group",
+        "color": "#6A2DA0"
+      },
+      {
+        "value": "−34%",
+        "label": "drop-off at account setup",
+        "source": "Vivma Software, Finlatics",
+        "color": "#1D6A46"
+      },
+      {
+        "value": "40%",
+        "label": "faster ramp-up for new designers",
+        "source": "Vivma Software, Finlatics",
+        "color": "#4D6620"
+      },
+      {
+        "value": "87",
+        "label": "SUS score, with 25 of 25 tasks completed",
+        "source": "Advisor.AI, graduate project",
+        "color": "#155DFC"
+      }
+    ]
+  },
+  leadership: {
+    "title": "Leadership",
+    "intro": "Leadership, for me, is creating clarity and building systems other designers can work from.",
+    "items": [
+      {
+        "title": "A system new designers could learn from",
+        "meta": "Vivma Software, Finlatics, 2021 to 2023",
+        "body": "I built a 60+ component Figma library so new designers start from proven patterns instead of old screens. Ramp-up time improved by 40%."
+      },
+      {
+        "title": "Research that changed product direction",
+        "meta": "Vivma Software, Finlatics",
+        "body": "25+ moderated sessions, synthesized in Dovetail, became the recommendations behind three major product pivots."
+      },
+      {
+        "title": "Challenging an idea before it became screens",
+        "meta": "Nike app × NFTs, a seven-week academic team concept",
+        "body": "My competitive research across Nike, Adidas and Gucci kept asking what problem NFTs would actually solve before anything reached high fidelity."
+      }
+    ],
+    "closing": "Good leadership makes decisions easier for the whole team."
+  },
+  belief: {
+    label: "My core design belief",
+    text: "Great design doesn’t remove all complexity. It makes the complexity that matters understandable, actionable, and manageable for the people using the product."
+  },
+  thinking: {
+    "title": "What I want to write and speak about",
+    "intro": "How complex products become understandable to the people using them.",
+    "topics": [
+      {
+        "title": "Making people comfortable enough to tell you the truth",
+        "body": "Why empathy, and seeing a problem from someone else’s side, is the skill I lean on most."
+      },
+      {
+        "title": "Design systems are knowledge systems",
+        "body": "How components help new designers learn and decide faster."
+      },
+      {
+        "title": "Designing for AI without designing for hype",
+        "body": "Why new technology has to earn its place."
+      },
+      {
+        "title": "Making complex data feel understandable",
+        "body": "Lessons from finance dashboards and clinical AI."
+      },
+      {
+        "title": "The designer’s responsibility in an AI-generated world",
+        "body": "Why faster production makes judgment matter more."
+      }
+    ]
+  },
   approach: {
-    title: "How I work",
-    intro: "Five habits that show up in every project, whatever the industry.",
-    principles: [
+    "title": "How I work",
+    "intro": "Five habits I bring to every project.",
+    "principles": [
       {
-        title: "Start from the job, not the model",
-        body: "AI earns its place by finishing real work, like finding a provider, booking a visit or submitting an authorization, not by answering questions well. I map the task first and design the conversation or interface around it."
+        "title": "Start from the job, not the model",
+        "body": "AI earns its place by finishing real tasks. I map the task first, then design around it."
       },
       {
-        title: "Make the reasoning visible",
-        body: "People act on a model’s output when they can see why it said what it said. Explainability is as much an interface problem as a modeling one, so I work it out with data science from the start."
+        "title": "Make the reasoning visible",
+        "body": "People act on AI when they can see why. I work that out with data science from day one."
       },
       {
-        title: "Put accessibility in the system",
-        body: "Standards belong in tokens, components and review checklists, so every surface meets WCAG 2.1 AA by default, including components generated with AI."
+        "title": "Put accessibility in the system",
+        "body": "WCAG 2.1 AA lives in tokens, components and checklists, so every surface passes by default."
       },
       {
-        title: "Use AI for speed, keep people accountable",
-        body: "I use AI tools to explore layouts, generate assets and synthesize research faster. Decisions, standards and the final call stay with the team."
+        "title": "Use AI for speed, keep people accountable",
+        "body": "AI helps me explore and synthesize faster. The decisions stay with the team."
       },
       {
-        title: "Judge the design after launch",
-        body: "Drop-off, session time, task completion and first-pass success tell me whether a design worked. I review them after releases and carry what I learn into the next one."
+        "title": "Judge the design after launch",
+        "body": "Drop-off, task completion and first-pass success tell me whether it worked."
       }
     ]
   },
@@ -206,53 +355,991 @@ window.PORTFOLIO = {
   },
 
   motion: {
-
-    title: "In-app motion",
-
-    kicker: "Motion studies",
-
-    color: "#C8321E",
-
-    summary: "How the products in this portfolio move. Each study shows why the motion is there, its timing and easing, and what happens when someone asks for less motion. Turn on slow motion to see the choreography.",
-
-    note: "Studies built for the recreated flows in this portfolio, with fictional data.",
-
-    indexTitle: "In-app motion",
-
-    indexWhen: "Motion studies",
-
-    indexMeta: "Six micro-interactions, with timing and easing specs",
-
-    preview: "assets/work/preview-motion.webp",
-
-    tokens: {
-
-      title: "The motion system",
-
-      durations: [["Quick", "120–160 ms", "State changes: a time selected, a label swapped, a button pressed."], ["Base", "200–280 ms", "Things arriving: messages, cards and panels."], ["Slow", "320–480 ms", "Progress and data: steps completing, bars and lines drawing."]],
-
-      easings: [["Enter", "cubic-bezier(.05, .7, .1, 1)", "Starts fast and lands gently, for things arriving.", [0.05, 0.7, 0.1, 1]], ["Exit", "cubic-bezier(.3, 0, .8, .15)", "Leaves quickly and gets out of the way.", [0.3, 0, 0.8, 0.15]], ["Standard", "cubic-bezier(.2, 0, 0, 1)", "Moves things within the screen.", [0.2, 0, 0, 1]], ["Settle", "cubic-bezier(.34, 1.56, .64, 1)", "A small overshoot, only for confirmations.", [0.34, 1.56, 0.64, 1]]],
-
-      reduced: "Nothing moves or scales. Changes cross-fade in 120 ms or less, and these studies wait for Play instead of looping."
-
+    "title": "In-app motion",
+    "kicker": "Motion studies",
+    "color": "#C8321E",
+    "summary": "How the products in this portfolio move. Each study shows why the motion is there, its timing and easing, and what happens when someone asks for less motion. Turn on slow motion to see the choreography.",
+    "note": "Studies built for the recreated flows in this portfolio, with fictional data.",
+    "indexTitle": "In-app motion",
+    "indexWhen": "Motion studies",
+    "indexMeta": "32 micro-interactions across all the work, with timing and easing specs",
+    "preview": "assets/work/preview-motion.webp",
+    "tokens": {
+      "title": "The motion system",
+      "durations": [
+        [
+          "Quick",
+          "120–160 ms",
+          "State changes: a time selected, a label swapped, a button pressed."
+        ],
+        [
+          "Base",
+          "200–280 ms",
+          "Things arriving: messages, cards and panels."
+        ],
+        [
+          "Slow",
+          "320–480 ms",
+          "Progress and data: steps completing, bars and lines drawing."
+        ]
+      ],
+      "easings": [
+        [
+          "Enter",
+          "cubic-bezier(.05, .7, .1, 1)",
+          "Starts fast and lands gently, for things arriving.",
+          [
+            0.05,
+            0.7,
+            0.1,
+            1
+          ]
+        ],
+        [
+          "Exit",
+          "cubic-bezier(.3, 0, .8, .15)",
+          "Leaves quickly and gets out of the way.",
+          [
+            0.3,
+            0,
+            0.8,
+            0.15
+          ]
+        ],
+        [
+          "Standard",
+          "cubic-bezier(.2, 0, 0, 1)",
+          "Moves things within the screen.",
+          [
+            0.2,
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          "Settle",
+          "cubic-bezier(.34, 1.56, .64, 1)",
+          "A small overshoot, only for confirmations.",
+          [
+            0.34,
+            1.56,
+            0.64,
+            1
+          ]
+        ]
+      ],
+      "reduced": "Nothing moves or scales. Changes cross-fade in 120 ms or less, and these studies wait for Play instead of looping."
     },
-
-    demos: [
-
-      { id: "message", context: "Healthcare assistant", title: "A reply arrives", purpose: "Show that the assistant is working, then land the answer where the eye already is.", spec: [["Message in", "240 ms, enter, rises 12 px from 96%"], ["Typing", "fades in at 420 ms; dots bounce 120 ms apart"], ["Reply in", "240 ms, enter, in the typing bubble’s place"], ["Result card", "280 ms, enter, 200 ms after the reply"], ["Quick replies", "200 ms each, 60 ms apart"]] },
-
-      { id: "booking", context: "Healthcare assistant", title: "Choosing a time, then booking", purpose: "Selected, booking and booked are three different moments, so a tap never feels like a booking.", spec: [["Tap", "420 ms ripple"], ["Time selected", "140 ms, standard"], ["Button ready", "the label swaps in 160 ms"], ["Booking", "the button narrows to a spinner in 260 ms"], ["Booked", "the check draws in 240 ms with settle; the confirmation rises in 280 ms"]] },
-
-      { id: "steps", context: "Prior authorization form", title: "A requirement is met", purpose: "Tie the fix to its result: the requirement turns complete, then the step it was blocking moves on.", spec: [["Requirement met", "200 ms tint; the icon swaps with a 320 ms settle"], ["Label", "Missing to Complete in a 160 ms cross-fade"], ["Step done", "number to check, 320 ms settle"], ["Progress line", "fills in 320 ms, standard"], ["Next step", "activates in 160 ms; the status badge rises in 240 ms"]] },
-
-      { id: "flag", context: "Clinical risk flag", title: "A risk flag explains itself", purpose: "Reveal the evidence in order of strength, so the reason is read before the score.", spec: [["Panel in", "240 ms, enter"], ["Risk level", "280 ms settle, first"], ["Confidence", "bars fill in 160 ms each, 80 ms apart"], ["Data date", "fades in at 640 ms"], ["Evidence", "bars grow in 480 ms, strongest first, 90 ms apart"]] },
-
-      { id: "live", context: "Finlatics dashboard", title: "Live data, a steady tooltip", purpose: "Let new data arrive without moving what the learner is reading.", spec: [["First draw", "the line draws in 900 ms, standard"], ["Inspect", "crosshair and tooltip in 160 to 200 ms"], ["New data", "the line extends in 420 ms; the tooltip stays put"], ["New point", "280 ms settle"], ["Paused", "the line greys and the time label rises in 220 ms"]] },
-
-      { id: "range", context: "Finlatics dashboard", title: "Changing range, opening a holding", purpose: "Keep context: the control slides, the chart settles, and details open beside the list.", spec: [["Range control", "the thumb slides in 300 ms with a slight overshoot"], ["Chart", "the old line fades in 160 ms; the new one settles from 94% in 300 ms"], ["Open a holding", "the row tints in 120 ms"], ["Detail panel", "slides in over 320 ms, enter, as the page dims"], ["Close", "240 ms, exit"]] }
-
+    "demos": [
+      {
+        "id": "message",
+        "context": "Healthcare assistant",
+        "title": "A reply arrives",
+        "purpose": "Show that the assistant is working, then land the answer where the eye already is.",
+        "spec": [
+          [
+            "Message in",
+            "240 ms, enter, rises 12 px from 96%"
+          ],
+          [
+            "Typing",
+            "fades in at 420 ms; dots bounce 120 ms apart"
+          ],
+          [
+            "Reply in",
+            "240 ms, enter, in the typing bubble’s place"
+          ],
+          [
+            "Result card",
+            "280 ms, enter, 200 ms after the reply"
+          ],
+          [
+            "Quick replies",
+            "200 ms each, 60 ms apart"
+          ]
+        ]
+      },
+      {
+        "id": "booking",
+        "context": "Healthcare assistant",
+        "title": "Choosing a time, then booking",
+        "purpose": "Selected, booking and booked are three different moments, so a tap never feels like a booking.",
+        "spec": [
+          [
+            "Tap",
+            "420 ms ripple"
+          ],
+          [
+            "Time selected",
+            "140 ms, standard"
+          ],
+          [
+            "Button ready",
+            "the label swaps in 160 ms"
+          ],
+          [
+            "Booking",
+            "the button narrows to a spinner in 260 ms"
+          ],
+          [
+            "Booked",
+            "the check draws in 240 ms with settle; the confirmation rises in 280 ms"
+          ]
+        ]
+      },
+      {
+        "id": "steps",
+        "context": "Prior authorization form",
+        "title": "A requirement is met",
+        "purpose": "Tie the fix to its result: the requirement turns complete, then the step it was blocking moves on.",
+        "spec": [
+          [
+            "Requirement met",
+            "200 ms tint; the icon swaps with a 320 ms settle"
+          ],
+          [
+            "Label",
+            "Missing to Complete in a 160 ms cross-fade"
+          ],
+          [
+            "Step done",
+            "number to check, 320 ms settle"
+          ],
+          [
+            "Progress line",
+            "fills in 320 ms, standard"
+          ],
+          [
+            "Next step",
+            "activates in 160 ms; the status badge rises in 240 ms"
+          ]
+        ]
+      },
+      {
+        "id": "flag",
+        "context": "Clinical risk flag",
+        "title": "A risk flag explains itself",
+        "purpose": "Reveal the evidence in order of strength, so the reason is read before the score.",
+        "spec": [
+          [
+            "Panel in",
+            "240 ms, enter"
+          ],
+          [
+            "Risk level",
+            "280 ms settle, first"
+          ],
+          [
+            "Confidence",
+            "bars fill in 160 ms each, 80 ms apart"
+          ],
+          [
+            "Data date",
+            "fades in at 640 ms"
+          ],
+          [
+            "Evidence",
+            "bars grow in 480 ms, strongest first, 90 ms apart"
+          ]
+        ]
+      },
+      {
+        "id": "live",
+        "context": "Finlatics dashboard",
+        "title": "Live data, a steady tooltip",
+        "purpose": "Let new data arrive without moving what the learner is reading.",
+        "spec": [
+          [
+            "First draw",
+            "the line draws in 900 ms, standard"
+          ],
+          [
+            "Inspect",
+            "crosshair and tooltip in 160 to 200 ms"
+          ],
+          [
+            "New data",
+            "the line extends in 420 ms; the tooltip stays put"
+          ],
+          [
+            "New point",
+            "280 ms settle"
+          ],
+          [
+            "Paused",
+            "the line greys and the time label rises in 220 ms"
+          ]
+        ]
+      },
+      {
+        "id": "range",
+        "context": "Finlatics dashboard",
+        "title": "Changing range, opening a holding",
+        "purpose": "Keep context: the control slides, the chart settles, and details open beside the list.",
+        "spec": [
+          [
+            "Range control",
+            "the thumb slides in 300 ms with a slight overshoot"
+          ],
+          [
+            "Chart",
+            "the old line fades in 160 ms; the new one settles from 94% in 300 ms"
+          ],
+          [
+            "Open a holding",
+            "the row tints in 120 ms"
+          ],
+          [
+            "Detail panel",
+            "slides in over 320 ms, enter, as the page dims"
+          ],
+          [
+            "Close",
+            "240 ms, exit"
+          ]
+        ]
+      },
+      {
+        "id": "handoff",
+        "context": "Healthcare assistant",
+        "title": "Handing off to a person",
+        "purpose": "When the assistant can’t finish, show the person what carries over before anyone joins.",
+        "spec": [
+          [
+            "Reply chosen",
+            "140 ms after a 420 ms ripple"
+          ],
+          [
+            "Handoff card",
+            "rises 24 px in 320 ms, enter"
+          ],
+          [
+            "Shared context",
+            "three chips settle in, 80 ms apart"
+          ],
+          [
+            "Waiting",
+            "the live dot pulses twice, 900 ms each"
+          ],
+          [
+            "Joined",
+            "the status swaps in 200 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "labs",
+        "context": "Healthcare assistant",
+        "title": "A result finds its range",
+        "purpose": "Place the value against its reference range before naming it, so the meaning is seen, not just read.",
+        "spec": [
+          [
+            "Result card",
+            "240 ms, enter"
+          ],
+          [
+            "Marker",
+            "travels to the value in 640 ms, enter"
+          ],
+          [
+            "Value",
+            "fades in at 700 ms"
+          ],
+          [
+            "Status",
+            "Above range settles in, 280 ms"
+          ],
+          [
+            "Next step",
+            "the care team reply rises at 1.8 s"
+          ]
+        ]
+      },
+      {
+        "id": "disagree",
+        "context": "Clinical risk flag",
+        "title": "Disagreeing with a flag",
+        "purpose": "Make dismissing a flag deliberate but quick, and always reversible.",
+        "spec": [
+          [
+            "Dialog in",
+            "scales from 96% in 240 ms, enter; the page dims"
+          ],
+          [
+            "Reason picked",
+            "the radio fills with a 200 ms settle"
+          ],
+          [
+            "Button ready",
+            "enables in 160 ms"
+          ],
+          [
+            "Dialog out",
+            "200 ms, exit; the flag dims to 40%"
+          ],
+          [
+            "Undo",
+            "the toast rises in 280 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "focus",
+        "context": "Accessibility standards",
+        "title": "Focus you can follow",
+        "purpose": "A keyboard user should never lose their place: the ring travels to the next control instead of blinking there.",
+        "spec": [
+          [
+            "Ring appears",
+            "160 ms around the first field"
+          ],
+          [
+            "Tab",
+            "the ring moves and reshapes in 220 ms, standard"
+          ],
+          [
+            "Shape",
+            "corners match each control, from field to pill button"
+          ],
+          [
+            "Press",
+            "the button dips to 96% in 200 ms"
+          ],
+          [
+            "Reduced motion",
+            "the ring jumps without travelling"
+          ]
+        ]
+      },
+      {
+        "id": "synthesis",
+        "context": "AI-augmented practice",
+        "title": "Clustering, then checking",
+        "purpose": "AI drafts the clusters fast; the verification pass is what makes them trustworthy.",
+        "spec": [
+          [
+            "Notes cluster",
+            "nine notes settle into themes over 900 ms, 50 ms apart"
+          ],
+          [
+            "Themes",
+            "labels fade in, 80 ms apart"
+          ],
+          [
+            "Verify",
+            "a check sweeps every column in 1.2 s"
+          ],
+          [
+            "Unsupported quote",
+            "struck through in 300 ms"
+          ],
+          [
+            "Flag",
+            "Not in transcript settles in, 280 ms"
+          ]
+        ]
+      },
+      {
+        "id": "onboard",
+        "context": "Finlatics sign-up",
+        "title": "Moving through sign-up",
+        "purpose": "Forward movement reads as progress; an error appears in place, with no shaking, and clears the moment it’s fixed.",
+        "spec": [
+          [
+            "Progress",
+            "fills from 33% to 66% in 480 ms"
+          ],
+          [
+            "Step change",
+            "out 32 px left in 280 ms, in from the right in 320 ms"
+          ],
+          [
+            "Error",
+            "border and message in 160 to 200 ms"
+          ],
+          [
+            "Fixed",
+            "the value updates, the error fades in 160 ms"
+          ],
+          [
+            "Done",
+            "a check settles into the field, 320 ms"
+          ]
+        ]
+      },
+      {
+        "id": "lesson",
+        "context": "Finlatics course",
+        "title": "Finishing a lesson",
+        "purpose": "Reward progress quietly: the lesson checks off, the module ring grows, the next step appears.",
+        "spec": [
+          [
+            "Lesson done",
+            "check settles in 320 ms; the row tints in 200 ms"
+          ],
+          [
+            "Module ring",
+            "grows from 60% to 80% in 600 ms, enter"
+          ],
+          [
+            "Percent",
+            "cross-fades in 240 ms"
+          ],
+          [
+            "Next lesson",
+            "rises 14 px in 280 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "states",
+        "context": "Finlatics design system",
+        "title": "One button, every state",
+        "purpose": "States are designed once in the library, with their timing, so every screen behaves the same.",
+        "spec": [
+          [
+            "Hover",
+            "darkens in 160 ms"
+          ],
+          [
+            "Pressed",
+            "dips to 97% in 200 ms"
+          ],
+          [
+            "Focus",
+            "a 4 px ring in 160 ms"
+          ],
+          [
+            "Loading",
+            "the label fades and a spinner takes its place"
+          ],
+          [
+            "Disabled",
+            "greys out in 200 ms"
+          ]
+        ]
+      },
+      {
+        "id": "visa",
+        "context": "Advisor.AI",
+        "title": "Sponsorship first",
+        "purpose": "One switch answers the question international students ask first, and the list shows the answer on every job.",
+        "spec": [
+          [
+            "Switch",
+            "the knob slides 16 px in 200 ms"
+          ],
+          [
+            "Count",
+            "8 jobs becomes 5 of 8 sponsor visas"
+          ],
+          [
+            "Other jobs",
+            "fade to 38% in 200 ms, 40 ms apart"
+          ],
+          [
+            "Badges",
+            "Sponsors visas settles in, 80 ms apart"
+          ]
+        ]
+      },
+      {
+        "id": "star",
+        "context": "Advisor.AI",
+        "title": "STAR, detected as you type",
+        "purpose": "Show the AI’s reasoning as it happens: each part of the answer lights up as it’s recognized.",
+        "spec": [
+          [
+            "Writing",
+            "each part reveals in 500 ms, 650 ms apart"
+          ],
+          [
+            "Detected",
+            "the part tints in 160 ms"
+          ],
+          [
+            "Checklist",
+            "its letter settles in, 280 ms"
+          ],
+          [
+            "Summary",
+            "rises once all four are found"
+          ]
+        ]
+      },
+      {
+        "id": "nft",
+        "context": "Nike app concept",
+        "title": "Shoes or NFTs, one tap",
+        "purpose": "Keep shopping familiar: NFTs are one tap away, and switching keeps your place.",
+        "spec": [
+          [
+            "Toggle",
+            "the thumb slides in 300 ms with a slight overshoot"
+          ],
+          [
+            "Cards",
+            "shoes lift out, NFTs rise in, 80 ms apart"
+          ],
+          [
+            "Verified",
+            "badges settle in, 80 ms apart"
+          ],
+          [
+            "Scan",
+            "the verify button pulses twice"
+          ]
+        ]
+      },
+      {
+        "id": "scan",
+        "context": "Nike app concept",
+        "title": "Checking authenticity",
+        "purpose": "Scanning should feel like it’s working, then end with one clear answer.",
+        "spec": [
+          [
+            "Scanning",
+            "the line sweeps down and back in 1.8 s"
+          ],
+          [
+            "Found",
+            "the frame turns green and pops 5%"
+          ],
+          [
+            "Answer",
+            "Authentic rises in 300 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "results",
+        "context": "Healthcare assistant",
+        "title": "Results arrive, not a spinner",
+        "purpose": "Show the shape of the answer while it loads, so the wait feels shorter and nothing jumps when it lands.",
+        "spec": [
+          [
+            "Skeletons",
+            "shimmer twice, 600 ms each, linear"
+          ],
+          [
+            "Swap",
+            "skeletons fade out in 120 ms, exit"
+          ],
+          [
+            "Cards",
+            "rise 12 px in 280 ms, enter, 80 ms apart"
+          ],
+          [
+            "Count",
+            "settles in at 1.64 s, 280 ms"
+          ]
+        ]
+      },
+      {
+        "id": "sheet",
+        "context": "Finlatics dashboard, on phones",
+        "title": "Holding details in a sheet",
+        "purpose": "On a phone, details rise from the bottom so the list stays in view behind them.",
+        "spec": [
+          [
+            "Tap",
+            "the row tints in 120 ms"
+          ],
+          [
+            "Sheet",
+            "rises in 320 ms, enter, as the page dims"
+          ],
+          [
+            "Details",
+            "each line rises in 220 ms, 50 ms apart"
+          ],
+          [
+            "Close",
+            "drops away in 240 ms, exit"
+          ]
+        ]
+      },
+      {
+        "id": "tracker",
+        "context": "Advisor.AI",
+        "title": "Moving an application forward",
+        "purpose": "Picking a card up and setting it down makes progress feel physical, and the counts confirm it.",
+        "spec": [
+          [
+            "Pick up",
+            "lifts to 104% with a shadow in 180 ms"
+          ],
+          [
+            "Move",
+            "travels to the next column in 520 ms, standard"
+          ],
+          [
+            "Drop",
+            "settles in 300 ms with a small overshoot"
+          ],
+          [
+            "Counts",
+            "both columns update in 160 ms"
+          ],
+          [
+            "Next step",
+            "the interview tag settles in, 280 ms"
+          ]
+        ]
+      },
+      {
+        "id": "collection",
+        "context": "Nike app concept",
+        "title": "Your collection, one swipe",
+        "purpose": "Show one NFT at a time, big and verified, with the rest of the collection just out of reach.",
+        "spec": [
+          [
+            "Swipe",
+            "each card slides in 420 ms with a slight overshoot"
+          ],
+          [
+            "Focus",
+            "the active card scales to 100%, the rest sit at 90%"
+          ],
+          [
+            "Position",
+            "the active dot stretches to 20 px"
+          ],
+          [
+            "Return",
+            "glides back to the first card at the end"
+          ]
+        ]
+      },
+      {
+        "id": "upload",
+        "context": "Prior authorization form",
+        "title": "A document arrives",
+        "purpose": "Uploading should prove itself: the file lands, finishes, and ticks off the requirement it was for.",
+        "spec": [
+          [
+            "File in",
+            "rises 10 px in 240 ms, enter"
+          ],
+          [
+            "Progress",
+            "fills in 900 ms, standard"
+          ],
+          [
+            "Done",
+            "status swaps in 160 ms; the check settles in 320 ms"
+          ],
+          [
+            "Requirement",
+            "turns complete in 200 ms"
+          ],
+          [
+            "Summary",
+            "2 of 3 met rises in 240 ms"
+          ]
+        ]
+      },
+      {
+        "id": "source",
+        "context": "Clinical risk flag",
+        "title": "Opening the source data",
+        "purpose": "One tap from a flag to the readings behind it, with the page kept in view.",
+        "spec": [
+          [
+            "Drawer",
+            "slides in over 320 ms, enter, as the page dims"
+          ],
+          [
+            "Trend",
+            "the line draws in 700 ms, standard"
+          ],
+          [
+            "Readings",
+            "rise in 200 ms, 60 ms apart"
+          ],
+          [
+            "Latest",
+            "the newest reading tints in 200 ms"
+          ],
+          [
+            "Close",
+            "240 ms, exit"
+          ]
+        ]
+      },
+      {
+        "id": "trade",
+        "context": "Finlatics simulator",
+        "title": "Placing a simulated trade",
+        "purpose": "Every tap updates the total right away, and the confirmation shows where the shares went.",
+        "spec": [
+          [
+            "Quantity",
+            "the number steps in 120 ms"
+          ],
+          [
+            "Total",
+            "updates with it, 120 ms"
+          ],
+          [
+            "Order",
+            "the button dips to 97% in 200 ms"
+          ],
+          [
+            "Confirmation",
+            "drops in over 320 ms, enter, then lifts away in 240 ms"
+          ],
+          [
+            "Holding",
+            "the row tints and the share count updates in 160 to 200 ms"
+          ]
+        ]
+      },
+      {
+        "id": "unlock",
+        "context": "Finlatics course",
+        "title": "Unlocking the next module",
+        "purpose": "Finishing one module should open the next one visibly, not just in a list.",
+        "spec": [
+          [
+            "Progress",
+            "fills from 80% to 100% in 500 ms"
+          ],
+          [
+            "Done",
+            "the check settles in 320 ms"
+          ],
+          [
+            "Unlock",
+            "the shackle lifts in 240 ms, then the lock fades"
+          ],
+          [
+            "Next module",
+            "brightens in 240 ms"
+          ],
+          [
+            "Start",
+            "the button rises in 240 ms"
+          ]
+        ]
+      },
+      {
+        "id": "match",
+        "context": "Advisor.AI",
+        "title": "A resume match fills in",
+        "purpose": "Show the score and the reason for it together: the keywords that matched, and the one to add.",
+        "spec": [
+          [
+            "Score",
+            "the ring fills from 54% to 86% in 900 ms, enter"
+          ],
+          [
+            "Number",
+            "swaps in 240 ms"
+          ],
+          [
+            "Keywords",
+            "matched ones settle in, 80 ms apart"
+          ],
+          [
+            "Suggestion",
+            "rises in 280 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "feedback",
+        "context": "Advisor.AI",
+        "title": "Interview feedback arrives",
+        "purpose": "Feedback lands in a steady order: what worked, what to improve, what to practice.",
+        "spec": [
+          [
+            "Your answer",
+            "the waveform plays back"
+          ],
+          [
+            "Cards",
+            "rise in 280 ms, 120 ms apart"
+          ],
+          [
+            "Tags",
+            "settle in 260 ms"
+          ],
+          [
+            "Score",
+            "settles in at 1.5 s"
+          ]
+        ]
+      },
+      {
+        "id": "bag",
+        "context": "Nike app concept",
+        "title": "Picking a size, then adding to bag",
+        "purpose": "The button only wakes up once a size is chosen, and the shoe visibly lands in the bag.",
+        "spec": [
+          [
+            "Size",
+            "fills in 140 ms"
+          ],
+          [
+            "Button",
+            "enables in 200 ms"
+          ],
+          [
+            "Fly",
+            "the shoe travels to the bag in 620 ms, standard"
+          ],
+          [
+            "Bag",
+            "the count settles in with a 15% bump"
+          ],
+          [
+            "Label",
+            "Added to bag swaps in 160 ms"
+          ]
+        ]
+      },
+      {
+        "id": "listing",
+        "context": "Nike app concept",
+        "title": "Listing an NFT for sale",
+        "purpose": "Selling is a commitment, so each step confirms itself before the next one starts.",
+        "spec": [
+          [
+            "Price",
+            "the field focuses in 160 ms"
+          ],
+          [
+            "Button",
+            "enables in 200 ms"
+          ],
+          [
+            "Listing",
+            "the label swaps in 160 ms"
+          ],
+          [
+            "Done",
+            "the circle draws in 420 ms, then the check settles in 260 ms"
+          ],
+          [
+            "Badge",
+            "Listed settles onto the card"
+          ]
+        ]
+      },
+      {
+        "id": "breadcrumb",
+        "context": "B2B SaaS navigation",
+        "title": "Four clicks become two",
+        "purpose": "Show the restructure itself: the in-between steps fold away and the task moves to the dashboard.",
+        "spec": [
+          [
+            "Collapse",
+            "three steps fold away in 300 ms, 60 ms apart"
+          ],
+          [
+            "Count",
+            "4 clicks becomes 2 in 200 ms"
+          ],
+          [
+            "Quick action",
+            "rises in 280 ms, enter"
+          ]
+        ]
+      },
+      {
+        "id": "command",
+        "context": "B2B SaaS navigation",
+        "title": "A command palette for quick actions",
+        "purpose": "For frequent tasks, typing beats clicking: results narrow as you type, and Enter runs the action.",
+        "spec": [
+          [
+            "Open",
+            "the palette scales from 96% in 240 ms"
+          ],
+          [
+            "Typing",
+            "each letter narrows the list"
+          ],
+          [
+            "Filter",
+            "unrelated actions fold away in 200 ms, 40 ms apart"
+          ],
+          [
+            "Run",
+            "the palette closes in 200 ms and the toast rises in 280 ms"
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "id": "uhg",
+        "title": "UnitedHealth Group",
+        "note": "A member assistant, a prior authorization form, clinical risk flags, accessibility standards and an AI-assisted practice.",
+        "ids": [
+          "message",
+          "results",
+          "booking",
+          "handoff",
+          "labs",
+          "steps",
+          "flag",
+          "disagree",
+          "focus",
+          "synthesis",
+          "upload",
+          "source"
+        ]
+      },
+      {
+        "id": "vivma",
+        "title": "Vivma Software, Finlatics",
+        "note": "Onboarding, lessons, live portfolio dashboards and the component library.",
+        "ids": [
+          "onboard",
+          "lesson",
+          "live",
+          "range",
+          "sheet",
+          "states",
+          "trade",
+          "unlock"
+        ]
+      },
+      {
+        "id": "personal",
+        "title": "Personal projects",
+        "note": "Advisor.AI, a graduate project, and the Nike app concept.",
+        "ids": [
+          "visa",
+          "star",
+          "tracker",
+          "nft",
+          "scan",
+          "collection",
+          "match",
+          "feedback",
+          "bag",
+          "listing"
+        ]
+      },
+      {
+        "id": "adons",
+        "title": "Adons Softech",
+        "note": "Navigation for a B2B SaaS client.",
+        "ids": [
+          "breadcrumb",
+          "command"
+        ]
+      }
+    ],
+    "tags": [
+      "healthcare",
+      "fintech",
+      "personal"
     ]
-
   },
 
   tools: ["Figma", "Figma AI", "Maze", "Dovetail", "Zeplin", "Adobe XD", "Sketch", "Miro", "Principle", "ChatGPT", "Claude", "Gemini", "Galileo AI", "Midjourney", "Jira", "Confluence", "Notion", "Amplitude", "Mixpanel", "Hotjar"],
@@ -272,7 +1359,7 @@ window.PORTFOLIO = {
   /* ---------------------------------------------------------------- Contact */
   contact: {
     title: "Let’s talk",
-    body: "I’m glad to talk about conversational AI, explainable interfaces, design systems and accessibility at scale. Email is the fastest way to reach me.",
+    body: "Happy to talk about AI in healthcare, fintech or design systems. Email is fastest.",
     accessNote: "Need the password for the UnitedHealth Group case studies?"
   },
 
@@ -528,14 +1615,14 @@ window.PORTFOLIO = {
 
     /* ---------- Vivma Software / Finlatics ---------- */
     {
-      "slug": "advisor-ai", "preview": "assets/work/preview-advisor-ai.webp",
+      "slug": "advisor-ai",
+      "preview": "assets/work/preview-advisor-ai.webp",
       "group": "independent",
       "title": "Advisor.AI: an AI career platform that shows its reasoning",
       "teaser": "Research, design and three rounds of evaluation for a job-search platform that puts visa sponsorship first. Five students completed every task and rated it ==87== on the SUS.",
       "tags": [
-        "AI product design",
-        "UX research",
-        "Usability testing"
+        "ai",
+        "personal"
       ],
       "cover": "flow",
       "coverImage": "assets/work/covers/advisor-ai.webp",
@@ -1100,6 +2187,55 @@ window.PORTFOLIO = {
               "body": "[Open the Figma prototype](https://www.figma.com/proto/Hs268H4pvbqCgwYktyLFfc/UX-Project-Advisor.Ai?node-id=240-3644&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=240%3A3644)"
             }
           ]
+        },
+        {
+          "id": "system",
+          "label": "Design system",
+          "title": "A design system under the final design",
+          "blocks": [
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "Foundations",
+                  "body": "16 semantic color tokens, a spacing and radius scale, the shared motion durations, and eight text styles. 2,346 layers on the final design are linked to them, with near-duplicate blues and greys merged into one token each."
+                },
+                {
+                  "label": "Components",
+                  "body": "Button in three styles and five states, with hover and press wired, plus Badge, a Switch that toggles, STAR part, Job card and Tracker card."
+                },
+                {
+                  "label": "Motion",
+                  "body": "A Motion page with millisecond timelines, and the three studies on this page rebuilt from the components with the same timing."
+                },
+                {
+                  "label": "Prototype",
+                  "body": "All 115 instant links in the main flow now use Smart Animate at 300 ms, and every screen cascades in when it opens."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Motion that shows the platform’s reasoning: what changed, and why."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "visa",
+                "star",
+                "tracker",
+                "match",
+                "feedback"
+              ]
+            }
+          ]
         }
       ],
       "glance": [
@@ -1113,7 +2249,7 @@ window.PORTFOLIO = {
           "body": "SUS 87 and 25 of 25 tasks completed in moderated testing."
         }
       ],
-      "color": "#3C35C2",
+      "color": "#155DFC",
       "indexTitle": "Advisor.AI",
       "indexWhen": "Graduate project",
       "indexMeta": "Northeastern University. A job-search platform, SUS 87",
@@ -1128,14 +2264,13 @@ window.PORTFOLIO = {
       }
     },
     {
-      "slug": "nike-nft-concept", "preview": "assets/work/preview-nike-nft-concept.webp",
+      "slug": "nike-nft-concept",
+      "preview": "assets/work/preview-nike-nft-concept.webp",
       "group": "independent",
       "title": "Nike app × NFTs: the competitive research behind a concept",
       "teaser": "My part of a five-person academic concept: a competitive analysis of Adidas and Gucci that shaped how the team introduced NFTs to people who had never bought one.",
       "tags": [
-        "Competitive analysis",
-        "Market research",
-        "Concept design"
+        "personal"
       ],
       "cover": "flow",
       "coverImage": "assets/work/covers/nike-nft.webp",
@@ -1459,6 +2594,55 @@ window.PORTFOLIO = {
               "body": "**Be honest about what a concept can show.** It stayed a concept, so there are no launch numbers. What carries over: introducing new technology without getting in people’s way."
             }
           ]
+        },
+        {
+          "id": "system",
+          "label": "Design system",
+          "title": "A design system under the concept",
+          "blocks": [
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "Foundations",
+                  "body": "The five brand colors stay as Nike brand, with a Nike semantic layer pointing to them. 2,420 layers are linked to tokens, and 344 text layers now use Manrope text styles."
+                },
+                {
+                  "label": "Components",
+                  "body": "Button in three styles and five states, a Shoes and NFTs toggle that switches, a Verified badge, an NFT card and the scanner frame."
+                },
+                {
+                  "label": "Motion",
+                  "body": "Three animated studies in the app’s light theme, matching the ones on this page."
+                },
+                {
+                  "label": "Prototype",
+                  "body": "102 instant links upgraded and 69 retimed to the same motion tokens, and the screens cascade in when they open."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "New technology, introduced without getting in the way of shopping."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "nft",
+                "scan",
+                "collection",
+                "bag",
+                "listing"
+              ]
+            }
+          ]
         }
       ],
       "glance": [
@@ -1488,14 +2672,13 @@ window.PORTFOLIO = {
       }
     },
     {
-      "slug": "finlatics-learner-journey", "preview": "assets/work/preview-finlatics-learner-journey.webp",
+      "slug": "finlatics-learner-journey",
+      "preview": "assets/work/preview-finlatics-learner-journey.webp",
       "group": "vivma",
       "title": "From sign-up to the simulator: the Finlatics learner journey",
       "teaser": "Cutting account-setup drop-off by 34%, reshaping the roadmap with 25+ research sessions, and rebuilding program content for phones first.",
       "tags": [
-        "Onboarding",
-        "User research",
-        "Mobile-first"
+        "fintech"
       ],
       "cover": "journey",
       "coverImage": "assets/work/covers/finlatics-learner-journey.webp",
@@ -1832,6 +3015,25 @@ window.PORTFOLIO = {
           ]
         },
         {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Sign-up and lessons move learners forward without making them wait or guess."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "onboard",
+                "lesson",
+                "unlock"
+              ]
+            }
+          ]
+        },
+        {
           "id": "behind",
           "label": "Behind the work",
           "title": "Scope, process and measurement",
@@ -2008,14 +3210,13 @@ window.PORTFOLIO = {
     },
 
     {
-      "slug": "portfolio-simulation-dashboards", "preview": "assets/work/preview-portfolio-simulation-dashboards.webp",
+      "slug": "portfolio-simulation-dashboards",
+      "preview": "assets/work/preview-portfolio-simulation-dashboards.webp",
       "group": "vivma",
       "title": "Real-time portfolio simulation that learners can read",
       "teaser": "Interactive dashboards for a live BSE 500 simulation, with chart interactions and tooltip behavior specified state by state for engineering.",
       "tags": [
-        "Data visualization",
-        "Interaction design",
-        "Dev handoff"
+        "fintech"
       ],
       "cover": "chart",
       "coverImage": "assets/work/covers/finlatics-dashboards.webp",
@@ -2257,6 +3458,26 @@ window.PORTFOLIO = {
           ]
         },
         {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Live data arrives without moving what the learner is reading."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "live",
+                "range",
+                "sheet",
+                "trade"
+              ]
+            }
+          ]
+        },
+        {
           "id": "behind",
           "label": "Behind the work",
           "title": "Scope, process and measurement",
@@ -2407,14 +3628,13 @@ window.PORTFOLIO = {
     },
 
     {
-      "slug": "finlatics-design-system", "preview": "assets/work/preview-finlatics-design-system.webp",
+      "slug": "finlatics-design-system",
+      "preview": "assets/work/preview-finlatics-design-system.webp",
       "group": "vivma",
       "title": "A 60-component design system for a team moving fast",
       "teaser": "A Figma component library for web and mobile-responsive views that cut new designers’ ramp-up time by 40%.",
       "tags": [
-        "Design systems",
-        "Figma",
-        "Team enablement"
+        "fintech"
       ],
       "cover": "system",
       "summary": "Without shared components, new designers rebuilt patterns and the product drifted. I built and maintained a Figma library of 60+ components for web and mobile-responsive views, cutting designer ramp-up time by 40%.",
@@ -2570,6 +3790,23 @@ window.PORTFOLIO = {
           ]
         },
         {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Every component state has its timing designed once, in the library."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "states"
+              ]
+            }
+          ]
+        },
+        {
           "id": "behind",
           "label": "Behind the work",
           "title": "Scope, process and measurement",
@@ -2718,15 +3955,12 @@ window.PORTFOLIO = {
 
     /* ---------- Adons Softech ---------- */
     {
-      "slug": "b2b-saas-navigation", "preview": "assets/work/preview-b2b-saas-navigation.webp",
+      "slug": "b2b-saas-navigation",
+      "preview": "assets/work/preview-b2b-saas-navigation.webp",
       "group": "adons",
       "title": "Halving navigation depth in a B2B SaaS product",
       "teaser": "Journey maps and a restructured sitemap that brought core workflows from 4 clicks to 2 and lifted task completion by 31%.",
-      "tags": [
-        "Information architecture",
-        "Journey mapping",
-        "Usability testing"
-      ],
+      "tags": [],
       "cover": "tree",
       "summary": "A B2B SaaS client’s core workflows were buried four levels deep. Journey maps and IA sitemaps restructured the product around its key tasks: 4 clicks down to 2, and task completion up 31% in usability testing.",
       "meta": [
@@ -2857,6 +4091,24 @@ window.PORTFOLIO = {
             {
               "type": "text",
               "body": "**What I took forward.** The best navigation is the kind users don’t have to think about. I start IA work with journeys, not menus."
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The restructure, in motion: the path folds down to two clicks, and frequent tasks get a faster route."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "breadcrumb",
+                "command"
+              ]
             }
           ]
         }
