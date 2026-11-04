@@ -3,7 +3,8 @@
    Renders every page from content.js. To change what the site says, edit
    content.js; you shouldn't need to touch this file.
    Routes:  #/                 home
-            #/selected, #/about, #/contact   home sections
+            #/about            about me: how I work, the client journey, leadership
+            #/selected, #/contact   home sections
             #/work             all work
             #/work/uhg         the protected UnitedHealth Group case studies
             #/work/<slug>      a case study
@@ -16,7 +17,7 @@
   var V = window.Visuals;
   var LOCKED = window.PORTFOLIO_LOCKED || null;
   var SESSION_KEY = "portfolio-access";
-  var HOME_SECTIONS = ["selected", "about", "contact"];
+  var HOME_SECTIONS = ["selected", "contact"];
   var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   var state = { unlocked: null, route: null, observers: [], tableN: 0 };
@@ -117,7 +118,14 @@
 
   /* ----------------------------------------------------------------- home */
   function viewHome() {
-    return heroView() + '<div class="curtain">' + toolsView() + impactView() + approachView() + leadershipView() + beliefView() + thinkingView() + aboutView() + contactView() + "</div>";
+    return heroView() + '<div class="curtain">' + impactView() + beliefView() + contactView() + "</div>";
+  }
+  function viewAbout() {
+    var ab = C.about || {}, t = ab.pageTitle || "About";
+    return '<article class="wk abpg"><header class="wrap wk__head"><h1 class="wk__t" tabindex="-1"><span class="sr-only">' + esc(t) + "</span>" +
+      Array.from(t).map(function (ch, i) { return '<span class="wk__ch" style="--i:' + i + '" aria-hidden="true">' + esc(ch) + "</span>"; }).join("") + "</h1>" +
+      (ab.pageIntro ? '<p class="wk__sub">' + fmt(ab.pageIntro) + "</p>" : "") + "</header>" +
+      aboutView(true) + approachView() + clientView() + leadershipView() + thinkingView() + toolsView() + contactView() + "</article>";
   }
 
   function heroView() {
@@ -208,6 +216,29 @@
         return '<li class="impact__i" style="--proj:' + esc(x.color || "#000000") + '"><span class="impact__v"><span class="sr-only">' + esc(x.value) + '</span><span class="impact__num" aria-hidden="true">' + esc(x.value) + '</span></span><span class="impact__l">' + esc(x.label) + '</span><span class="impact__s">' + esc(x.source) + "</span></li>";
       }).join("") + "</ul>" + (I.note ? '<p class="impact__n">' + esc(I.note) + "</p>" : "") + "</div></section>";
   }
+  var CJ_ICONS = {
+    brief: '<path d="M12 5h17l8 8v30H12z"/><path d="M29 5v8h8"/><path d="M17 22h14"/><path d="M17 28h14"/><path d="M17 34h8"/>',
+    system: '<rect x="7" y="7" width="15" height="15" rx="3"/><rect x="26" y="7" width="15" height="15" rx="3"/><rect x="7" y="26" width="15" height="15" rx="3"/><circle cx="33.5" cy="33.5" r="7.5"/>',
+    store: '<path d="M9 17h30l-3 25H12z"/><path d="M18 17v-4a6 6 0 0 1 12 0v4"/><path d="M17 27h14"/>',
+    phone: '<rect x="14" y="4" width="20" height="40" rx="4"/><circle cx="24" cy="25" r="3.5"/><circle cx="24" cy="25" r="9"/>',
+    curve: '<path d="M5 39C15 39 15 9 24 9s9 30 19 30"/><circle cx="24" cy="9" r="3"/>',
+    critique: '<path d="M5 9h24v15H14l-6 6v-6H5z"/><path d="M21 28v5h12l6 6v-6h4V19h-9"/>',
+    present: '<rect x="6" y="7" width="36" height="23" rx="2"/><path d="M24 30v8"/><path d="M16 43l8-5 8 5"/><path d="M12 23l7-6 6 4 9-8"/>',
+    handoff: '<path d="M8 11v26"/><path d="M40 11v26"/><path d="M8 24h32"/><path d="M14 19l-6 5 6 5"/><path d="M34 19l6 5-6 5"/>',
+    chart: '<path d="M6 41h36"/><path d="M10 34l8-9 7 5 13-15"/><circle cx="38" cy="15" r="3"/>',
+    share: '<rect x="10" y="5" width="28" height="38" rx="3"/><path d="M15 15l3 3 5-6"/><path d="M27 15h6"/><path d="M15 25l3 3 5-6"/><path d="M27 25h6"/><path d="M15 35h18"/>'
+  };
+  function clientView() {
+    var W = C.clientWork || {}, S = W.stops || []; if (!S.length) return "";
+    var n = S.length, two = function (k) { return (k < 9 ? "0" : "") + (k + 1); };
+    return '<section class="sec cj" id="client-work" aria-labelledby="cj-h"><div class="cj__pin"><div class="wrap cj__head"><div class="cj__hl">' +
+      (W.kicker ? '<p class="cj__kicker">' + esc(W.kicker) + "</p>" : "") + '<h2 class="sec__title" id="cj-h">' + esc(W.title || "") + '</h2><p class="lead__intro">' + fmt(W.intro || "") + "</p></div>" +
+      '<p class="cj__count" aria-hidden="true"><b>01</b> / ' + two(n - 1) + '</p></div><div class="wrap"><div class="cj__bar" aria-hidden="true"><i class="cj__prog"></i></div></div>' +
+      '<div class="cj__view"><ol class="cj__track">' + S.map(function (x, i) {
+        return '<li class="cj__stop' + (i === 0 ? " is-on" : "") + '"><span class="cj__dot" aria-hidden="true"></span><p class="cj__phase">' + esc(x.phase || "") + '</p><div class="cj__top"><span class="cj__num" aria-hidden="true">' + two(i) + '</span><svg class="cj__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false">' + (CJ_ICONS[x.icon] || "").replace(/\/>/g, ' pathLength="1"/>') + "</svg></div>" +
+          '<h3 class="cj__t">' + esc(x.title) + '</h3><p class="cj__b">' + fmt(x.body) + '</p><p class="cj__l">' + (x.links || []).map(function (l) { return '<a href="' + (l.to === "motion" ? "#/motion" : "#/work/" + esc(l.to)) + '">' + esc(l.label) + ' <span aria-hidden="true">→</span></a>'; }).join("") + "</p></li>";
+      }).join("") + "</ol></div></div></section>";
+  }
   function leadershipView() {
     var L = C.leadership || {}; if (!(L.items || []).length) return "";
     return '<section class="sec lead" id="leadership" aria-labelledby="lead-h"><div class="wrap"><div class="lead__head"><h2 class="sec__title" id="lead-h">' + esc(L.title || "Leadership") + '</h2><p class="lead__intro">' + fmt(L.intro || "") + "</p></div>" +
@@ -226,10 +257,10 @@
       '<ul class="think__topics">' + T.topics.map(function (x) { return '<li><h3 class="think__tt">' + esc(x.title) + '</h3><p class="think__tb">' + fmt(x.body) + "</p></li>"; }).join("") + "</ul>" +
       (T.note ? '<p class="think__note">' + fmt(T.note) + "</p>" : "") + "</div></section>";
   }
-  function aboutView() {
+  function aboutView(asPage) {
     var ab = C.about || {}, x = C.experience || {};
     return '<section class="sec about" id="about" aria-labelledby="about-title"><div class="wrap about__in">' +
-      '<h2 class="sec__title" id="about-title">' + esc(ab.title || "About") + "</h2>" +
+      '<h2 class="sec__title" id="about-title">' + esc(asPage ? (ab.pageHeading || "Who I am") : (ab.title || "About")) + "</h2>" +
       '<div class="about__body">' + (ab.lead ? '<p class="about__lead">' + fmt(ab.lead) + "</p>" : "") + (ab.paragraphs || []).map(function (p) { return '<p class="about__p">' + fmt(p) + "</p>"; }).join("") +
       '<h3 class="about__h">Experience</h3><ol class="about__list">' + (x.roles || []).map(function (r) {
         return '<li><span class="about__when">' + esc(r.period) + '</span><span class="about__what"><strong>' + esc(r.role) + "</strong><span>" + esc(r.company) + "</span></span></li>";
@@ -740,13 +771,14 @@
       return { name: "case", slug: parts[1], section: parts[2] || null };
     }
     if (parts[0] === "motion") return { name: "motion" };
+    if (parts[0] === "about") return { name: "about" };
     if (parts[0] === "selected") return { name: "work" };
     if (HOME_SECTIONS.indexOf(parts[0]) > -1) return { name: "home", section: parts[0] };
     return { name: "notfound" };
   }
   function samePage(a, b) {
     if (!a || !b || a.name !== b.name) return false;
-    return a.name === "home" || a.name === "work" || a.name === "motion" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
+    return a.name === "home" || a.name === "work" || a.name === "motion" || a.name === "about" || (a.name === "case" && a.slug === b.slug) || (a.name === "group" && a.id === b.id);
   }
 
   // One Google Analytics page view per page, with the route as a readable path (/work/member-assistant).
@@ -764,14 +796,14 @@
     if (!keep) {
       cleanup();
       state.tableN = 0;
-      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : r.name === "motion" ? viewMotion() : viewNotFound();
+      byId("main").innerHTML = r.name === "home" ? viewHome() : r.name === "work" ? viewWork() : r.name === "group" ? viewGroup(groupById(r.id)) : r.name === "case" ? viewCase(r.slug) : r.name === "motion" ? viewMotion() : r.name === "about" ? viewAbout() : viewNotFound();
       mount(r);
       enhance(r);
     }
     state.route = r;
     setTitle(r);
     if (!keep) trackPage();
-    setNav(r.name === "motion" ? "motion" : r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
+    setNav(r.name === "motion" ? "motion" : r.name === "about" ? "about" : r.name === "case" || r.name === "work" || r.name === "group" ? "work" : navFor(r.section));
     toggleMenu(false);
 
     if (opts.restoreY != null) { window.scrollTo(0, opts.restoreY); return; }
@@ -796,6 +828,7 @@
     var m = C.meta || {}, cs = r.name === "case" ? findCase(r.slug) : null;
     var g = r.name === "group" ? groupById(r.id) : null;
     document.title = cs ? cs.title + " | " + m.name : g ? g.company + " | " + m.name : r.name === "work" ? ((C.work && C.work.allTitle) || "All work") + " | " + m.name : r.name === "motion" ? ((C.motion && C.motion.title) || "In-app motion") + " | " + m.name : r.name === "notfound" ? "Page not found | " + m.name : m.name + ", " + m.role;
+    if (r.name === "about") document.title = "About | " + (m.name || "");
   }
 
   // The home page's selected-work section belongs to the Work link.
@@ -1643,8 +1676,110 @@
         return 2800;
       }
     }
-
+,
+    cardhover: {
+      html: '<div class="mui mui--desk mui--mar"><div class="mui__mcards"><div class="mui__mc"><div class="mui__mimg" data-k="im"><i>' + marSvg("oven", "#5E6F5C") + '</i><i data-k="i1">' + marSvg("oven", "#5E6F5C", true) + '</i><i data-k="i2">' + marSvg("oven", "#A2452E", true) + '</i><span class="mui__mqa" data-k="qa">Quick add</span></div>' +
+        '<b>Enameled Dutch Oven</b><span>$185</span><span class="mui__msw"><em style="background:#5E6F5C" data-k="s0"></em><em style="background:#A2452E" class="on" data-k="s1"></em><em style="background:#E8DCC8"></em></span></div>' +
+        '<div class="mui__mc"><div class="mui__mimg"><i>' + marSvg("skillet") + '</i></div><b>Cast-Iron Skillet</b><span>$78</span></div></div><i class="mui__cur" data-k="cu" aria-hidden="true"></i></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        var box = s.querySelector(".mui").getBoundingClientRect(), ib = q("im").getBoundingClientRect(), sb = q("s1").getBoundingClientRect();
+        var p1 = "translate(" + (ib.left - box.left + ib.width * 0.55) + "px," + (ib.top - box.top + ib.height * 0.45) + "px)", p2 = "translate(" + (sb.left - box.left + sb.width / 2) + "px," + (sb.top - box.top + sb.height / 2) + "px)";
+        A(q("cu"), [{ opacity: 0, transform: "translate(" + (box.width * 0.9) + "px," + (box.height * 0.9) + "px)" }, { opacity: 1, transform: p1 }], 400, 200, "std", sp);
+        A(q("cu"), [{ transform: p1 }, { transform: p2 }], 300, 1300, "std", sp, "forwards");
+        A(q("i1"), [{ opacity: 0 }, { opacity: 1 }], 240, 600, "std", sp);
+        A(q("qa"), IN(8), 200, 640, "enter", sp);
+        A(q("s0"), [{ boxShadow: "0 0 0 2px #FAF7F2, 0 0 0 3.5px #1F1B16" }, { boxShadow: "0 0 0 0 rgba(0,0,0,0)" }], 140, 1600, "std", sp);
+        A(q("s1"), [{ boxShadow: "0 0 0 0 rgba(0,0,0,0)" }, { boxShadow: "0 0 0 2px #FAF7F2, 0 0 0 3.5px #1F1B16" }], 140, 1600, "std", sp);
+        A(q("i2"), [{ opacity: 0 }, { opacity: 1 }], 160, 1600, "std", sp);
+        return 2500;
+      }
+    },
+    variant: {
+      html: '<div class="mui mui--desk mui--mar"><div class="mui__pdp"><div class="mui__pimg2"><i>' + marSvg("oven", "#5E6F5C") + '</i><i data-k="g1">' + marSvg("oven", "#A2452E") + "</i></div>" +
+        '<div class="mui__pinfo"><b class="mui__pt">Enameled Dutch Oven</b><span class="mui__stack mui__pp"><b data-k="p0">$185</b><b data-k="p1">$215</b></span>' +
+        '<span class="mui__lbl2">Color: <span class="mui__stack"><b data-k="c0">Sage</b><b data-k="c1">Terracotta</b></span></span>' +
+        '<span class="mui__msw mui__msw--lg"><em style="background:#5E6F5C" data-k="w0"></em><em style="background:#A2452E" data-k="w1"></em><em style="background:#E8DCC8"></em><em style="background:#3A342D"></em><i class="mui__vring" data-k="rg"></i></span>' +
+        '<span class="mui__msz"><em>4.5 qt</em><em data-k="z1">5.5 qt</em><em class="on" data-k="z2"><span class="mui__stack"><s data-k="x0">7 qt</s><span data-k="x1">7 qt</span></span></em></span>' +
+        '<span class="mui__stack mui__note3"><span data-k="n0">Only 4 left in Sage</span><span data-k="n1">In stock in Terracotta</span></span>' +
+        '<span class="mui__mbtn mui__stack"><span data-k="b0">Add to cart · $185</span><span data-k="b1">Add to cart · $215</span></span></div></div><span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        var d = q("w1").offsetLeft - q("w0").offsetLeft;
+        tap(s, q("w1"), 300, sp);
+        A(q("rg"), [{ transform: "translateX(" + (-d) + "px)" }, { transform: "none" }], 200, 360, "std", sp);
+        A(q("g1"), [{ opacity: 0 }, { opacity: 1 }], 240, 360, "std", sp);
+        A(q("c0"), [{ opacity: 1 }, { opacity: 0 }], 120, 360, "std", sp); A(q("c1"), [{ opacity: 0 }, { opacity: 1 }], 120, 360, "std", sp);
+        A(q("x0"), [{ opacity: 1 }, { opacity: 0 }], 200, 520, "std", sp); A(q("x1"), [{ opacity: 0 }, { opacity: 1 }], 200, 520, "std", sp);
+        A(q("z2"), [{ backgroundColor: "#F4EFE7", boxShadow: "inset 0 0 0 1px #CFC4B3" }, { backgroundColor: "#FFFFFF", boxShadow: "inset 0 0 0 1px #CFC4B3", offset: 0.5 }, { backgroundColor: "#FFFFFF", boxShadow: "inset 0 0 0 1px #CFC4B3" }], 200, 520, "std", sp);
+        tap(s, q("z2"), 1100, sp);
+        A(q("z2"), [{ boxShadow: "inset 0 0 0 1px #CFC4B3" }, { boxShadow: "inset 0 0 0 2px #1F1B16" }], 140, 1220, "std", sp, "forwards");
+        A(q("z1"), [{ boxShadow: "inset 0 0 0 2px #1F1B16" }, { boxShadow: "inset 0 0 0 1px #CFC4B3" }], 140, 1220, "std", sp);
+        A(q("p0"), [{ opacity: 1 }, { opacity: 0 }], 160, 1240, "std", sp); A(q("p1"), [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], 160, 1240, "std", sp);
+        A(q("b0"), [{ opacity: 1 }, { opacity: 0 }], 160, 1240, "std", sp); A(q("b1"), [{ opacity: 0 }, { opacity: 1 }], 160, 1240, "std", sp);
+        A(q("n0"), [{ opacity: 1 }, { opacity: 0 }], 160, 1280, "std", sp); A(q("n1"), [{ opacity: 0 }, { opacity: 1 }], 160, 1280, "std", sp);
+        return 2300;
+      }
+    },
+    addcart: {
+      html: '<div class="mui mui--desk mui--mar"><div class="mui__mhdr"><b class="mui__mlogo">MARLOW</b><span class="mui__mbag" data-k="bg"><i></i><em class="mui__stack"><span data-k="k0">0</span><span data-k="k1">1</span></em></span></div>' +
+        '<div class="mui__pdp"><div class="mui__pimg2 mui__pimg2--sm"><i>' + marSvg("oven", "#5E6F5C") + '</i></div><div class="mui__pinfo"><b class="mui__pt">Enameled Dutch Oven</b><b>$185</b><span class="mui__mbtn mui__stack" data-k="ab"><span data-k="a0">Add to cart</span><span data-k="a1">Adding</span><span data-k="a2">Added</span></span></div></div>' +
+        '<div class="mui__scrim" data-k="sc"></div><div class="mui__mdrawer" data-k="dr"><b class="mui__h3">Your cart (1)</b><div class="mui__fsb2"><span class="mui__stack"><span data-k="f0">You’re $75 away from free shipping</span><b data-k="f1">You’ve got free shipping.</b></span><span class="mui__bar2"><i data-k="fb"></i></span></div>' +
+        '<div class="mui__mline" data-k="ln"><i class="mui__mthumb">' + marSvg("oven", "#5E6F5C") + '</i><span><b>Enameled Dutch Oven</b><span>Sage, 5.5 qt</span></span><b>$185</b></div><span class="mui__mbtn mui__mbtn--dk">Checkout</span></div><span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        tap(s, q("ab"), 300, sp);
+        A(q("a0"), [{ opacity: 1 }, { opacity: 0 }], 120, 360, "std", sp); A(q("a1"), [{ opacity: 0 }, { opacity: 1 }], 120, 360, "std", sp);
+        A(q("a1"), [{ opacity: 1 }, { opacity: 0 }], 120, 760, "std", sp, "forwards"); A(q("a2"), [{ opacity: 0, transform: "scale(.8)" }, { opacity: 1, transform: "none" }], 280, 760, "settle", sp);
+        A(q("k0"), [{ opacity: 1 }, { opacity: 0 }], 120, 820, "std", sp); A(q("k1"), [{ opacity: 0, transform: "scale(.5)" }, { opacity: 1, transform: "none" }], 280, 820, "settle", sp);
+        A(q("bg"), [{ transform: "none" }, { transform: "scale(1.15)", offset: 0.4 }, { transform: "none" }], 320, 820, "settle", sp);
+        A(q("sc"), [{ opacity: 0 }, { opacity: 1 }], 240, 950, "std", sp);
+        A(q("dr"), [{ transform: "translateX(100%)" }, { transform: "none" }], 320, 950, "enter", sp);
+        A(q("ln"), IN(10), 240, 1200, "enter", sp);
+        A(q("fb"), [{ width: "0%" }, { width: "100%" }], 600, 1300, "std", sp);
+        A(q("f0"), [{ opacity: 1 }, { opacity: 0 }], 160, 1750, "std", sp); A(q("f1"), [{ opacity: 0, transform: "scale(.92)" }, { opacity: 1, transform: "none" }], 280, 1750, "settle", sp);
+        return 2900;
+      }
+    },
+    checkstep: {
+      html: '<div class="mui mui--desk mui--mar"><span class="mui__row"><b class="mui__mlogo">MARLOW</b><span class="mui__crumb2">Information › <b>Shipping</b> › Payment</span></span><span class="mui__steps"><i></i><i><b data-k="s2"></b></i><i></i></span>' +
+        '<div class="mui__form" data-k="fm"><span class="mui__in2">maya.chen@example.com</span><span class="mui__in2">48 Harbor St, New Bedford, MA 02740</span><span class="mui__mbtn mui__mbtn--dk" data-k="cb">Continue to shipping</span></div>' +
+        '<div class="mui__sum" data-k="m0"><span>Contact</span><b>maya.chen@example.com</b><u>Change</u></div><div class="mui__sum" data-k="m1"><span>Ship to</span><b>48 Harbor St, New Bedford</b><u>Change</u></div>' +
+        '<div class="mui__opt" data-k="o0"><i class="mui__rad"><b data-k="r0"></b></i><span>Standard, arrives Thu, Nov 12</span><b>Free</b></div><div class="mui__opt" data-k="o1"><i class="mui__rad"></i><span>Express, arrives Tue, Nov 10</span><b>$12</b></div><span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        tap(s, q("cb"), 300, sp);
+        A(q("fm"), [{ opacity: 1, maxHeight: "220px", marginBottom: "0px" }, { opacity: 0, maxHeight: "0px", marginBottom: "-12px" }], 280, 400, "std", sp);
+        A(q("s2"), [{ width: "0%" }, { width: "100%" }], 400, 500, "std", sp);
+        A(q("m0"), IN(8), 220, 620, "enter", sp); A(q("m1"), IN(8), 220, 680, "enter", sp);
+        A(q("o0"), IN(8), 220, 900, "enter", sp); A(q("o1"), IN(8), 220, 960, "enter", sp);
+        A(q("r0"), [{ transform: "scale(0)" }, { transform: "none" }], 280, 1500, "settle", sp);
+        A(q("o0"), [{ boxShadow: "inset 0 0 0 1px #CFC4B3" }, { boxShadow: "inset 0 0 0 2px #1F1B16" }], 140, 1500, "std", sp, "forwards");
+        return 2300;
+      }
+    },
+    stickyatc: {
+      html: '<div class="mui mui--phone mui--mar"><div class="mui__mhdr mui__mhdr--ph"><b class="mui__mlogo">MARLOW</b><span class="mui__mbag"><i></i></span></div><div class="mui__vp"><div class="mui__scroll" data-k="sv"><div class="mui__pimg3">' + marSvg("oven", "#5E6F5C") + '</div>' +
+        '<div class="mui__pinfo"><b class="mui__pt">Enameled Dutch Oven</b><b>$185</b><span class="mui__msw"><em style="background:#5E6F5C" class="on"></em><em style="background:#A2452E"></em><em style="background:#E8DCC8"></em></span><span class="mui__mbtn">Add to cart</span>' +
+        '<span class="mui__ln"></span><span class="mui__ln"></span><span class="mui__ln mui__ln--s"></span><span class="mui__acc3">Details</span><span class="mui__acc3">Care</span><span class="mui__acc3">Shipping and returns</span></div></div></div>' +
+        '<div class="mui__sticky" data-k="st"><span><b>$185</b><em>Sage, 5.5 qt</em></span><span class="mui__mbtn mui__stack" data-k="sb"><span data-k="t0">Add to cart</span><span data-k="t1">Added</span></span></div><span class="mui__tap" aria-hidden="true"></span></div>',
+      play: function (s, sp) {
+        var q = function (k) { return s.querySelector('[data-k="' + k + '"]'); };
+        A(q("sv"), [{ transform: "none" }, { transform: "translateY(-330px)" }], 900, 300, "std", sp);
+        A(q("st"), [{ transform: "translateY(110%)" }, { transform: "none" }], 280, 900, "enter", sp);
+        tap(s, q("sb"), 1700, sp);
+        A(q("t0"), [{ opacity: 1 }, { opacity: 0 }], 120, 1760, "std", sp); A(q("t1"), [{ opacity: 0, transform: "scale(.8)" }, { opacity: 1, transform: "none" }], 320, 1760, "settle", sp);
+        return 2600;
+      }
+    }
   };
+  function marSvg(kind, c, life) {
+    var bg = life ? "#D8CBB6" : "#EFE8DC", k = life ? 0.82 : 1;
+    var s = '<svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><rect width="200" height="250" fill="' + bg + '"/>' + (life ? '<rect y="178" width="200" height="72" fill="#C9B79C"/>' : "") + '<g transform="translate(' + (100 - 100 * k) + " " + (125 - 125 * k + (life ? 18 : 0)) + ") scale(" + k + ')">';
+    if (kind === "oven") s += '<ellipse cx="100" cy="196" rx="74" ry="9" fill="rgba(31,27,22,.1)"/><rect x="40" y="110" width="120" height="84" rx="30" fill="' + c + '"/><rect x="24" y="124" width="24" height="12" rx="6" fill="' + c + '"/><rect x="152" y="124" width="24" height="12" rx="6" fill="' + c + '"/><ellipse cx="100" cy="110" rx="66" ry="12" fill="' + c + '"/><rect x="88" y="88" width="24" height="16" rx="6" fill="#2B2620"/><path d="M58 132q-4 30 10 50" stroke="rgba(255,255,255,.28)" stroke-width="5" fill="none" stroke-linecap="round"/>';
+    else s += '<ellipse cx="100" cy="190" rx="74" ry="9" fill="rgba(31,27,22,.1)"/><ellipse cx="88" cy="150" rx="62" ry="34" fill="#2B2620"/><ellipse cx="88" cy="146" rx="52" ry="26" fill="#3A342D"/><rect x="146" y="140" width="46" height="12" rx="6" fill="#2B2620" transform="rotate(-8 146 146)"/>';
+    return s + "</g></svg>";
+  }
   function curveSvg(b) {
     var x1 = b[0] * 120, y1 = 80 - b[1] * 80, x2 = b[2] * 120, y2 = 80 - b[3] * 80;
     return '<svg class="mo-curve" viewBox="-6 -28 132 116" aria-hidden="true"><path class="mo-curve__axis" d="M0 80H120M0 80V-20"/><path class="mo-curve__line" d="M0 80C' + x1 + " " + y1 + " " + x2 + " " + y2 + ' 120 0"/></svg>';
@@ -1808,7 +1943,7 @@
   function scrollFrame() {
     ticking = false;
     var y = window.scrollY || document.documentElement.scrollTop || 0, vh = window.innerHeight, dh = document.documentElement.scrollHeight - vh, dy = y - lastY;
-    lastY = y; navVel = dy; if (NAVLQ) NAVLQ.kick();
+    lastY = y; navVel = dy; if (NAVLQ) NAVLQ.kick(); journeyFrame();
     document.documentElement.style.setProperty("--sp", dh > 0 ? Math.min(1, Math.max(0, y / dh)).toFixed(4) : "0");
     var hdr = byId("site-header");
     if (hdr && !reduceMotion) {
@@ -1836,7 +1971,35 @@
     var pre = m[1], n = parseInt(m[2], 10), suf = m[3], t0 = performance.now(), dur = 1300;
     (function step(now) { var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = k < 1 ? pre + Math.round(n * e) + suf : txt; if (k < 1) requestAnimationFrame(step); })(t0);
   }
+  var CJ = null;
+  function bindJourney() {
+    CJ = null;
+    var sec = document.querySelector("#main .cj"); if (!sec) return;
+    var view = sec.querySelector(".cj__view"), track = sec.querySelector(".cj__track"), stops = [].slice.call(sec.querySelectorAll(".cj__stop"));
+    var pin = !reduceMotion && window.matchMedia && window.matchMedia("(min-width: 900px) and (hover: hover) and (pointer: fine)").matches;
+    sec.classList.toggle("cj--pin", pin);
+    CJ = { sec: sec, view: view, track: track, stops: stops, count: sec.querySelector(".cj__count b"), prog: sec.querySelector(".cj__prog"), dist: 0, on: -1, pin: pin };
+    CJ.layout = function () {
+      if (!CJ.pin) { sec.style.height = ""; track.style.transform = ""; return; }
+      var pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+      CJ.dist = Math.max(0, track.scrollWidth + pad - view.clientWidth);
+      sec.style.height = Math.round(window.innerHeight + CJ.dist * 1.15) + "px";
+    };
+    CJ.layout();
+    if (!pin) stops.forEach(function (s) { s.classList.add("is-on"); });
+  }
+  function journeyFrame() {
+    if (!CJ || !CJ.pin) return;
+    var r = CJ.sec.getBoundingClientRect(), total = CJ.sec.offsetHeight - window.innerHeight;
+    var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
+    CJ.track.style.transform = "translate3d(" + (-p * CJ.dist).toFixed(1) + "px,0,0)";
+    if (CJ.prog) CJ.prog.style.transform = "scaleX(" + p.toFixed(4) + ")";
+    var i = Math.min(CJ.stops.length - 1, Math.round(p * (CJ.stops.length - 1)));
+    if (i !== CJ.on) { CJ.on = i; CJ.stops.forEach(function (s, k) { s.classList.toggle("is-on", k === i); s.classList.toggle("is-past", k < i); }); if (CJ.count) CJ.count.textContent = (i < 9 ? "0" : "") + (i + 1); }
+  }
+  window.addEventListener("resize", function () { if (CJ) { CJ.layout(); journeyFrame(); } });
   function bindScrollFX() {
+    bindJourney();
     SFX.wrap = document.querySelector("#main .lq-wrap"); SFX.hero = SFX.wrap ? SFX.wrap.querySelector(".lq") : null;
     SFX.band = document.querySelector("#main .belief"); SFX.words = SFX.band && !reduceMotion ? [].slice.call(SFX.band.querySelectorAll(".bw")) : [];
     var hdr = byId("site-header"); if (hdr) hdr.classList.remove("is-hidden");

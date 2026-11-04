@@ -32,56 +32,99 @@ window.PORTFOLIO = {
 
   /* -------------------------------------------------------------------- Hero */
   hero: {
-    intro: "Jaswanth Adusumilli, AI product designer at UnitedHealth Group",
-    liquid: {
-      words: ["Decisions", "have", "weight."],
-      subtitle: "I’m Jaswanth Adusumilli, an AI product designer. I work on healthcare and finance products, where every decision matters to someone, and make them clear enough to act on.",
-      primary: "See the work",
-      secondary: "In-app motion",
-      dots: ["#2340C8", "#0B6874", "#6A2DA0", "#1D6A46", "#3C35C2"],
-      proof: "Healthcare AI at UnitedHealth Group. Fintech learning at Finlatics.",
-      hintPointer: "Move through the words. Click anywhere to send a pulse.",
-      hintTouch: "Tap anywhere to send a pulse."
+    "intro": "Jaswanth Adusumilli, AI product designer at UnitedHealth Group",
+    "liquid": {
+      "words": [
+        "Decisions",
+        "have",
+        "weight."
+      ],
+      "subtitle": "I’m Jaswanth Adusumilli, a product designer. I work on healthcare, finance and e-commerce products, where every decision matters to someone, and make them clear enough to act on.",
+      "primary": "See the work",
+      "secondary": "In-app motion",
+      "dots": [
+        "#2340C8",
+        "#0B6874",
+        "#6A2DA0",
+        "#1D6A46",
+        "#3C35C2"
+      ],
+      "proof": "Healthcare AI at UnitedHealth Group. Fintech learning at Finlatics.",
+      "hintPointer": "Move through the words. Click anywhere to send a pulse.",
+      "hintTouch": "Tap anywhere to send a pulse."
     },
-    headline: "I design AI products for healthcare.",
-    summary: "Right now that’s at UnitedHealth Group, on tools for members booking care, office staff submitting prior authorizations and clinicians reading risk models. Before that, I spent two years designing Finlatics, a stock-market simulator for 500+ finance students.",
-    evidenceTitle: "What the work shows",
-    evidenceHint: "Open a claim to see the case studies behind it.",
-    // Each claim lists case studies by slug (see caseStudies below).
-    evidence: [
+    "headline": "I design AI products for healthcare.",
+    "summary": "Right now that’s at UnitedHealth Group, on tools for members booking care, office staff submitting prior authorizations and clinicians reading risk models. Before that, I spent two years designing Finlatics, a stock-market simulator for 500+ finance students.",
+    "evidenceTitle": "What the work shows",
+    "evidenceHint": "Open a claim to see the case studies behind it.",
+    "evidence": [
       {
-        claim: "AI that finishes real tasks",
-        items: [
-          { slug: "member-assistant", text: "Conversation flows for finding care, booking visits and seeing lab results" },
-          { slug: "prior-authorization", text: "Prior-authorization submissions designed to pass on the first try" }
+        "claim": "AI that finishes real tasks",
+        "items": [
+          {
+            "slug": "member-assistant",
+            "text": "Conversation flows for finding care, booking visits and seeing lab results"
+          },
+          {
+            "slug": "prior-authorization",
+            "text": "Prior-authorization submissions designed to pass on the first try"
+          }
         ]
       },
       {
-        claim: "Complex data people can read and trust",
-        items: [
-          { slug: "explainable-clinical-ai", text: "Explainable patterns that show clinicians why a disease risk was flagged" },
-          { slug: "portfolio-simulation-dashboards", text: "Interaction specs that keep live market charts readable for learners" }
+        "claim": "Complex data people can read and trust",
+        "items": [
+          {
+            "slug": "explainable-clinical-ai",
+            "text": "Explainable patterns that show clinicians why a disease risk was flagged"
+          },
+          {
+            "slug": "portfolio-simulation-dashboards",
+            "text": "Interaction specs that keep live market charts readable for learners"
+          }
         ]
       },
       {
-        claim: "Accessibility built into the system",
-        items: [
-          { slug: "ai-ui-standards", text: "WCAG 2.1 AA standards that AI-generated components must meet" },
-          { slug: "finlatics-design-system", text: "A 60+ component library that cut designer ramp-up by ==40%==" }
+        "claim": "Accessibility built into the system",
+        "items": [
+          {
+            "slug": "ai-ui-standards",
+            "text": "WCAG 2.1 AA standards that AI-generated components must meet"
+          },
+          {
+            "slug": "finlatics-design-system",
+            "text": "A 60+ component library that cut designer ramp-up by ==40%=="
+          }
         ]
       },
       {
-        claim: "Research that changes the roadmap",
-        items: [
-          { slug: "finlatics-learner-journey", text: "==25+ moderated sessions== that led to ==3 major product pivots==" },
-          { slug: "ai-augmented-practice", text: "AI-assisted research synthesis for several product squads" }
-        , { slug: "advisor-ai", text: "==5 interviews and 3 rounds of evaluation== that reshaped an AI career platform" }]
+        "claim": "Research that changes the roadmap",
+        "items": [
+          {
+            "slug": "finlatics-learner-journey",
+            "text": "==25+ moderated sessions== that led to ==3 major product pivots=="
+          },
+          {
+            "slug": "ai-augmented-practice",
+            "text": "AI-assisted research synthesis for several product squads"
+          },
+          {
+            "slug": "advisor-ai",
+            "text": "==5 interviews and 3 rounds of evaluation== that reshaped an AI career platform"
+          }
+        ]
       },
       {
-        claim: "Outcomes measured after launch",
-        items: [
-          { slug: "finlatics-learner-journey", text: "==34% less drop-off== at account setup and ==28% longer sessions==" },
-          { slug: "b2b-saas-navigation", text: "Core workflows cut from 4 clicks to 2, with task completion ==up 31%==" }
+        "claim": "Outcomes measured after launch",
+        "items": [
+          {
+            "slug": "finlatics-learner-journey",
+            "text": "==34% less drop-off== at account setup and ==28% longer sessions=="
+          },
+          {
+            "slug": "b2b-saas-navigation",
+            "text": "Core workflows cut from 4 clicks to 2, with task completion ==up 31%=="
+          }
         ]
       }
     ]
@@ -140,13 +183,14 @@ window.PORTFOLIO = {
         "company": "Adons Softech",
         "role": "UI/UX Designer",
         "period": "May 2019 – Aug 2021",
-        "description": "Product and brand design for six early-stage startups in e-commerce and SaaS."
+        "description": "Storefront, product and brand design for six early-stage startups in e-commerce and SaaS, as part of a design services team."
       }
     ],
     "pageTitle": "Work",
     "pageIntro": "Healthcare AI, fintech learning and a few personal projects.",
     "selected": [
       "uhg",
+      "dtc-storefront",
       "advisor-ai",
       "finlatics-learner-journey",
       "finlatics-design-system"
@@ -190,7 +234,9 @@ window.PORTFOLIO = {
       "Five years in, I’ve designed for startups at Adons Softech, for Finlatics at Vivma Software, and now AI tools at UnitedHealth Group.",
       "I work close to engineers and data scientists, prototype early, and test with the people who will use the thing."
     ],
-    "lead": "My biggest flex is empathy."
+    "lead": "My biggest flex is empathy.",
+    "pageIntro": "A product designer for healthcare, finance and e-commerce. Who I am, how I work, and what I bring to a team.",
+    "pageHeading": "Who I am"
   },
 
   /* ------------------------------------------------------------- How I work */
@@ -228,6 +274,157 @@ window.PORTFOLIO = {
         "label": "SUS score, with 25 of 25 tasks completed",
         "source": "Advisor.AI, graduate project",
         "color": "#155DFC"
+      }
+    ]
+  },
+  clientWork: {
+    "title": "What I bring to a client team",
+    "kicker": "A client project, start to finish",
+    "intro": "Ten stops on a typical storefront engagement. Each one is something an agency or in-house e-commerce team needs, with links to where it shows up in my work.",
+    "stops": [
+      {
+        "phase": "Before kickoff",
+        "icon": "brief",
+        "title": "Briefs, on scope and on time",
+        "body": "A one-page brief per engagement: the goal, what’s in and out, who signs off, and the review dates. New requests go on the roadmap instead of stretching the scope.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          }
+        ]
+      },
+      {
+        "phase": "Week 1",
+        "icon": "system",
+        "title": "A client design system in Figma",
+        "body": "Tokens first, then components with every state, versioned with a changelog the client’s team can follow.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Finlatics design system",
+            "to": "finlatics-design-system"
+          }
+        ]
+      },
+      {
+        "phase": "Weeks 2 to 5",
+        "icon": "store",
+        "title": "DTC storefronts, listing to checkout",
+        "body": "Navigation, listing, product, cart and checkout, designed around the questions shoppers actually have.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          }
+        ]
+      },
+      {
+        "phase": "Every week",
+        "icon": "phone",
+        "title": "Responsive prototypes",
+        "body": "Phone and desktop prototypes with hover states, drawers and checkout steps wired, so reviews are about behavior.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Advisor.AI",
+            "to": "advisor-ai"
+          }
+        ]
+      },
+      {
+        "phase": "Every week",
+        "icon": "curve",
+        "title": "Micro-interactions and motion",
+        "body": "Hover states, transitions and confirmations, each with a timing spec developers can build from.",
+        "links": [
+          {
+            "label": "Motion studies",
+            "to": "motion"
+          }
+        ]
+      },
+      {
+        "phase": "Before every client review",
+        "icon": "critique",
+        "title": "Internal critiques",
+        "body": "The problem, two or three options and my recommendation, pushed on by the team before a client sees it.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Nike concept",
+            "to": "nike-nft-concept"
+          }
+        ]
+      },
+      {
+        "phase": "Weekly",
+        "icon": "present",
+        "title": "Presenting to clients",
+        "body": "Walk the prototype, recommend one option, and write the decisions down the same day.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          }
+        ]
+      },
+      {
+        "phase": "Week 6",
+        "icon": "handoff",
+        "title": "Files for development and handoff",
+        "body": "One page per template with states, breakpoints and motion, then a walkthrough with the developers.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Portfolio dashboards",
+            "to": "portfolio-simulation-dashboards"
+          }
+        ]
+      },
+      {
+        "phase": "After launch",
+        "icon": "chart",
+        "title": "Live-site improvements and A/B tests",
+        "body": "Roadmap work on the live store, and variations with a hypothesis, one change at a time, a deciding metric and a guardrail.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Finlatics learner journey",
+            "to": "finlatics-learner-journey"
+          }
+        ]
+      },
+      {
+        "phase": "Always",
+        "icon": "share",
+        "title": "Sharing what I learn",
+        "body": "A storefront checklist the team reused, and a component library that cut new-designer ramp-up by 40%.",
+        "links": [
+          {
+            "label": "DTC storefront",
+            "to": "dtc-storefront"
+          },
+          {
+            "label": "Finlatics design system",
+            "to": "finlatics-design-system"
+          }
+        ]
       }
     ]
   },
@@ -312,25 +509,25 @@ window.PORTFOLIO = {
 
   /* ------------------------------------------------------------- Experience */
   experience: {
-    title: "Experience",
-    roles: [
+    "title": "Experience",
+    "roles": [
       {
-        company: "UnitedHealth Group",
-        role: "AI Product Designer",
-        period: "Aug 2025 – present",
-        summary: "Design AI-native interfaces for members, providers and clinicians: a conversational member assistant, AI-powered prior-authorization flows, explainable clinical risk patterns, and accessibility standards for AI-generated UI in the enterprise design system.",
-        points: [
+        "company": "UnitedHealth Group",
+        "role": "AI Product Designer",
+        "period": "Aug 2025 – present",
+        "summary": "Design AI-native interfaces for members, providers and clinicians: a conversational member assistant, AI-powered prior-authorization flows, explainable clinical risk patterns, and accessibility standards for AI-generated UI in the enterprise design system.",
+        "points": [
           "Partner with data science and engineering on how model outputs reach clinicians",
           "Set interaction and accessibility standards for AI-generated components",
           "Use Figma AI, Galileo AI, Midjourney, ChatGPT and Claude to speed up prototyping and research synthesis"
         ]
       },
       {
-        company: "Vivma Software, building Finlatics",
-        role: "Senior Product Designer",
-        period: "Sep 2021 – Aug 2023",
-        summary: "Owned end-to-end product design for Finlatics’ simulated portfolio management platform, supporting 500+ active learners across equity research, investment banking and financial markets programs.",
-        points: [
+        "company": "Vivma Software, building Finlatics",
+        "role": "Senior Product Designer",
+        "period": "Sep 2021 – Aug 2023",
+        "summary": "Owned end-to-end product design for Finlatics’ simulated portfolio management platform, supporting 500+ active learners across equity research, investment banking and financial markets programs.",
+        "points": [
           "Redesigned onboarding with Maze testing, cutting drop-off at account setup by 34%",
           "Built a 60+ component Figma library that cut designer ramp-up time by 40%",
           "Ran 25+ moderated research sessions that led to 3 major product pivots",
@@ -338,1022 +535,2427 @@ window.PORTFOLIO = {
         ]
       },
       {
-        company: "Adons Softech",
-        role: "UI/UX Designer",
-        period: "May 2019 – Aug 2021",
-        summary: "Designed responsive web products for 6 early-stage startups across e-commerce and SaaS, delivering wireframes, high-fidelity prototypes and dev-ready assets in Sketch and InVision.",
-        points: [
+        "company": "Adons Softech",
+        "role": "UI/UX Designer",
+        "period": "May 2019 – Aug 2021",
+        "summary": "Designed responsive web products for 6 early-stage startups across e-commerce and SaaS, as part of a design services team, delivering wireframes, high-fidelity prototypes and dev-ready assets in Sketch and InVision.",
+        "points": [
+          "Designed listing, product, cart and checkout templates for e-commerce clients, presented them in client reviews and led developer handoff",
           "Restructured a B2B SaaS product’s information architecture: core workflows from 4 clicks to 2, task completion up 31%",
           "Created brand identities, icon sets and full style guides for 3 clients"
         ]
       }
     ],
-    education: [
-      { degree: "M.S., Information Systems", school: "Northeastern University", place: "Boston, MA" },
-      { degree: "B.Tech, Computer Science", school: "Jawaharlal Nehru Technological University", place: "Hyderabad, India" }
+    "education": [
+      {
+        "degree": "M.S., Information Systems",
+        "school": "Northeastern University",
+        "place": "Boston, MA"
+      },
+      {
+        "degree": "B.Tech, Computer Science",
+        "school": "Jawaharlal Nehru Technological University",
+        "place": "Hyderabad, India"
+      }
     ]
   },
 
   motion: {
+
     "title": "In-app motion",
+
     "kicker": "Motion studies",
+
     "color": "#C8321E",
+
     "summary": "How the products in this portfolio move. Each study shows why the motion is there, its timing and easing, and what happens when someone asks for less motion. Turn on slow motion to see the choreography.",
+
     "note": "Studies built for the recreated flows in this portfolio, with fictional data.",
+
     "indexTitle": "In-app motion",
+
     "indexWhen": "Motion studies",
-    "indexMeta": "32 micro-interactions across all the work, with timing and easing specs",
+
+    "indexMeta": "37 micro-interactions across all the work, with timing and easing specs",
+
     "preview": "assets/work/preview-motion.webp",
+
     "tokens": {
+
       "title": "The motion system",
+
       "durations": [
+
         [
+
           "Quick",
+
           "120–160 ms",
+
           "State changes: a time selected, a label swapped, a button pressed."
+
         ],
+
         [
+
           "Base",
+
           "200–280 ms",
+
           "Things arriving: messages, cards and panels."
+
         ],
+
         [
+
           "Slow",
+
           "320–480 ms",
+
           "Progress and data: steps completing, bars and lines drawing."
+
         ]
+
       ],
+
       "easings": [
+
         [
+
           "Enter",
+
           "cubic-bezier(.05, .7, .1, 1)",
+
           "Starts fast and lands gently, for things arriving.",
+
           [
+
             0.05,
+
             0.7,
+
             0.1,
+
             1
+
           ]
+
         ],
+
         [
+
           "Exit",
+
           "cubic-bezier(.3, 0, .8, .15)",
+
           "Leaves quickly and gets out of the way.",
+
           [
+
             0.3,
+
             0,
+
             0.8,
+
             0.15
+
           ]
+
         ],
+
         [
+
           "Standard",
+
           "cubic-bezier(.2, 0, 0, 1)",
+
           "Moves things within the screen.",
+
           [
+
             0.2,
+
             0,
+
             0,
+
             1
+
           ]
+
         ],
+
         [
+
           "Settle",
+
           "cubic-bezier(.34, 1.56, .64, 1)",
+
           "A small overshoot, only for confirmations.",
+
           [
+
             0.34,
+
             1.56,
+
             0.64,
+
             1
+
           ]
+
         ]
+
       ],
+
       "reduced": "Nothing moves or scales. Changes cross-fade in 120 ms or less, and these studies wait for Play instead of looping."
+
     },
+
     "demos": [
+
       {
+
         "id": "message",
+
         "context": "Healthcare assistant",
+
         "title": "A reply arrives",
+
         "purpose": "Show that the assistant is working, then land the answer where the eye already is.",
+
         "spec": [
+
           [
+
             "Message in",
+
             "240 ms, enter, rises 12 px from 96%"
+
           ],
+
           [
+
             "Typing",
+
             "fades in at 420 ms; dots bounce 120 ms apart"
+
           ],
+
           [
+
             "Reply in",
+
             "240 ms, enter, in the typing bubble’s place"
+
           ],
+
           [
+
             "Result card",
+
             "280 ms, enter, 200 ms after the reply"
+
           ],
+
           [
+
             "Quick replies",
+
             "200 ms each, 60 ms apart"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "booking",
+
         "context": "Healthcare assistant",
+
         "title": "Choosing a time, then booking",
+
         "purpose": "Selected, booking and booked are three different moments, so a tap never feels like a booking.",
+
         "spec": [
+
           [
+
             "Tap",
+
             "420 ms ripple"
+
           ],
+
           [
+
             "Time selected",
+
             "140 ms, standard"
+
           ],
+
           [
+
             "Button ready",
+
             "the label swaps in 160 ms"
+
           ],
+
           [
+
             "Booking",
+
             "the button narrows to a spinner in 260 ms"
+
           ],
+
           [
+
             "Booked",
+
             "the check draws in 240 ms with settle; the confirmation rises in 280 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "steps",
+
         "context": "Prior authorization form",
+
         "title": "A requirement is met",
+
         "purpose": "Tie the fix to its result: the requirement turns complete, then the step it was blocking moves on.",
+
         "spec": [
+
           [
+
             "Requirement met",
+
             "200 ms tint; the icon swaps with a 320 ms settle"
+
           ],
+
           [
+
             "Label",
+
             "Missing to Complete in a 160 ms cross-fade"
+
           ],
+
           [
+
             "Step done",
+
             "number to check, 320 ms settle"
+
           ],
+
           [
+
             "Progress line",
+
             "fills in 320 ms, standard"
+
           ],
+
           [
+
             "Next step",
+
             "activates in 160 ms; the status badge rises in 240 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "flag",
+
         "context": "Clinical risk flag",
+
         "title": "A risk flag explains itself",
+
         "purpose": "Reveal the evidence in order of strength, so the reason is read before the score.",
+
         "spec": [
+
           [
+
             "Panel in",
+
             "240 ms, enter"
+
           ],
+
           [
+
             "Risk level",
+
             "280 ms settle, first"
+
           ],
+
           [
+
             "Confidence",
+
             "bars fill in 160 ms each, 80 ms apart"
+
           ],
+
           [
+
             "Data date",
+
             "fades in at 640 ms"
+
           ],
+
           [
+
             "Evidence",
+
             "bars grow in 480 ms, strongest first, 90 ms apart"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "live",
+
         "context": "Finlatics dashboard",
+
         "title": "Live data, a steady tooltip",
+
         "purpose": "Let new data arrive without moving what the learner is reading.",
+
         "spec": [
+
           [
+
             "First draw",
+
             "the line draws in 900 ms, standard"
+
           ],
+
           [
+
             "Inspect",
+
             "crosshair and tooltip in 160 to 200 ms"
+
           ],
+
           [
+
             "New data",
+
             "the line extends in 420 ms; the tooltip stays put"
+
           ],
+
           [
+
             "New point",
+
             "280 ms settle"
+
           ],
+
           [
+
             "Paused",
+
             "the line greys and the time label rises in 220 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "range",
+
         "context": "Finlatics dashboard",
+
         "title": "Changing range, opening a holding",
+
         "purpose": "Keep context: the control slides, the chart settles, and details open beside the list.",
+
         "spec": [
+
           [
+
             "Range control",
+
             "the thumb slides in 300 ms with a slight overshoot"
+
           ],
+
           [
+
             "Chart",
+
             "the old line fades in 160 ms; the new one settles from 94% in 300 ms"
+
           ],
+
           [
+
             "Open a holding",
+
             "the row tints in 120 ms"
+
           ],
+
           [
+
             "Detail panel",
+
             "slides in over 320 ms, enter, as the page dims"
+
           ],
+
           [
+
             "Close",
+
             "240 ms, exit"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "handoff",
+
         "context": "Healthcare assistant",
+
         "title": "Handing off to a person",
+
         "purpose": "When the assistant can’t finish, show the person what carries over before anyone joins.",
+
         "spec": [
+
           [
+
             "Reply chosen",
+
             "140 ms after a 420 ms ripple"
+
           ],
+
           [
+
             "Handoff card",
+
             "rises 24 px in 320 ms, enter"
+
           ],
+
           [
+
             "Shared context",
+
             "three chips settle in, 80 ms apart"
+
           ],
+
           [
+
             "Waiting",
+
             "the live dot pulses twice, 900 ms each"
+
           ],
+
           [
+
             "Joined",
+
             "the status swaps in 200 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "labs",
+
         "context": "Healthcare assistant",
+
         "title": "A result finds its range",
+
         "purpose": "Place the value against its reference range before naming it, so the meaning is seen, not just read.",
+
         "spec": [
+
           [
+
             "Result card",
+
             "240 ms, enter"
+
           ],
+
           [
+
             "Marker",
+
             "travels to the value in 640 ms, enter"
+
           ],
+
           [
+
             "Value",
+
             "fades in at 700 ms"
+
           ],
+
           [
+
             "Status",
+
             "Above range settles in, 280 ms"
+
           ],
+
           [
+
             "Next step",
+
             "the care team reply rises at 1.8 s"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "disagree",
+
         "context": "Clinical risk flag",
+
         "title": "Disagreeing with a flag",
+
         "purpose": "Make dismissing a flag deliberate but quick, and always reversible.",
+
         "spec": [
+
           [
+
             "Dialog in",
+
             "scales from 96% in 240 ms, enter; the page dims"
+
           ],
+
           [
+
             "Reason picked",
+
             "the radio fills with a 200 ms settle"
+
           ],
+
           [
+
             "Button ready",
+
             "enables in 160 ms"
+
           ],
+
           [
+
             "Dialog out",
+
             "200 ms, exit; the flag dims to 40%"
+
           ],
+
           [
+
             "Undo",
+
             "the toast rises in 280 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "focus",
+
         "context": "Accessibility standards",
+
         "title": "Focus you can follow",
+
         "purpose": "A keyboard user should never lose their place: the ring travels to the next control instead of blinking there.",
+
         "spec": [
+
           [
+
             "Ring appears",
+
             "160 ms around the first field"
+
           ],
+
           [
+
             "Tab",
+
             "the ring moves and reshapes in 220 ms, standard"
+
           ],
+
           [
+
             "Shape",
+
             "corners match each control, from field to pill button"
+
           ],
+
           [
+
             "Press",
+
             "the button dips to 96% in 200 ms"
+
           ],
+
           [
+
             "Reduced motion",
+
             "the ring jumps without travelling"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "synthesis",
+
         "context": "AI-augmented practice",
+
         "title": "Clustering, then checking",
+
         "purpose": "AI drafts the clusters fast; the verification pass is what makes them trustworthy.",
+
         "spec": [
+
           [
+
             "Notes cluster",
+
             "nine notes settle into themes over 900 ms, 50 ms apart"
+
           ],
+
           [
+
             "Themes",
+
             "labels fade in, 80 ms apart"
+
           ],
+
           [
+
             "Verify",
+
             "a check sweeps every column in 1.2 s"
+
           ],
+
           [
+
             "Unsupported quote",
+
             "struck through in 300 ms"
+
           ],
+
           [
+
             "Flag",
+
             "Not in transcript settles in, 280 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "onboard",
+
         "context": "Finlatics sign-up",
+
         "title": "Moving through sign-up",
+
         "purpose": "Forward movement reads as progress; an error appears in place, with no shaking, and clears the moment it’s fixed.",
+
         "spec": [
+
           [
+
             "Progress",
+
             "fills from 33% to 66% in 480 ms"
+
           ],
+
           [
+
             "Step change",
+
             "out 32 px left in 280 ms, in from the right in 320 ms"
+
           ],
+
           [
+
             "Error",
+
             "border and message in 160 to 200 ms"
+
           ],
+
           [
+
             "Fixed",
+
             "the value updates, the error fades in 160 ms"
+
           ],
+
           [
+
             "Done",
+
             "a check settles into the field, 320 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "lesson",
+
         "context": "Finlatics course",
+
         "title": "Finishing a lesson",
+
         "purpose": "Reward progress quietly: the lesson checks off, the module ring grows, the next step appears.",
+
         "spec": [
+
           [
+
             "Lesson done",
+
             "check settles in 320 ms; the row tints in 200 ms"
+
           ],
+
           [
+
             "Module ring",
+
             "grows from 60% to 80% in 600 ms, enter"
+
           ],
+
           [
+
             "Percent",
+
             "cross-fades in 240 ms"
+
           ],
+
           [
+
             "Next lesson",
+
             "rises 14 px in 280 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "states",
+
         "context": "Finlatics design system",
+
         "title": "One button, every state",
+
         "purpose": "States are designed once in the library, with their timing, so every screen behaves the same.",
+
         "spec": [
+
           [
+
             "Hover",
+
             "darkens in 160 ms"
+
           ],
+
           [
+
             "Pressed",
+
             "dips to 97% in 200 ms"
+
           ],
+
           [
+
             "Focus",
+
             "a 4 px ring in 160 ms"
+
           ],
+
           [
+
             "Loading",
+
             "the label fades and a spinner takes its place"
+
           ],
+
           [
+
             "Disabled",
+
             "greys out in 200 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "visa",
+
         "context": "Advisor.AI",
+
         "title": "Sponsorship first",
+
         "purpose": "One switch answers the question international students ask first, and the list shows the answer on every job.",
+
         "spec": [
+
           [
+
             "Switch",
+
             "the knob slides 16 px in 200 ms"
+
           ],
+
           [
+
             "Count",
+
             "8 jobs becomes 5 of 8 sponsor visas"
+
           ],
+
           [
+
             "Other jobs",
+
             "fade to 38% in 200 ms, 40 ms apart"
+
           ],
+
           [
+
             "Badges",
+
             "Sponsors visas settles in, 80 ms apart"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "star",
+
         "context": "Advisor.AI",
+
         "title": "STAR, detected as you type",
+
         "purpose": "Show the AI’s reasoning as it happens: each part of the answer lights up as it’s recognized.",
+
         "spec": [
+
           [
+
             "Writing",
+
             "each part reveals in 500 ms, 650 ms apart"
+
           ],
+
           [
+
             "Detected",
+
             "the part tints in 160 ms"
+
           ],
+
           [
+
             "Checklist",
+
             "its letter settles in, 280 ms"
+
           ],
+
           [
+
             "Summary",
+
             "rises once all four are found"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "nft",
+
         "context": "Nike app concept",
+
         "title": "Shoes or NFTs, one tap",
+
         "purpose": "Keep shopping familiar: NFTs are one tap away, and switching keeps your place.",
+
         "spec": [
+
           [
+
             "Toggle",
+
             "the thumb slides in 300 ms with a slight overshoot"
+
           ],
+
           [
+
             "Cards",
+
             "shoes lift out, NFTs rise in, 80 ms apart"
+
           ],
+
           [
+
             "Verified",
+
             "badges settle in, 80 ms apart"
+
           ],
+
           [
+
             "Scan",
+
             "the verify button pulses twice"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "scan",
+
         "context": "Nike app concept",
+
         "title": "Checking authenticity",
+
         "purpose": "Scanning should feel like it’s working, then end with one clear answer.",
+
         "spec": [
+
           [
+
             "Scanning",
+
             "the line sweeps down and back in 1.8 s"
+
           ],
+
           [
+
             "Found",
+
             "the frame turns green and pops 5%"
+
           ],
+
           [
+
             "Answer",
+
             "Authentic rises in 300 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "results",
+
         "context": "Healthcare assistant",
+
         "title": "Results arrive, not a spinner",
+
         "purpose": "Show the shape of the answer while it loads, so the wait feels shorter and nothing jumps when it lands.",
+
         "spec": [
+
           [
+
             "Skeletons",
+
             "shimmer twice, 600 ms each, linear"
+
           ],
+
           [
+
             "Swap",
+
             "skeletons fade out in 120 ms, exit"
+
           ],
+
           [
+
             "Cards",
+
             "rise 12 px in 280 ms, enter, 80 ms apart"
+
           ],
+
           [
+
             "Count",
+
             "settles in at 1.64 s, 280 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "sheet",
+
         "context": "Finlatics dashboard, on phones",
+
         "title": "Holding details in a sheet",
+
         "purpose": "On a phone, details rise from the bottom so the list stays in view behind them.",
+
         "spec": [
+
           [
+
             "Tap",
+
             "the row tints in 120 ms"
+
           ],
+
           [
+
             "Sheet",
+
             "rises in 320 ms, enter, as the page dims"
+
           ],
+
           [
+
             "Details",
+
             "each line rises in 220 ms, 50 ms apart"
+
           ],
+
           [
+
             "Close",
+
             "drops away in 240 ms, exit"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "tracker",
+
         "context": "Advisor.AI",
+
         "title": "Moving an application forward",
+
         "purpose": "Picking a card up and setting it down makes progress feel physical, and the counts confirm it.",
+
         "spec": [
+
           [
+
             "Pick up",
+
             "lifts to 104% with a shadow in 180 ms"
+
           ],
+
           [
+
             "Move",
+
             "travels to the next column in 520 ms, standard"
+
           ],
+
           [
+
             "Drop",
+
             "settles in 300 ms with a small overshoot"
+
           ],
+
           [
+
             "Counts",
+
             "both columns update in 160 ms"
+
           ],
+
           [
+
             "Next step",
+
             "the interview tag settles in, 280 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "collection",
+
         "context": "Nike app concept",
+
         "title": "Your collection, one swipe",
+
         "purpose": "Show one NFT at a time, big and verified, with the rest of the collection just out of reach.",
+
         "spec": [
+
           [
+
             "Swipe",
+
             "each card slides in 420 ms with a slight overshoot"
+
           ],
+
           [
+
             "Focus",
+
             "the active card scales to 100%, the rest sit at 90%"
+
           ],
+
           [
+
             "Position",
+
             "the active dot stretches to 20 px"
+
           ],
+
           [
+
             "Return",
+
             "glides back to the first card at the end"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "upload",
+
         "context": "Prior authorization form",
+
         "title": "A document arrives",
+
         "purpose": "Uploading should prove itself: the file lands, finishes, and ticks off the requirement it was for.",
+
         "spec": [
+
           [
+
             "File in",
+
             "rises 10 px in 240 ms, enter"
+
           ],
+
           [
+
             "Progress",
+
             "fills in 900 ms, standard"
+
           ],
+
           [
+
             "Done",
+
             "status swaps in 160 ms; the check settles in 320 ms"
+
           ],
+
           [
+
             "Requirement",
+
             "turns complete in 200 ms"
+
           ],
+
           [
+
             "Summary",
+
             "2 of 3 met rises in 240 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "source",
+
         "context": "Clinical risk flag",
+
         "title": "Opening the source data",
+
         "purpose": "One tap from a flag to the readings behind it, with the page kept in view.",
+
         "spec": [
+
           [
+
             "Drawer",
+
             "slides in over 320 ms, enter, as the page dims"
+
           ],
+
           [
+
             "Trend",
+
             "the line draws in 700 ms, standard"
+
           ],
+
           [
+
             "Readings",
+
             "rise in 200 ms, 60 ms apart"
+
           ],
+
           [
+
             "Latest",
+
             "the newest reading tints in 200 ms"
+
           ],
+
           [
+
             "Close",
+
             "240 ms, exit"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "trade",
+
         "context": "Finlatics simulator",
+
         "title": "Placing a simulated trade",
+
         "purpose": "Every tap updates the total right away, and the confirmation shows where the shares went.",
+
         "spec": [
+
           [
+
             "Quantity",
+
             "the number steps in 120 ms"
+
           ],
+
           [
+
             "Total",
+
             "updates with it, 120 ms"
+
           ],
+
           [
+
             "Order",
+
             "the button dips to 97% in 200 ms"
+
           ],
+
           [
+
             "Confirmation",
+
             "drops in over 320 ms, enter, then lifts away in 240 ms"
+
           ],
+
           [
+
             "Holding",
+
             "the row tints and the share count updates in 160 to 200 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "unlock",
+
         "context": "Finlatics course",
+
         "title": "Unlocking the next module",
+
         "purpose": "Finishing one module should open the next one visibly, not just in a list.",
+
         "spec": [
+
           [
+
             "Progress",
+
             "fills from 80% to 100% in 500 ms"
+
           ],
+
           [
+
             "Done",
+
             "the check settles in 320 ms"
+
           ],
+
           [
+
             "Unlock",
+
             "the shackle lifts in 240 ms, then the lock fades"
+
           ],
+
           [
+
             "Next module",
+
             "brightens in 240 ms"
+
           ],
+
           [
+
             "Start",
+
             "the button rises in 240 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "match",
+
         "context": "Advisor.AI",
+
         "title": "A resume match fills in",
+
         "purpose": "Show the score and the reason for it together: the keywords that matched, and the one to add.",
+
         "spec": [
+
           [
+
             "Score",
+
             "the ring fills from 54% to 86% in 900 ms, enter"
+
           ],
+
           [
+
             "Number",
+
             "swaps in 240 ms"
+
           ],
+
           [
+
             "Keywords",
+
             "matched ones settle in, 80 ms apart"
+
           ],
+
           [
+
             "Suggestion",
+
             "rises in 280 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "feedback",
+
         "context": "Advisor.AI",
+
         "title": "Interview feedback arrives",
+
         "purpose": "Feedback lands in a steady order: what worked, what to improve, what to practice.",
+
         "spec": [
+
           [
+
             "Your answer",
+
             "the waveform plays back"
+
           ],
+
           [
+
             "Cards",
+
             "rise in 280 ms, 120 ms apart"
+
           ],
+
           [
+
             "Tags",
+
             "settle in 260 ms"
+
           ],
+
           [
+
             "Score",
+
             "settles in at 1.5 s"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "bag",
+
         "context": "Nike app concept",
+
         "title": "Picking a size, then adding to bag",
+
         "purpose": "The button only wakes up once a size is chosen, and the shoe visibly lands in the bag.",
+
         "spec": [
+
           [
+
             "Size",
+
             "fills in 140 ms"
+
           ],
+
           [
+
             "Button",
+
             "enables in 200 ms"
+
           ],
+
           [
+
             "Fly",
+
             "the shoe travels to the bag in 620 ms, standard"
+
           ],
+
           [
+
             "Bag",
+
             "the count settles in with a 15% bump"
+
           ],
+
           [
+
             "Label",
+
             "Added to bag swaps in 160 ms"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "listing",
+
         "context": "Nike app concept",
+
         "title": "Listing an NFT for sale",
+
         "purpose": "Selling is a commitment, so each step confirms itself before the next one starts.",
+
         "spec": [
+
           [
+
             "Price",
+
             "the field focuses in 160 ms"
+
           ],
+
           [
+
             "Button",
+
             "enables in 200 ms"
+
           ],
+
           [
+
             "Listing",
+
             "the label swaps in 160 ms"
+
           ],
+
           [
+
             "Done",
+
             "the circle draws in 420 ms, then the check settles in 260 ms"
+
           ],
+
           [
+
             "Badge",
+
             "Listed settles onto the card"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "breadcrumb",
+
         "context": "B2B SaaS navigation",
+
         "title": "Four clicks become two",
+
         "purpose": "Show the restructure itself: the in-between steps fold away and the task moves to the dashboard.",
+
         "spec": [
+
           [
+
             "Collapse",
+
             "three steps fold away in 300 ms, 60 ms apart"
+
           ],
+
           [
+
             "Count",
+
             "4 clicks becomes 2 in 200 ms"
+
           ],
+
           [
+
             "Quick action",
+
             "rises in 280 ms, enter"
+
           ]
+
         ]
+
       },
+
       {
+
         "id": "command",
+
         "context": "B2B SaaS navigation",
+
         "title": "A command palette for quick actions",
+
         "purpose": "For frequent tasks, typing beats clicking: results narrow as you type, and Enter runs the action.",
+
         "spec": [
+
           [
+
             "Open",
+
             "the palette scales from 96% in 240 ms"
+
           ],
+
           [
+
             "Typing",
+
             "each letter narrows the list"
+
           ],
+
           [
+
             "Filter",
+
             "unrelated actions fold away in 200 ms, 40 ms apart"
+
           ],
+
           [
+
             "Run",
+
             "the palette closes in 200 ms and the toast rises in 280 ms"
+
           ]
+
         ]
+
+      },
+
+      {
+
+        "id": "cardhover",
+
+        "context": "Marlow storefront",
+
+        "title": "A product card on hover",
+
+        "purpose": "Hover answers “what does it look like in use?” without leaving the grid, then a swatch previews the color.",
+
+        "spec": [
+
+          [
+
+            "Second photo",
+
+            "cross-fades in 240 ms, standard"
+
+          ],
+
+          [
+
+            "Quick add",
+
+            "rises 8 px in 200 ms, enter"
+
+          ],
+
+          [
+
+            "Swatch",
+
+            "the ring snaps on in 140 ms"
+
+          ],
+
+          [
+
+            "Color",
+
+            "the photo swaps to that color in 160 ms"
+
+          ]
+
+        ]
+
+      },
+
+      {
+
+        "id": "variant",
+
+        "context": "Marlow storefront",
+
+        "title": "Choosing a color and size",
+
+        "purpose": "Every choice updates everything it affects at once: the photo, which sizes exist, the price and the stock note.",
+
+        "spec": [
+
+          [
+
+            "Swatch ring",
+
+            "slides to the new color in 200 ms, standard"
+
+          ],
+
+          [
+
+            "Photo",
+
+            "cross-fades in 240 ms"
+
+          ],
+
+          [
+
+            "Sizes",
+
+            "7 qt becomes available in 200 ms"
+
+          ],
+
+          [
+
+            "Price and button",
+
+            "update together in 160 ms"
+
+          ],
+
+          [
+
+            "Stock",
+
+            "the note swaps in 160 ms"
+
+          ]
+
+        ]
+
+      },
+
+      {
+
+        "id": "addcart",
+
+        "context": "Marlow storefront",
+
+        "title": "Adding to cart",
+
+        "purpose": "The add confirms itself in place, the drawer shows where it went, and free shipping fills in as a reward.",
+
+        "spec": [
+
+          [
+
+            "Button",
+
+            "Adding, then Added with a settling check"
+
+          ],
+
+          [
+
+            "Count",
+
+            "the cart bumps 15% in 320 ms, settle"
+
+          ],
+
+          [
+
+            "Drawer",
+
+            "slides in over 320 ms, enter, as the page dims"
+
+          ],
+
+          [
+
+            "Free shipping",
+
+            "the bar fills in 600 ms, standard, then the message settles in"
+
+          ]
+
+        ]
+
+      },
+
+      {
+
+        "id": "checkstep",
+
+        "context": "Marlow storefront",
+
+        "title": "Moving through checkout",
+
+        "purpose": "Finished steps fold into one-line summaries you can change, so progress feels like a list getting shorter.",
+
+        "spec": [
+
+          [
+
+            "Form",
+
+            "folds away in 280 ms, standard"
+
+          ],
+
+          [
+
+            "Summaries",
+
+            "rise in 220 ms, 60 ms apart"
+
+          ],
+
+          [
+
+            "Progress",
+
+            "the second segment fills in 400 ms"
+
+          ],
+
+          [
+
+            "Options",
+
+            "shipping choices rise 60 ms apart; the chosen one settles"
+
+          ]
+
+        ]
+
+      },
+
+      {
+
+        "id": "stickyatc",
+
+        "context": "Marlow storefront",
+
+        "title": "A sticky add-to-cart bar",
+
+        "purpose": "Once the main button scrolls away on a phone, the price and button come back from the bottom edge.",
+
+        "spec": [
+
+          [
+
+            "Scroll",
+
+            "the page moves up over 900 ms"
+
+          ],
+
+          [
+
+            "Bar",
+
+            "slides up in 280 ms, enter, once the button leaves the screen"
+
+          ],
+
+          [
+
+            "Tap",
+
+            "Added with a settling check, 320 ms"
+
+          ]
+
+        ]
+
       }
+
     ],
+
     "groups": [
+
       {
+
         "id": "uhg",
+
         "title": "UnitedHealth Group",
+
         "note": "A member assistant, a prior authorization form, clinical risk flags, accessibility standards and an AI-assisted practice.",
+
         "ids": [
+
           "message",
+
           "results",
+
           "booking",
+
           "handoff",
+
           "labs",
+
           "steps",
+
           "flag",
+
           "disagree",
+
           "focus",
+
           "synthesis",
+
           "upload",
+
           "source"
+
         ]
+
       },
+
       {
+
         "id": "vivma",
+
         "title": "Vivma Software, Finlatics",
+
         "note": "Onboarding, lessons, live portfolio dashboards and the component library.",
+
         "ids": [
+
           "onboard",
+
           "lesson",
+
           "live",
+
           "range",
+
           "sheet",
+
           "states",
+
           "trade",
+
           "unlock"
+
         ]
+
       },
+
       {
+
         "id": "personal",
+
         "title": "Personal projects",
+
         "note": "Advisor.AI, a graduate project, and the Nike app concept.",
+
         "ids": [
+
           "visa",
+
           "star",
+
           "tracker",
+
           "nft",
+
           "scan",
+
           "collection",
+
           "match",
+
           "feedback",
+
           "bag",
+
           "listing"
+
         ]
+
       },
+
       {
+
         "id": "adons",
+
         "title": "Adons Softech",
-        "note": "Navigation for a B2B SaaS client.",
+
+        "note": "Storefronts for e-commerce clients, and navigation for a B2B SaaS client.",
+
         "ids": [
+
           "breadcrumb",
-          "command"
+
+          "command",
+
+          "cardhover",
+
+          "variant",
+
+          "addcart",
+
+          "checkstep",
+
+          "stickyatc"
+
         ]
+
       }
+
     ],
+
     "tags": [
+
       "healthcare",
+
       "fintech",
+
       "personal"
+
     ]
+
   },
 
   tools: ["Figma", "Figma AI", "Maze", "Dovetail", "Zeplin", "Adobe XD", "Sketch", "Miro", "Principle", "ChatGPT", "Claude", "Gemini", "Galileo AI", "Midjourney", "Jira", "Confluence", "Notion", "Amplitude", "Mixpanel", "Hotjar"],
 
   capabilities: {
-    title: "Capabilities and tools",
-    groups: [
-      { name: "Product design", items: ["User research", "Information architecture", "Interaction design", "Usability testing", "Wireframing and prototyping", "Design systems", "WCAG 2.1 accessibility"] },
-      { name: "AI and automation", items: ["Prompt engineering with ChatGPT, Claude and Gemini", "Figma AI", "Galileo AI", "Midjourney", "DALL·E", "Uizard", "Zapier AI"] },
-      { name: "Research methods", items: ["Moderated usability testing", "A/B testing", "Heuristic evaluation", "Card sorting", "Jobs-to-be-Done", "Affinity mapping"] },
-      { name: "Design tools", items: ["Figma", "Adobe XD", "Sketch", "InVision", "Zeplin", "Maze", "Dovetail", "Miro", "Principle"] },
-      { name: "Collaboration and handoff", items: ["Jira", "Confluence", "Notion", "GitHub design branches", "Agile and Scrum", "Design sprints"] },
-      { name: "Data and analytics", items: ["Amplitude", "Google Analytics", "Hotjar", "Mixpanel", "AI-assisted insight synthesis"] }
+
+    "title": "Capabilities and tools",
+
+    "groups": [
+
+      {
+
+        "name": "Product design",
+
+        "items": [
+
+          "User research",
+
+          "Information architecture",
+
+          "Interaction design",
+
+          "Usability testing",
+
+          "Wireframing and prototyping",
+
+          "Design systems",
+
+          "WCAG 2.1 accessibility"
+
+        ]
+
+      },
+
+      {
+
+        "name": "E-commerce",
+
+        "items": [
+
+          "Product listing and product pages",
+
+          "Navigation and search",
+
+          "Cart and checkout",
+
+          "A/B test design",
+
+          "Client design systems",
+
+          "Responsive storefront templates"
+
+        ]
+
+      },
+
+      {
+
+        "name": "AI and automation",
+
+        "items": [
+
+          "Prompt engineering with ChatGPT, Claude and Gemini",
+
+          "Figma AI",
+
+          "Galileo AI",
+
+          "Midjourney",
+
+          "DALL·E",
+
+          "Uizard",
+
+          "Zapier AI"
+
+        ]
+
+      },
+
+      {
+
+        "name": "Research methods",
+
+        "items": [
+
+          "Moderated usability testing",
+
+          "A/B testing",
+
+          "Heuristic evaluation",
+
+          "Card sorting",
+
+          "Jobs-to-be-Done",
+
+          "Affinity mapping"
+
+        ]
+
+      },
+
+      {
+
+        "name": "Design tools",
+
+        "items": [
+
+          "Figma",
+
+          "Adobe XD",
+
+          "Sketch",
+
+          "InVision",
+
+          "Zeplin",
+
+          "Maze",
+
+          "Dovetail",
+
+          "Miro",
+
+          "Principle"
+
+        ]
+
+      },
+
+      {
+
+        "name": "Collaboration and handoff",
+
+        "items": [
+
+          "Jira",
+
+          "Confluence",
+
+          "Notion",
+
+          "GitHub design branches",
+
+          "Agile and Scrum",
+
+          "Design sprints"
+
+        ]
+
+      },
+
+      {
+
+        "name": "Data and analytics",
+
+        "items": [
+
+          "Amplitude",
+
+          "Google Analytics",
+
+          "Hotjar",
+
+          "Mixpanel",
+
+          "AI-assisted insight synthesis"
+
+        ]
+
+      }
+
     ]
+
   },
 
   /* ---------------------------------------------------------------- Contact */
@@ -1540,8 +3142,6 @@ window.PORTFOLIO = {
      coverImage:    optional screenshot for a home page card, e.g. "assets/work/covers/your-file.webp"
   */
   caseStudies: [
-
-    /* ---------- UnitedHealth Group (protected) ---------- */
     {
       "slug": "member-assistant",
       "group": "uhg",
@@ -1612,8 +3212,6 @@ window.PORTFOLIO = {
       "cover": "layers",
       "color": "#AE1F3C"
     },
-
-    /* ---------- Vivma Software / Finlatics ---------- */
     {
       "slug": "advisor-ai",
       "preview": "assets/work/preview-advisor-ai.webp",
@@ -3208,7 +4806,6 @@ window.PORTFOLIO = {
       "indexWhen": "2021 to 2023",
       "indexMeta": "Vivma Software. Onboarding, research and mobile content"
     },
-
     {
       "slug": "portfolio-simulation-dashboards",
       "preview": "assets/work/preview-portfolio-simulation-dashboards.webp",
@@ -3626,7 +5223,6 @@ window.PORTFOLIO = {
       "indexWhen": "2021 to 2023",
       "indexMeta": "Vivma Software. Live BSE 500 charts, specified for engineering"
     },
-
     {
       "slug": "finlatics-design-system",
       "preview": "assets/work/preview-finlatics-design-system.webp",
@@ -3952,8 +5548,687 @@ window.PORTFOLIO = {
       "indexWhen": "2021 to 2023",
       "indexMeta": "Vivma Software. 60+ components, 40% faster ramp-up"
     },
-
-    /* ---------- Adons Softech ---------- */
+    {
+      "slug": "dtc-storefront",
+      "preview": "assets/work/preview-dtc-storefront.webp",
+      "group": "adons",
+      "title": "Storefronts that sell without a salesperson",
+      "teaser": "Listing, product, cart and checkout templates for direct-to-consumer brands, built on a client design system, with A/B test variations and developer-ready handoff.",
+      "tags": [
+        "E-commerce",
+        "DTC",
+        "Design systems",
+        "A/B testing"
+      ],
+      "cover": "chart",
+    "coverImage": "assets/work/dtc-plp-desktop.webp",
+      "summary": "At Adons Softech, a design services team, I designed storefronts for early-stage e-commerce clients, and I kept doing this work afterwards with other clients and my own concept rounds. Client names and data are under NDA, so this case study shows the work on one composite brand, Marlow, a home and kitchen store. It covers the full shopping path, the client design system behind it, the A/B test variations that followed launch, and how I ran critiques, client reviews and developer handoff.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "UI/UX Designer at Adons Softech, then client and concept work"
+        },
+        {
+          "label": "Period",
+          "value": "2019 to 2021 at Adons Softech, and since"
+        },
+        {
+          "label": "Clients",
+          "value": "Early-stage e-commerce brands"
+        },
+        {
+          "label": "Platform",
+          "value": "Not Shopify. Templates mapped to Shopify’s structure in a concept round"
+        },
+        {
+          "label": "Methods",
+          "value": "Briefs, design systems, prototyping, A/B test design, client reviews, handoff"
+        },
+        {
+          "label": "Tools",
+          "value": "Sketch and InVision at the time; rebuilt in Figma for this portfolio"
+        }
+      ],
+      "outcomes": [
+        {
+          "value": "5",
+          "label": "templates: navigation, listing, product, cart and checkout"
+        },
+        {
+          "value": "1",
+          "label": "client design system behind every template"
+        },
+        {
+          "value": "3",
+          "label": "A/B test variations, each with a hypothesis and a metric"
+        }
+      ],
+      "glance": [
+        {
+          "body": "Shoppers had to hunt for sizes, delivery dates and the real total, and every new page started from a blank file."
+        },
+        {
+          "body": "Designed the shopping path on one client design system, tested variations after launch, and handed off specs developers could build from."
+        },
+        {
+          "body": "Clients launched on templates they could extend themselves, with a shared system and a test plan for what came next."
+        }
+      ],
+      "color": "#A2452E",
+      "indexTitle": "DTC e-commerce storefront",
+      "indexWhen": "2019 onward",
+      "indexMeta": "Adons Softech and client work. Listing to checkout, design system, A/B tests",
+      "hero": {
+        "kind": "image",
+        "data": {
+          "src": "assets/work/dtc-plp-desktop.webp",
+          "alt": "Marlow cookware listing page with filter chips and a product card in its hover state"
+        }
+      },
+      "sections": [
+        {
+          "id": "context",
+          "label": "The brief",
+          "title": "On scope and on time",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Every engagement started with a one-page brief I wrote with the client: the goal, the pages in scope, what was out of scope, who signed off, and the review dates. Keeping scope on one page made it easy to say yes to the right requests and park the rest for the roadmap."
+            },
+            {
+              "type": "table",
+              "caption": "A typical storefront brief",
+              "columns": [
+                "Part",
+                "What it said"
+              ],
+              "rows": [
+                [
+                  "Goal",
+                  "Help first-time visitors find the right product and check out without contacting support."
+                ],
+                [
+                  "In scope",
+                  "Navigation, collection pages, the product page, the cart drawer, checkout, and the design system behind them."
+                ],
+                [
+                  "Out of scope",
+                  "The account area, loyalty and gift cards, parked for the roadmap."
+                ],
+                [
+                  "Sign-off",
+                  "The founder approved; the marketing lead owned content and promotions."
+                ],
+                [
+                  "Reviews",
+                  "Weekly client reviews, with written decisions after each one."
+                ],
+                [
+                  "Done means",
+                  "Responsive templates, components in the system, prototypes, and specs developers could build from."
+                ]
+              ]
+            },
+            {
+              "type": "visual",
+              "kind": "flow",
+              "illustrative": true,
+              "caption": "How a storefront engagement ran, week by week.",
+              "data": {
+                "steps": [
+                  {
+                    "title": "Brief and audit",
+                    "note": "Week 1: goals, current store, competitors"
+                  },
+                  {
+                    "title": "Navigation and listing",
+                    "note": "Weeks 2 to 3"
+                  },
+                  {
+                    "title": "Product page",
+                    "note": "Weeks 3 to 4",
+                    "highlight": true
+                  },
+                  {
+                    "title": "Cart and checkout",
+                    "note": "Week 5"
+                  },
+                  {
+                    "title": "System and handoff",
+                    "note": "Week 6"
+                  },
+                  {
+                    "title": "Roadmap",
+                    "note": "After launch: improvements and tests"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "label": "Retail patterns",
+          "title": "From listing to checkout",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The patterns are familiar on purpose. Shoppers already know how a store works, so the job was to answer their questions at the moment they have them: what fits, what it costs in total, and when it arrives."
+            },
+            {
+              "type": "visual",
+              "kind": "annotated",
+              "illustrative": true,
+              "caption": "Listing page.",
+              "data": {
+                "src": "assets/work/dtc-plp-desktop.webp",
+                "alt": "Cookware listing page with filter chips, four product cards per row, and the first card showing a second photo and Quick add",
+                "pins": [
+                  {
+                    "x": 64,
+                    "y": 18,
+                    "n": 1
+                  },
+                  {
+                    "x": 14,
+                    "y": 56,
+                    "n": 2
+                  },
+                  {
+                    "x": 4,
+                    "y": 64,
+                    "n": 3
+                  },
+                  {
+                    "x": 5,
+                    "y": 24,
+                    "n": 4
+                  }
+                ],
+                "notes": [
+                  "Filters as chips across the top, with In stock on by default, so nothing sold out leads the page.",
+                  "Hover shows a second, in-use photo and Quick add, so shoppers can compare without leaving the grid.",
+                  "Swatches on the card, so color is a reason to click rather than a surprise on the product page.",
+                  "Badges only for facts: Bestseller, New or Sale, and never more than one per card."
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "annotated",
+              "illustrative": true,
+              "caption": "Product page.",
+              "data": {
+                "src": "assets/work/dtc-pdp-desktop.webp",
+                "alt": "Dutch oven product page with gallery, color swatches, size buttons, a delivery date, a stock note and Add to cart",
+                "pins": [
+                  {
+                    "x": 58,
+                    "y": 24,
+                    "n": 1
+                  },
+                  {
+                    "x": 74,
+                    "y": 37,
+                    "n": 2
+                  },
+                  {
+                    "x": 88,
+                    "y": 43,
+                    "n": 3
+                  },
+                  {
+                    "x": 89,
+                    "y": 52,
+                    "n": 4
+                  },
+                  {
+                    "x": 88,
+                    "y": 66,
+                    "n": 5
+                  }
+                ],
+                "notes": [
+                  "Price, rating and the first photo sit together above the fold.",
+                  "Variants show their state: the chosen size is outlined, and sold-out sizes stay visible but struck through.",
+                  "The delivery date and stock in plain words, right before the button.",
+                  "One primary action, with the price repeated on the button.",
+                  "Details, care, shipping and returns in accordions, so the page stays short."
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "annotated",
+              "illustrative": true,
+              "caption": "Cart drawer.",
+              "data": {
+                "src": "assets/work/dtc-cart-desktop.webp",
+                "alt": "Cart drawer over the product page with a free-shipping bar, the added item, one add-on and the checkout button",
+                "pins": [
+                  {
+                    "x": 70,
+                    "y": 4,
+                    "n": 1
+                  },
+                  {
+                    "x": 97,
+                    "y": 11,
+                    "n": 2
+                  },
+                  {
+                    "x": 86,
+                    "y": 26,
+                    "n": 3
+                  },
+                  {
+                    "x": 97,
+                    "y": 89,
+                    "n": 4
+                  }
+                ],
+                "notes": [
+                  "The cart opens as a drawer, so shoppers keep their place on the product page.",
+                  "Free-shipping progress in plain numbers, and a single add-on that would help reach it.",
+                  "The delivery date follows the item into the cart.",
+                  "Checkout is the one dark button; express checkout is secondary."
+                ]
+              }
+            },
+            {
+              "type": "visual",
+              "kind": "annotated",
+              "illustrative": true,
+              "caption": "Checkout.",
+              "data": {
+                "src": "assets/work/dtc-checkout-desktop.webp",
+                "alt": "Checkout with a three-step progress bar, express checkout, contact and address fields with suggestions, and the order summary",
+                "pins": [
+                  {
+                    "x": 40,
+                    "y": 9,
+                    "n": 1
+                  },
+                  {
+                    "x": 58,
+                    "y": 21,
+                    "n": 2
+                  },
+                  {
+                    "x": 57,
+                    "y": 54,
+                    "n": 3
+                  },
+                  {
+                    "x": 96,
+                    "y": 43,
+                    "n": 4
+                  }
+                ],
+                "notes": [
+                  "Three steps, with the cart one tap back.",
+                  "Express checkout first for returning shoppers, and the full form for everyone else.",
+                  "Address suggestions fill in the rest of the form.",
+                  "The summary shows shipping as Free and taxes as calculated next, so the total never surprises."
+                ]
+              }
+            },
+            {
+              "type": "decisions",
+              "items": [
+                {
+                  "decision": "Keep sold-out sizes visible",
+                  "why": "Hiding them made a size look like it never existed. A struck-through button answers the question and leads to Notify me.",
+                  "tradeoff": "Selectors look slightly busier."
+                },
+                {
+                  "decision": "The cart is a drawer, not a page",
+                  "why": "Shoppers add something and keep browsing. A drawer confirms the add without losing their place.",
+                  "tradeoff": "Long carts scroll inside the drawer."
+                },
+                {
+                  "decision": "Delivery dates instead of shipping speeds",
+                  "why": "“Thu, Nov 12” answers the real question. “Standard, 3 to 5 days” makes people count.",
+                  "tradeoff": "It needs dependable dates from the fulfillment system."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "responsive",
+          "label": "Responsive",
+          "title": "Responsive prototypes",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Every template had a clickable prototype at phone and desktop widths, with hover states, the cart drawer and the checkout steps wired up. Clients reviewed how the store behaves, not only how it looks."
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "The same templates on a phone.",
+              "data": {
+                "columns": 4,
+                "columnsSmall": 2,
+                "items": [
+                  {
+                    "src": "assets/work/dtc-plp-mobile.webp",
+                    "alt": "Mobile listing page with Filter and Sort buttons and a two-column grid",
+                    "label": "Listing",
+                    "note": "Filter and Sort stay at the top as two equal buttons."
+                  },
+                  {
+                    "src": "assets/work/dtc-pdp-mobile.webp",
+                    "alt": "Mobile product page with a sticky add-to-cart bar",
+                    "label": "Product",
+                    "note": "The add-to-cart bar sticks once the main button scrolls away."
+                  },
+                  {
+                    "src": "assets/work/dtc-cart-mobile.webp",
+                    "alt": "Mobile cart with free-shipping progress and an add-on",
+                    "label": "Cart",
+                    "note": "Free-shipping progress and one add-on, with Checkout always in reach."
+                  },
+                  {
+                    "src": "assets/work/dtc-nav-mobile.webp",
+                    "alt": "Mobile menu drawer with categories and a featured product",
+                    "label": "Menu",
+                    "note": "Categories first, one featured product, then account and help."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "system",
+          "label": "Design system",
+          "title": "A client design system in Figma",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Each client got one system that every template drew from: tokens for color, type and spacing, then components with all their states. At Adons the libraries lived in Sketch; I now build them in Figma, and Marlow’s is rebuilt there for this portfolio. I version each release and write a short changelog, so the client’s developers and marketers can see what changed."
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": true,
+              "caption": "Marlow’s foundations and components.",
+              "data": {
+                "src": "assets/work/dtc-system.webp",
+                "alt": "Design system sheet with color tokens, type scale, spacing, buttons in every state, selectors, free-shipping bars, badges and product cards"
+              }
+            },
+            {
+              "type": "facts",
+              "items": [
+                {
+                  "label": "Tokens",
+                  "body": "10 color tokens, a two-family type scale, spacing from 4 to 64, and four radii."
+                },
+                {
+                  "label": "Components",
+                  "body": "Buttons, product card, swatches, size buttons, quantity stepper, badges, free-shipping bar, cart line, inputs and checkout steps, each with hover, focus, disabled and sold-out states where they apply."
+                },
+                {
+                  "label": "Documentation",
+                  "body": "Usage notes beside every component: when to use it, content rules and accessibility."
+                },
+                {
+                  "label": "Maintenance",
+                  "body": "Versioned releases with a changelog. New requests go into a backlog reviewed with the client each week."
+                }, { "label": "Figma file", "body": "Foundations as variables and text styles; components with every state, hover and selection wired; desktop and mobile templates in two clickable flows; three A/B test boards; a handoff page; and five keyframed motion studies." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "live",
+          "label": "Live site",
+          "title": "Improving the live site with the client’s roadmap",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "After launch, the work followed the client’s roadmap. Each item started from that quarter’s goal and what shoppers were struggling with, then went through the same system, so new sections looked like they had always been there."
+            },
+            {
+              "type": "table",
+              "caption": "Roadmap work after launch",
+              "columns": [
+                "Roadmap item",
+                "Why",
+                "What I designed"
+              ],
+              "rows": [
+                [
+                  "Gift guide and bundles",
+                  "A holiday sales goal",
+                  "A collection variant with bundle cards, and a gift note in the cart."
+                ],
+                [
+                  "Search",
+                  "Shoppers searching by dish or recipe",
+                  "Search with product suggestions and recent searches, reusing the listing card."
+                ],
+                [
+                  "Back-in-stock alerts",
+                  "Popular sizes selling out",
+                  "Notify me on sold-out sizes, with an email capture that matched the system."
+                ],
+                [
+                  "Reviews with photos",
+                  "Questions about size and color in real kitchens",
+                  "Review cards with customer photos and a size summary on the product page."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "label": "A/B tests",
+          "title": "Variations designed to be measured",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "I designed each variation around a hypothesis, changed one thing at a time, and agreed the deciding metric before launch. Each test ran on one template, split traffic evenly, and ran in full weeks so weekday and weekend shoppers both counted. Clients shared results with me qualitatively, so there are no numbers here; this section shows how the tests were set up."
+            },
+            {
+              "type": "table",
+              "caption": "Three tests",
+              "columns": [
+                "Test",
+                "Hypothesis",
+                "Variant",
+                "Decided by",
+                "Guardrail"
+              ],
+              "rows": [
+                [
+                  "Sticky add to cart",
+                  "If the price, delivery date and button stay in view on phones, more product-page visitors will add to cart.",
+                  "A sticky bar once the main button scrolls away, and the delivery date under the price.",
+                  "Mobile add-to-cart rate",
+                  "Return rate and page speed"
+                ],
+                [
+                  "Free-shipping progress",
+                  "Showing how far a cart is from free shipping, with one relevant add-on, raises order value without slowing checkout.",
+                  "A progress bar with the remaining amount, and one add-on.",
+                  "Average order value",
+                  "Checkout start rate"
+                ],
+                [
+                  "Quick add",
+                  "Adding from the grid helps repeat shoppers who already know what they want.",
+                  "A plus button on phone cards and Quick add on desktop hover, opening a size sheet.",
+                  "Listing add-to-cart rate",
+                  "Return rate"
+                ]
+              ]
+            },
+            {
+              "type": "visual",
+              "kind": "gallery",
+              "illustrative": true,
+              "caption": "Each control beside its variant.",
+              "data": {
+                "columns": 3,
+                "columnsSmall": 1,
+                "items": [
+                  {
+                    "src": "assets/work/dtc-ab-pdp.webp",
+                    "alt": "Product page control beside the variant with a sticky add-to-cart bar and delivery date",
+                    "label": "Sticky add to cart"
+                  },
+                  {
+                    "src": "assets/work/dtc-ab-cart.webp",
+                    "alt": "Cart control with a line of text beside the variant with a free-shipping progress bar and an add-on",
+                    "label": "Free-shipping progress"
+                  },
+                  {
+                    "src": "assets/work/dtc-ab-plp.webp",
+                    "alt": "Listing control beside the variant with plus buttons on each card",
+                    "label": "Quick add"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "label": "Motion",
+          "title": "How it moves",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Shopping is full of small confirmations: this is the one I picked, it went into the cart, I’m nearly done. Each gets a short motion with its own timing."
+            },
+            {
+              "type": "motion",
+              "ids": [
+                "cardhover",
+                "variant",
+                "addcart",
+                "checkstep",
+                "stickyatc"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "collab",
+          "label": "Reviews and handoff",
+          "title": "Critiques, client reviews and handoff",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Nothing went to a client before an internal critique. I showed the problem, two or three options and my recommendation, and the team pushed on edge cases and on fit with the system."
+            },
+            {
+              "type": "steps",
+              "title": "How I presented to clients",
+              "items": [
+                {
+                  "title": "Start from the brief",
+                  "body": "Every review opened with the goal we had agreed on."
+                },
+                {
+                  "title": "Walk the prototype",
+                  "body": "Clients clicked through the flow instead of looking at static screens."
+                },
+                {
+                  "title": "Recommend one option",
+                  "body": "Options came with a recommendation and the reason for it."
+                },
+                {
+                  "title": "Write decisions down",
+                  "body": "Decisions and open questions went out the same day."
+                },
+                {
+                  "title": "Come back against the notes",
+                  "body": "The next round answered those notes point by point."
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "body": "I prepared the files for development and led the handoff walkthrough. Components and tokens were named the way developers would use them, with every state, breakpoint and motion timing, plus notes on data and edge cases. Developers got one page per template and a call to walk through it, and questions went into the same file so the answers stayed with the design."
+            },
+            {
+              "type": "visual",
+              "kind": "image",
+              "illustrative": true,
+              "caption": "A handoff page: redlines, breakpoints, states, motion and developer notes for the product card.",
+              "data": {
+                "src": "assets/work/dtc-handoff.webp",
+                "alt": "Handoff sheet with product card redlines, a breakpoint table, states and motion timings, and developer notes"
+              }
+            }
+          ]
+        },
+        {
+          "id": "platform",
+          "label": "Platform",
+          "title": "Mapping the templates to Shopify",
+          "blocks": [
+            {
+              "type": "callout",
+              "title": "Self-initiated",
+              "body": "The client stores weren’t on Shopify. In a concept round for this portfolio, I mapped Marlow’s templates to Shopify’s theme structure to show how the system carries over."
+            },
+            {
+              "type": "table",
+              "caption": "Marlow template to Shopify theme",
+              "columns": [
+                "Template",
+                "In a Shopify theme"
+              ],
+              "rows": [
+                [
+                  "Listing page",
+                  "A collection template built from sections: filters, product grid and promo blocks."
+                ],
+                [
+                  "Product page",
+                  "A product template with media, variant picker and buy buttons as blocks, and the delivery date from a product metafield."
+                ],
+                [
+                  "Cart drawer",
+                  "A cart drawer section that updates as items are added."
+                ],
+                [
+                  "Navigation",
+                  "A header section with a mega menu driven by the store’s menus."
+                ],
+                [
+                  "Checkout",
+                  "Shopify’s checkout can only be customized within its branding and extension options, so most of the design effort goes into the cart and the steps before it."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "label": "Results",
+          "title": "What changed, and what I shared",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "Clients shared results with me qualitatively, and their data stays private. What they took away: templates they could extend without a new design project for every page, a system their developers could build from, and a list of test ideas tied to metrics instead of opinions."
+            },
+            {
+              "type": "text",
+              "body": "Inside the team, I turned what kept coming up into a short storefront checklist we reused on new projects: show delivery dates, keep sold-out options visible, one primary action per screen, and test one change at a time. Patterns from one client’s system became starting points for the next, so new projects didn’t start blank."
+            }
+          ]
+        }
+      ]
+    },
     {
       "slug": "b2b-saas-navigation",
       "preview": "assets/work/preview-b2b-saas-navigation.webp",
